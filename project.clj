@@ -3,14 +3,17 @@
   :url "http://example.com/FIXME"
 
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-2665"]]
+                 [org.clojure/clojurescript "0.0-2665"]
+                 [environ "1.0.0"]]
 
   :node-dependencies [[source-map-support "0.2.8"]]
 
   :plugins [[lein-cljsbuild "1.0.4"]
-            [lein-npm "0.4.0"]]
+            [lein-npm "0.4.0"]
+            [lein-environ "1.0.0"]]
 
-  :source-paths ["src" "target/classes"]
+  :source-paths ["src/clj" "src/cljs" "target/classes"]
+  :main ^:skip-aot wwdc-parties.core
 
   :clean-targets ["out/wwdc_parties" "wwdc_parties.js" "wwdc_parties.min.js"]
 
