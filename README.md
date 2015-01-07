@@ -8,6 +8,10 @@ FIXME: Write a paragraph about the library/project and highlight its goals.
 
 ## Setup
 
+Install CouchDB
+
+## Clojurescript Setup
+
 First-time Clojurescript developers, add the following to your bash .profile:
 
     export LEIN_FAST_TRAMPOLINE=y
@@ -41,6 +45,6 @@ For more info on Cljs compilation, read [Waitin'](http://swannodette.github.io/2
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2015 Cocoatype, LLC
 
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.

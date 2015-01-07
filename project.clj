@@ -10,7 +10,8 @@
   :plugins [[lein-cljsbuild "1.0.4"]
             [lein-npm "0.4.0"]]
 
-  :source-paths ["src" "target/classes"]
+  :source-paths ["src/clj" "src/cljs" "target/classes"]
+  :main ^:skip-aot wwdc-parties.core
 
   :clean-targets ["out/wwdc_parties" "wwdc_parties.js" "wwdc_parties.min.js"]
 
