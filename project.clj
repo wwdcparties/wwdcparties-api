@@ -4,7 +4,8 @@
 
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/clojurescript "0.0-2665"]
-                 [environ "1.0.0"]]
+                 [environ "1.0.0"]
+                 [com.ashafa/clutch "0.4.0"]]
 
   :node-dependencies [[source-map-support "0.2.8"]]
 
