@@ -7,7 +7,10 @@
             [ring.util.response :refer [resource-response response redirect]]))
 
 (defroutes api-routes
-  (GET "/parties" [] (response (db/get-all-parties)))
+  (GET "/parties" []
+    (response (db/get-all-parties)))
+  (POST "/parties" request
+    (response (db/add-party (:body request))))
   (route/resources "/"))
 
 (def api

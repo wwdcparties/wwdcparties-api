@@ -8,3 +8,6 @@
 (defn get-all-parties []
   (map :value
     (clutch/get-view db "parties" "list")))
+
+(defn add-party [party]
+	(clutch/put-document db party))
