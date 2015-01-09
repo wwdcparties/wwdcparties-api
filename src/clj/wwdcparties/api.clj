@@ -1,5 +1,5 @@
-(ns wwdc-parties.api
-  (:require [wwdc-parties.db :as db]
+(ns wwdcparties.api
+  (:require [wwdcparties.db :as db]
             [compojure.core :refer :all]
             [compojure.handler :as handler]
             [compojure.route :as route]

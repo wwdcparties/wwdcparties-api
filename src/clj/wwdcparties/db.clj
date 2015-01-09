@@ -1,4 +1,4 @@
-(ns wwdc-parties.db
+(ns wwdcparties.db
   (:require [environ.core :refer [env]]
             [com.ashafa.clutch :as clutch]))
 

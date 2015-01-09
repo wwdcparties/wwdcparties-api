@@ -1,4 +1,4 @@
-(defproject wwdc-parties "0.1.0-SNAPSHOT"
+(defproject wwdcparties "0.1.0-SNAPSHOT"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
 
@@ -21,8 +21,8 @@
              :prod {:ring {:port 80} :aot :all}}
 
   :source-paths ["src/clj" "src/cljs" "target/classes"]
-  :main ^:skip-aot wwdc-parties.core
-  :ring {:handler wwdc-parties.api/api}
+  :main ^:skip-aot wwdcparties.core
+  :ring {:handler wwdcparties.api/api}
 
   :clean-targets ["out/wwdc_parties" "wwdc_parties.js" "wwdc_parties.min.js"]
 
