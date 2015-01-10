@@ -1,4 +1,4 @@
-(defproject wwdcparties "0.1.0-SNAPSHOT"
+(defproject wwdcparties "2015"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
 
@@ -17,12 +17,10 @@
             [lein-environ "1.0.0"]
             [lein-ring "0.8.13"]]
 
-  :profiles {:dev {:ring {:port 8080}}
-             :prod {:ring {:port 80} :aot :all}}
-
   :source-paths ["src/clj" "src/cljs" "target/classes"]
   :main ^:skip-aot wwdcparties.core
-  :ring {:handler wwdcparties.api/api}
+  :aot :all
+  :ring {:handler wwdcparties.api/api :port 8080}
 
   :clean-targets ["out/wwdc_parties" "wwdc_parties.js" "wwdc_parties.min.js"]
 

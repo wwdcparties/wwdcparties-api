@@ -6,7 +6,13 @@
             [ring.middleware.json :as middleware]
             [ring.util.response :refer [resource-response response redirect]]))
 
+(def continuation-map
+  {:activitycontinuation
+    {:apps ["287EDDET2B.com.cocoatype.wwdcparties"]}})
+
 (defroutes api-routes
+  (GET "/apple-app-site-association" []
+    (response continuation-map))
   (GET "/parties" []
     (response (db/get-all-parties)))
   (POST "/parties" request
