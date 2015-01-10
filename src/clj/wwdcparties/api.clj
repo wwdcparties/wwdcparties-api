@@ -14,10 +14,13 @@
   (GET "/apple-app-site-association" []
     (-> (resource-response "apple-app-site-association.json" {:root "public"})
       (content-type "application/pkcs7-mime")))
-  (GET "/parties" []
-    (response (db/get-all-parties)))
-  (POST "/parties" request
-    (response (db/add-party (:body request))))
+  (context "/parties" []
+    (GET "/" []
+      (response (db/get-all-parties)))
+    (POST "/" request
+      (response (db/add-party (:body request))))
+    (GET "/:slug" [slug]
+      (response (db/get-party-by-slug slug))))
   (route/resources "/"))
 
 (def api

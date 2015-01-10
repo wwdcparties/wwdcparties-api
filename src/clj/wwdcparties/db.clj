@@ -10,5 +10,9 @@
   (map party/sanitized (map :value
     (clutch/get-view db "parties" "list"))))
 
+(defn get-party-by-slug [slug]
+	(map party/sanitized (map :value
+		(clutch/get-view db "parties" "list" {:key slug}))))
+
 (defn add-party [party]
 	(clutch/put-document db (party/sanitized party)))
