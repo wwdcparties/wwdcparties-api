@@ -1,4 +1,4 @@
-(defproject wwdcparties "2015"
+(defproject wwdcparties "15.0.0"
   :description "FIXME: write this!"
   :url "http://example.com/FIXME"
 
@@ -20,6 +20,7 @@
   :source-paths ["src/clj" "src/cljs" "target/classes"]
   :main ^:skip-aot wwdcparties.core
   :aot :all
+  :uberjar-name "wwdcparties.jar"
   :ring {:handler wwdcparties.api/api :port 8080}
 
   :clean-targets ["out/wwdc_parties" "wwdc_parties.js" "wwdc_parties.min.js"]

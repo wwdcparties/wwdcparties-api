@@ -4,7 +4,7 @@
             [compojure.handler :as handler]
             [compojure.route :as route]
             [ring.middleware.json :as middleware]
-            [ring.util.response :refer [resource-response response redirect]]))
+            [ring.util.response :refer [resource-response file-response response redirect content-type]]))
 
 (def continuation-map
   {:activitycontinuation
@@ -12,7 +12,8 @@
 
 (defroutes api-routes
   (GET "/apple-app-site-association" []
-    (response continuation-map))
+    (-> (resource-response "apple-app-site-association.json" {:root "public"})
+      (content-type "application/pkcs7-mime")))
   (GET "/parties" []
     (response (db/get-all-parties)))
   (POST "/parties" request
