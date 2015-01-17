@@ -8,7 +8,8 @@
                  [com.ashafa/clutch "0.4.0"]
                  [compojure "1.3.1"]
                  [ring/ring-core "1.3.2"]
-                 [ring/ring-json "0.3.1"]]
+                 [ring/ring-json "0.3.1"]
+                 [ring-cors "0.1.6"]]
 
   :node-dependencies [[source-map-support "0.2.8"]]
 

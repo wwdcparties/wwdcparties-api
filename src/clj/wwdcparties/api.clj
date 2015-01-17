@@ -3,6 +3,7 @@
             [compojure.core :refer :all]
             [compojure.handler :as handler]
             [compojure.route :as route]
+            [ring.middleware.cors :refer [wrap-cors]]
             [ring.middleware.json :as middleware]
             [ring.util.response :refer [resource-response file-response response redirect content-type]]))
 
@@ -25,7 +26,19 @@
       (response (db/get-party-by-slug slug))))
   (route/resources "/"))
 
+(def cors-headers
+  { "Access-Control-Allow-Origin" "*"
+    "Access-Control-Allow-Headers" "Content-Type"
+    "Access-Control-Allow-Methods" "GET,POST,OPTIONS"})
+
+(defn all-cors [handler]
+  (fn [request]
+    (let [response (handler request)]
+      (update-in response [:headers]
+        merge cors-headers))))
+
 (def api
-  (-> api-routes
+  (-> (handler/site api-routes)
     (middleware/wrap-json-body)
-    (middleware/wrap-json-response)))
+    (middleware/wrap-json-response)
+    (all-cors)))
