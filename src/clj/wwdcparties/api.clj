@@ -14,6 +14,8 @@
   (GET "/apple-app-site-association" []
     (-> (resource-response "apple-app-site-association.json" {:root "public"})
       (content-type "application/pkcs7-mime")))
+  (GET "/" []
+    (redirect "/parties"))
   (context "/parties" []
     (GET "/" []
       (response (db/get-all-parties)))
