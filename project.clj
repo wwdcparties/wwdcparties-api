@@ -15,5 +15,5 @@
   :source-paths ["src"]
   :main ^:skip-aot wwdcparties.core
   :aot :all
-  :uberjar-name "wwdcparties.jar"
+  :uberjar-name "wwdcparties-api.jar"
   :ring {:handler wwdcparties.api/api :port 8080})
