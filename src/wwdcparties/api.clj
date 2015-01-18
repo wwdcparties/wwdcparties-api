@@ -3,7 +3,6 @@
             [compojure.core :refer :all]
             [compojure.handler :as handler]
             [compojure.route :as route]
-            [ring.middleware.cors :refer [wrap-cors]]
             [ring.middleware.json :as middleware]
             [ring.util.response :refer [resource-response file-response response redirect content-type]]))
 
