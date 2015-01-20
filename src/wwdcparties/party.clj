@@ -6,4 +6,4 @@
 		:description :shortcode :event_url
 		:street_address :location :twitter
 		:sponsor_url :sponsor_name
-		:types :meta]))
+		:types :meta :excerpt]))
