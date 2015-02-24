@@ -1,5 +1,6 @@
 (ns wwdcparties.api
   (:require [wwdcparties.db :as db]
+            [wwdcparties.admin :as admin]
             [compojure.core :refer :all]
             [compojure.handler :as handler]
             [compojure.route :as route]
@@ -12,7 +13,7 @@
     {:apps ["287EDDET2B.com.cocoatype.wwdcparties"]}})
 
 (defn log-in [username password]
-  (if (db/validate-admin username password)
+  (if (admin/validate username password)
     (response {:username username})
     (status (response {:error "incorrect password"}) 401)))
 
