@@ -11,7 +11,9 @@
   (:value (first (clutch/get-view admin-db "users" "all" {:key username}))))
 
 (defn validate-admin [username password]
-  (password/check password (:password (get-admin username))))
+  (let [hash (:password (get-admin username))]
+    (if (nil? hash) false
+      (password/check password hash))))
 
 (defn get-all-parties []
   (map party/sanitized (map :value

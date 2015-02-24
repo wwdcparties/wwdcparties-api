@@ -34,4 +34,5 @@
 
 (def api
   (-> (handler/site api-routes)
-      (middleware/wrap-json-response)))
+      (middleware/wrap-json-response)
+      (middleware/wrap-json-params)))
