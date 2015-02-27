@@ -1,17 +1,10 @@
 (ns wwdcparties.db
   (:require [environ.core :refer [env]]
             [com.ashafa.clutch :as clutch]
-            [crypto.password.bcrypt :as password]
             [wwdcparties.party :as party]))
 
-(def admin-db (clutch/get-database (env :wwdc-parties-admin-db)))
-(def db (clutch/get-database (env :wwdc-parties-db)))
-
-(defn get-admin [username]
-  (:value (first (clutch/get-view admin-db "users" "all" {:key username}))))
-
-(defn validate-admin [username password]
-  (password/check password (:password (get-admin username))))
+(def db
+  (clutch/get-database (env :wwdc-parties-db)))
 
 (defn get-all-parties []
   (map party/sanitized (map :value
