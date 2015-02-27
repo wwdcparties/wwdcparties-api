@@ -19,8 +19,8 @@
 
 (defroutes api-routes
   (GET "/apple-app-site-association" []
-    (-> (resource-response "apple-app-site-association.json" {:root "public"})
-      (content-type "application/pkcs7-mime")))
+       (-> (resource-response "apple-app-site-association.json" {:root "public"})
+           (content-type "application/pkcs7-mime")))
   (GET "/" []
        (redirect "/parties/"))
   (POST "/login/" [username password]

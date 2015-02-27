@@ -3,6 +3,7 @@
   :url "http://example.com/FIXME"
 
   :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/data.json "0.2.5"]
                  [environ "1.0.0"]
                  [com.ashafa/clutch "0.4.0"]
                  [compojure "1.3.1"]
