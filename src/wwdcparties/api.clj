@@ -4,17 +4,11 @@
             [compojure.handler :as handler]
             [compojure.route :as route]
             [ring.middleware.json :as middleware]
-            [ring.util.response :refer [resource-response response redirect 
-                                        content-type status]]))
+            [ring.util.response :refer [resource-response file-response response redirect content-type]]))
 
 (def continuation-map
   {:activitycontinuation
     {:apps ["287EDDET2B.com.cocoatype.wwdcparties"]}})
-
-(defn log-in [username password]
-  (if (db/validate-admin username password)
-    (response {:username username})
-    (status (response {:error "incorrect password"}) 401)))
 
 (defroutes api-routes
   (GET "/apple-app-site-association" []
@@ -22,8 +16,6 @@
            (content-type "application/pkcs7-mime")))
   (GET "/" []
        (redirect "/parties/"))
-  (POST "/login/" [username password]
-        (log-in username password))
   (GET "/parties/" []
        (response (db/get-all-parties)))
   (POST "/parties/" request
@@ -32,6 +24,19 @@
        (response (db/get-party-by-slug slug))) 
   (route/resources "/"))
 
+(def cors-headers
+  { "Access-Control-Allow-Origin" "*"
+    "Access-Control-Allow-Headers" "Content-Type"
+    "Access-Control-Allow-Methods" "GET,POST,OPTIONS"})
+
+(defn all-cors [handler]
+  (fn [request]
+    (let [response (handler request)]
+      (update-in response [:headers]
+        merge cors-headers))))
+
 (def api
   (-> (handler/site api-routes)
-      (middleware/wrap-json-response)))
+    (middleware/wrap-json-body)
+    (middleware/wrap-json-response)
+    (all-cors)))
