@@ -20,6 +20,9 @@
    (-> (parties-view {:key slug}) 
        first :value party/sanitized)))
 
+(defn auth []
+  (let [users (auth-view)] (zipmap (map :key users) (map admin/from-db users))))
+
 (defn users
   ([]
    (map admin/from-db (auth-view)))

@@ -3,6 +3,9 @@
             [compojure.core :refer :all]
             [compojure.handler :as handler]
             [compojure.route :as route]
+            [cemerick.friend :as friend]
+            (cemerick.friend [workflows :as workflows]
+                             [credentials :as creds])
             [ring.middleware.json :as middleware]
             [ring.util.response :refer [resource-response file-response response redirect content-type]]))
 
@@ -17,17 +20,17 @@
   (GET "/" []
        (redirect "/parties/"))
   (GET "/parties/" []
-       (response (db/get-all-parties)))
+       (friend/authenticated (response (db/parties))))
   (POST "/parties/" request
-        (response (db/add-party (:body request))))
+        (friend/authenticated (response (db/add-party (:body request)))))
   (GET "/parties/:slug/" [slug]
-       (response (db/get-party-by-slug slug))) 
+       (response (db/parties slug)))
   (route/resources "/"))
 
 (def cors-headers
-  { "Access-Control-Allow-Origin" "*"
-    "Access-Control-Allow-Headers" "Content-Type"
-    "Access-Control-Allow-Methods" "GET,POST,OPTIONS"})
+  {"Access-Control-Allow-Origin" "*"
+   "Access-Control-Allow-Headers" "Content-Type"
+   "Access-Control-Allow-Methods" "GET,POST,OPTIONS"})
 
 (defn all-cors [handler]
   (fn [request]
@@ -35,8 +38,18 @@
       (update-in response [:headers]
         merge cors-headers))))
 
+(def secure
+  (friend/authenticate 
+   api-routes
+   {:unauthenticated-handler 
+    (partial workflows/http-basic-deny "derp")
+    :workflows
+    [(workflows/http-basic
+      :credential-fn (partial creds/bcrypt-credential-fn (db/auth))
+      :realm "/")]}))
+
 (def api
-  (-> (handler/site api-routes)
-    (middleware/wrap-json-body)
-    (middleware/wrap-json-response)
-    (all-cors)))
+  (-> (handler/site secure)
+      (middleware/wrap-json-body)
+      (middleware/wrap-json-response)  
+      (all-cors)))
