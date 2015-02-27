@@ -7,21 +7,24 @@
 (def db
   (clutch/get-database (env :wwdc-parties-db)))
 
+(def auth-view
+  (partial clutch/get-view db "admins" "auth"))
+(def parties-view
+  (partial clutch/get-view db "parties" "list"))
+
 (defn parties
   ([] 
    (map party/sanitized 
-        (map :value 
-             (clutch/get-view
-              db "parties" "list"))))
+        (map :value (parties-view))))
   ([slug] 
-   (-> (clutch/get-view db "parties" "list" {:key slug}) 
+   (-> (parties-view {:key slug}) 
        first :value party/sanitized)))
 
 (defn users
   ([]
-   (map admin/from-db (clutch/get-view db "admins" "auth")))
+   (map admin/from-db (auth-view)))
   ([username] 
-   (-> (clutch/get-view db "admins" "auth" {:key username})
+   (-> (auth-view {:key username})
        first admin/from-db)))
 
 (defn add-party [party]
