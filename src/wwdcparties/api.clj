@@ -42,7 +42,7 @@
   (friend/authenticate 
    api-routes
    {:unauthenticated-handler 
-    (partial workflows/http-basic-deny "derp")
+    (partial workflows/http-basic-deny "WWDC Parties")
     :workflows
     [(workflows/http-basic
       :credential-fn (partial creds/bcrypt-credential-fn (db/auth))
