@@ -20,7 +20,7 @@
   (GET "/" []
        (redirect "/parties/"))
   (GET "/parties/" []
-       (friend/authenticated (response (db/parties))))
+       (response (db/parties)))
   (POST "/parties/" request
         (friend/authenticated (response (db/add-party (:body request)))))
   (GET "/parties/:slug/" [slug]
