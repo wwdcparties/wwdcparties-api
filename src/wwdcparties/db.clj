@@ -11,6 +11,8 @@
   (partial clutch/get-view db "admins" "auth"))
 (def parties-view
   (partial clutch/get-view db "parties" "list"))
+(def edits-view
+  (partial clutch/get-view db "edits" "list"))
 
 (defn parties
   ([] 
@@ -19,6 +21,15 @@
   ([slug] 
    (-> (parties-view {:key slug}) 
        first :value party/sanitized)))
+
+(defn edit-dates
+  ([] (let [edits-map (edits-view {:group_level 1})]
+        (zipmap (map :key edits-map)
+                (map :value edits-map))))
+  ([slug] (let [edits-map 
+                (first (edits-view {:group_level 1
+                                    :key slug}))]
+            (:value edits-map))))
 
 (defn auth []
   (let [users (auth-view)] (zipmap (map :key users) (map admin/from-db users))))

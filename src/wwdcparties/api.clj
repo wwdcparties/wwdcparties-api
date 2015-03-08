@@ -25,6 +25,8 @@
         (friend/authenticated (response (db/add-party (:body request)))))
   (GET "/parties/:slug/" [slug]
        (response (db/parties slug)))
+  (GET "/parties/:slug/edits/" [slug]
+       (response (db/edit-dates slug)))
   (route/resources "/"))
 
 (def cors-headers
