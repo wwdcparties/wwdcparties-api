@@ -24,6 +24,14 @@
    (-> (parties-view {:key slug}) 
        first :value party/from-json)))
 
+(defn submitted
+  ([] 
+   (map party/from-json
+        (map :value (submitted-view))))
+  ([slug] 
+   (-> (submitted-view {:key slug}) 
+       first :value party/from-json)))
+
 (defn edit-dates
   ([] (let [edits-map (edits-view {:group_level 1})]
         (zipmap (map :key edits-map)
@@ -48,5 +56,5 @@
   
 (defn approve-party [slug]
   (let [party (:value (first (submitted-view {:key slug})))]
-    (clutch/put-document 
+    (clutch/put-document
      db (party/approved party))))

@@ -21,13 +21,17 @@
        (redirect "/parties/"))
   (GET "/parties/" []
        (response (db/parties)))
-  (POST "/parties/" request
-       (response (db/add-party (:body request))))
   (GET "/parties/:slug/" [slug]
        (response (db/parties slug)))
   (GET "/parties/:slug/edits/" [slug]
        (response (db/edit-dates slug)))
-  (POST "/parties/:slug/approved/" [slug]
+  (GET "/submitted/" []
+       (friend/authenticated (response (db/submitted))))
+  (POST "/submitted/" request
+        (response (db/add-party (:body request))))
+  (GET "/submitted/:slug/" [slug]
+       (friend/authenticated (response (db/submitted slug))))
+  (POST "/submitted/:slug/approved/" [slug]
         (friend/authenticated (response (db/approve-party slug))))
   (route/resources "/"))
 
