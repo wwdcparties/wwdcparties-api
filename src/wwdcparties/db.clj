@@ -46,3 +46,7 @@
 (defn add-party [party]
   (clutch/put-document db (party/approved (party/from-json party) false)))
   
+(defn approve-party [slug]
+  (let [party (:value (first (submitted-view {:key slug})))]
+    (clutch/put-document 
+     db (party/approved party))))

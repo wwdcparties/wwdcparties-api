@@ -22,11 +22,13 @@
   (GET "/parties/" []
        (response (db/parties)))
   (POST "/parties/" request
-        (friend/authenticated (response (db/add-party (:body request)))))
+       (response (db/add-party (:body request))))
   (GET "/parties/:slug/" [slug]
        (response (db/parties slug)))
   (GET "/parties/:slug/edits/" [slug]
        (response (db/edit-dates slug)))
+  (POST "/parties/:slug/approved/" [slug]
+        (friend/authenticated (response (db/approve-party slug))))
   (route/resources "/"))
 
 (def cors-headers
