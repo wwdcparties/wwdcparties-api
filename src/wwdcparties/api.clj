@@ -52,6 +52,6 @@
 
 (def api
   (-> (handler/site secure)
-      (middleware/wrap-json-body)
+      (middleware/wrap-json-body {:keywords? true})
       (middleware/wrap-json-response)  
       (all-cors)))

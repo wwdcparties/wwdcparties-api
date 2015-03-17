@@ -44,5 +44,5 @@
        first admin/from-db)))
 
 (defn add-party [party]
-  (clutch/put-document db (party/from-json party)))
+  (clutch/put-document db (party/approved (party/from-json party) false)))
   
