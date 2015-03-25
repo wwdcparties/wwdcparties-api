@@ -24,7 +24,9 @@
   (GET "/parties/:slug/" [slug]
        (response (db/parties slug)))
   (GET "/parties/:slug/edits/" [slug]
-       (response (db/edit-dates slug)))
+       (response (db/edits slug)))
+  (GET "/parties/:slug/edits/:id/" [slug id]
+       (response (db/edits slug id)))
   (GET "/submitted/" []
        (friend/authenticated (response (db/submitted))))
   (POST "/submitted/" request

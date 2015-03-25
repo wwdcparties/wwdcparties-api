@@ -32,14 +32,15 @@
    (-> (submitted-view {:key slug}) 
        first :value party/from-json)))
 
-(defn edit-dates
+(defn edits
   ([] (let [edits-map (edits-view {:group_level 1})]
         (zipmap (map :key edits-map)
                 (map :value edits-map))))
   ([slug] (let [edits-map 
                 (first (edits-view {:group_level 1
                                     :key slug}))]
-            (:value edits-map))))
+            (:value edits-map)))
+  ([slug id] (clutch/get-document db id)))
 
 (defn auth []
   (let [users (auth-view)] (zipmap (map :key users) (map admin/from-db users))))
