@@ -27,6 +27,8 @@
        (response (db/edits slug)))
   (GET "/parties/:slug/edits/:id/" [slug id]
        (response (db/edits slug id)))
+  (GET "/login/" []
+       (friend/authenticated (response {:login true})))
   (GET "/submitted/" []
        (friend/authenticated (response (db/submitted))))
   (POST "/submitted/" request
