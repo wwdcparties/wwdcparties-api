@@ -16,21 +16,25 @@
 (def edits-view
   (partial clutch/get-view db "edits" "list"))
 
+(defn -approved [party approved]
+  (= (:approved party) approved))
+
+(defn approved? 
+  ([party] (-approved party true))
+  ([party approved] (-approved party false)))
+
 (defn parties
-  ([] 
-   (map party/from-json
-        (map :value (parties-view))))
+  ([] (filter approved? 
+              (map party/from-json
+                   (map :value (parties-view)))))
   ([slug] 
    (-> (parties-view {:key slug}) 
        first :value party/from-json)))
 
-(defn submitted
-  ([] 
-   (map party/from-json
-        (map :value (submitted-view))))
-  ([slug] 
-   (-> (submitted-view {:key slug}) 
-       first :value party/from-json)))
+(defn submitted [] 
+  (filter #(approved? % false) 
+          (map party/from-json
+               (map :value (submitted-view)))))
 
 (defn edits
   ([] (let [edits-map (edits-view {:group_level 1})]

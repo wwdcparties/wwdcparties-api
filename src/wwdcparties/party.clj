@@ -4,7 +4,7 @@
                  :start_time :excerpt :sponsor_url
                  :types :end_time :shortcode :event_url
                  :street_address :sponsor_name :location
-                 :twitter_handle])
+                 :twitter_handle :approved])
 
 (defn tidy [party] (select-keys party party-keys))
 
