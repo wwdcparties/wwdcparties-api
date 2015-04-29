@@ -4,7 +4,7 @@
             [environ.core :refer [env]]))
 
 (def foursquare-client-id (env :wwdc-parties-foursquare-id))
-(def foursquare-secret (env :wwdcparties-foursquare-secret))
+(def foursquare-secret (env :wwdc-parties-foursquare-secret))
 
 (defn suggestions-url [query]
   (str "https://api.foursquare.com/v2/venues/suggestcompletion"

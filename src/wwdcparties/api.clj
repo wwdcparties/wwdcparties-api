@@ -1,5 +1,6 @@
 (ns wwdcparties.api
   (:require [wwdcparties.db :as db]
+            [wwdcparties.foursquare :as foursquare]
             [compojure.core :refer :all]
             [compojure.handler :as handler]
             [compojure.route :as route]
@@ -37,6 +38,8 @@
        (friend/authenticated (response (db/submitted slug))))
   (POST "/submitted/:slug/approved/" [slug]
         (friend/authenticated (response (db/approve-party slug))))
+  (GET "/suggestions" {params :params}
+       (response (foursquare/suggestions (:q params))))
   (route/resources "/"))
 
 (def cors-headers
