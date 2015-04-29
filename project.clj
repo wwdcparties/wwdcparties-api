@@ -9,7 +9,8 @@
                  [compojure "1.3.1"]
                  [ring/ring-core "1.3.2"]
                  [ring/ring-json "0.3.1"]
-                 [com.cemerick/friend "0.2.1"]]
+                 [com.cemerick/friend "0.2.1"]
+                 [clj-http "1.0.1"]]
 
   :plugins [[lein-environ "1.0.0"]
             [lein-ring "0.8.13"]]
