@@ -1,5 +1,6 @@
 (ns wwdcparties.foursquare
-  (:require [clj-http.client :as http]
+  (:require [cemerick.url :refer [url-encode]]
+            [clj-http.client :as http]
             [clojure.data.json :refer [read-json]]
             [environ.core :refer [env]]))
 
@@ -12,7 +13,7 @@
        "&near=San%20Francisco,%20CA"
        "&client_id=" foursquare-client-id
        "&client_secret=" foursquare-secret
-       "&query=" query))
+       "&query=" (url-encode query)))
 
 (defn suggestions-json [query]
   (-> query
