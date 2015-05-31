@@ -63,3 +63,31 @@
   (let [party (:value (first (submitted-view {:key slug})))]
     (clutch/put-document
      db (party/approved party))))
+
+; HERE BE DRAGONS
+(defn after [slug]
+  (let [found (loop [slug slug
+                     remaining (sort-by :start_time (parties))]
+                (let [party? (first remaining)]
+                  (if (or (= slug (:slug party?))
+                          (nil? remaining))
+                    (:slug (fnext remaining))
+                    (recur slug (next remaining)))))]
+    (if (nil? found) nil found)))
+
+(defn before [slug]
+  (let [found (loop [slug slug
+                     remaining (sort-by :start_time (parties))]
+                (let [party? (fnext remaining)
+                      before (first remaining)]
+                  (if (= slug (:slug party?))
+                    (:slug before)
+                    (if (nil? (next remaining))
+                      nil
+                      (recur slug (next remaining))))))]
+    (if (nil? found) nil found)))
+
+(defn with-links [party]
+  (assoc party 
+    :next (after (:slug party))
+    :prev (before (:slug party))))

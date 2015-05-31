@@ -8,7 +8,7 @@
 
 (defn tidy [party] (select-keys party party-keys))
 
-(defn from-json [json] (tidy (assoc json :type "party")))
+(defn from-json [json] (tidy json))
 
 (defn approved
   ([party] (assoc party :approved true))

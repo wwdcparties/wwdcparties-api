@@ -23,7 +23,7 @@
   (GET "/parties/" []
        (response (db/parties)))
   (GET "/parties/:slug/" [slug]
-       (response (db/parties slug)))
+       (response (db/with-links (db/parties slug))))
   (GET "/parties/:slug/edits/" [slug]
        (response (db/edits slug)))
   (GET "/parties/:slug/edits/:id/" [slug id]
