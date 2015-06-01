@@ -71,7 +71,8 @@
                 (let [party? (first remaining)]
                   (if (or (= slug (:slug party?))
                           (nil? remaining))
-                    (:slug (fnext remaining))
+                    {:slug (:slug (fnext remaining))
+                     :name (:name (fnext remaining))}
                     (recur slug (next remaining)))))]
     (if (nil? found) nil found)))
 
@@ -81,7 +82,8 @@
                 (let [party? (fnext remaining)
                       before (first remaining)]
                   (if (= slug (:slug party?))
-                    (:slug before)
+                    {:slug (:slug before)
+                     :name (:name before)}
                     (if (nil? (next remaining))
                       nil
                       (recur slug (next remaining))))))]
