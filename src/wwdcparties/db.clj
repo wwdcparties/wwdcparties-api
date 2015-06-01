@@ -69,10 +69,11 @@
   (let [found (loop [slug slug
                      remaining (sort-by :start_time (parties))]
                 (let [party? (first remaining)]
-                  (if (or (= slug (:slug party?))
-                          (nil? remaining))
-                    {:slug (:slug (fnext remaining))
-                     :name (:name (fnext remaining))}
+                  (if (= slug (:slug party?))
+                    (if (nil? (next remaining))
+                      nil
+                      {:slug (:slug (fnext remaining))
+                       :name (:name (fnext remaining))})
                     (recur slug (next remaining)))))]
     (if (nil? found) nil found)))
 
