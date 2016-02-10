@@ -1,0 +1,215 @@
+// ==========================================================================
+// Third-Party Imports
+// ==========================================================================
+@import "vendor/susy";
+@import "vendor/breakpoint";
+
+// ==========================================================================
+// Susy Grid
+// http://susydocs.oddbird.net/en/latest/settings/
+// ==========================================================================
+
+// Grid Settings
+// ==========================================================================
+
+$susy: (
+    columns: 4,
+    column-width: 4.25em,
+    global-box-sizing : border-box,
+    use-custom: (
+        box-sizing: false,
+    )
+);
+
+p {
+    font-size: 50px;
+}
+
+// ==========================================================================
+// Min-width Breakpoints
+// ==========================================================================
+
+$break-xs: 26em;
+$break-small: 36em;
+$break-medium: 46em;
+$break-large: 65em;
+$break-xl: 75em;
+
+// ==========================================================================
+// Sets container max-width & number of columns.
+// Defined for each breakpoint.
+// ==========================================================================
+
+$xs: layout((90%) 4);
+$small: layout((($break-small)-2) 6);
+$medium: layout((($break-medium)-2) 8);
+$large: layout((($break-large)-2) 12);
+$xl: layout((($break-xl)-4) 12);
+
+
+// Default Size
+.container {
+  @include container($xs);
+}
+
+// ==========================================================================
+// List of key:values for each breakpoint
+// ==========================================================================
+
+$breakpoints:
+    ($break-small $small)
+    ($break-medium $medium)
+    ($break-large $large)
+    ($break-xl $xl);
+
+// Element spacing
+// ==========================================================================
+
+$leading: 20px !default;
+$spacing-base: 12px !default;
+$spacing-small: 5px !default;
+$spacing-xs: 3px !default;
+
+$border-radius: 5px;
+
+// ==========================================================================
+// Color Settings
+// ==========================================================================
+
+// Base Colors
+// ==========================================================================
+$body-color:		#002538;
+
+// Color Palette in Use
+$caribbean-green:	#1fb78c;
+
+// Base Colors
+// ==========================================================================
+$white-smoke:       #F4F6F9;
+$pacific-blue:      #08c;
+$mine-shaft:		#333;
+$mountain-meadow:   #1FB78C;
+
+// Theme Colors
+// ==========================================================================
+$dark-orchid:		#9620C6;
+$dodger-blue:		#317DFC;
+$festival:          #E5C439;
+$cinnabar:	        #EA4324;
+$bright-maroon:	    #CF2652;
+$mantis:		    #8FB647;
+$keppel:            #30ADA2;
+
+// ==========================================================================
+// Color Palettes
+//
+// Creates a palette for each base color. Convenient, because the entire
+// palette is adjusted by just changing the base color variable.
+// ==========================================================================
+
+$palettes             : (
+
+    sunday            : (
+        x-light       : #F4EEF6,
+        light         : #CB9CFC,
+        base          : $dark-orchid,
+        dark          : #721B9B
+    ),
+
+    monday            : (
+        x-light       : #f0f5fe,
+        light         : #ACD1F2,
+        base          : $dodger-blue,
+        dark          : #1C4B8E
+    ),
+
+    tuesday           : (
+        x-light       : #F9F6E6,
+        light         : #F7EAB5,
+        base          : $festival,
+        dark          : #66581B
+    ),
+
+    wednesday         : (
+        x-light       : #FBEDEA,
+        light         : #F9BEB9,
+        base          : $cinnabar,
+        dark          : #B72323
+    ),
+
+    thursday          : (
+        x-light       : #FAF0F2,
+        light         : #F4B3CE,
+        base          : $bright-maroon,
+        dark          : #991A41
+    ),
+
+    friday            : (
+        x-light       : #EDF4E2,
+        light         : #D9EAAD,
+        base          : $mantis,
+        dark          : #516028
+    ),
+
+    saturday          : (
+        x-light       : #DAECEB,
+        light         : #A3E5D9,
+        base          : $keppel,
+        dark          : #124f49
+    )
+
+);
+
+$days : (
+    sunday,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday,
+    saturday
+);
+
+// ==========================================================================
+// Type Settings
+// ==========================================================================
+
+
+// Font Family
+// ==========================================================================
+
+$font-stack: 'Whitney SSm A', 'Whitney SSm B', sans-serif;
+
+$font-size: 1rem;
+$font-sizes:
+    (h1 2.2em 2.7rem)
+    (h2 1.8em 2.0rem)
+    (h3 1.4em 1.3rem)
+    (h4 1.0em 1.4rem)
+    (h5 1.0em $font-size)
+    (h6 1.0em $font-size)
+    (p  1.0em $font-size);
+
+$line-height-heading: 135%;
+$line-height: 1.35em;
+
+$weight-light: 300;
+$weight-base: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+%headings-base {
+    font-family: $font-stack;
+    line-height: $line-height-heading;
+}
+
+
+// Form Fields
+$form-animation: top, color;
+
+// ==========================================================================
+// Asset Settings
+// ==========================================================================
+
+$asset-path: '';

@@ -1,0 +1,196 @@
+
+// ==========================================================================
+// HTML and Body
+// ==========================================================================
+
+html {
+    font-style: normal;
+}
+
+body {
+    background: #fff;
+    color: $body-color;
+    font-size: 80%;
+    font-weight: $weight-base;
+    line-height: 135%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+// @medium
+// ==========================================================================
+@include susy-breakpoint($break-medium, $medium) {
+
+    body {
+        font-size: 90%;
+    }
+
+}
+
+// @large
+// ==========================================================================
+@include susy-breakpoint($break-large, $large) {
+
+    body {
+        font-size: 16px;
+    }
+
+}
+
+// ==========================================================================
+// Breakpoint Map for Containers
+//
+// Outputs a media query for each key in $breakpoints.
+// Then, nests a .container inside each media query.
+// Inside of .container is an @include with Susy setting overrides.
+//
+// Sizes for XS are the default (mobile first approach)
+// ==========================================================================
+
+@each $min-width, $size in $breakpoints {
+
+    @include susy-breakpoint($min-width, $size) {
+
+        .container {
+            @include container($size);
+        }
+
+    }
+
+}
+
+// ==========================================================================
+// Typography
+// ==========================================================================
+
+h1, h2, h3 {
+    line-height: $line-height-heading;
+}
+
+h1 {
+    font-weight: $weight-semibold;
+    margin-bottom: 2rem;
+    padding-top: 1.33rem;
+}
+
+h2 {
+    font-weight: $weight-base;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    font-weight: $weight-semibold;
+}
+
+h4, h5 {
+    margin-bottom: 0.6rem;
+}
+
+h4, h6, dt, dd {
+    font-weight: $weight-medium;
+}
+
+h5, strong {
+    font-weight: $weight-bold;
+}
+
+h4 {
+    line-height: 1.6;
+}
+
+h5 {
+    line-height: 1.5;
+}
+
+// @large
+// ==========================================================================
+@include susy-breakpoint($break-large, $large) {
+
+    h1 {
+        font-weight: $weight-light;
+    }
+
+    h2 {
+        font-weight: $weight-base;
+    }
+
+    h3 {
+        font-weight: $weight-medium;
+    }
+
+}
+
+// ==========================================================================
+// Body and Paragraph
+// ==========================================================================
+
+body, dd, dt, ul, ol {
+    font-family: $font-stack;
+}
+
+p {
+    line-height: $line-height;
+    margin-bottom: 1rem;
+}
+
+// ==========================================================================
+// Lists
+// ==========================================================================
+
+ol, ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+// ==========================================================================
+// Definition Lists
+// ==========================================================================
+dt {
+  width: 2rem;
+  display: inline;
+
+  &:first-of-type {
+    padding-top: 0 !important;
+  }
+}
+
+dd {
+  display: inline-block;
+}
+
+// ==========================================================================
+// <strong>, <em>, <small>
+// ==========================================================================
+
+em {
+    font-style: italic;
+}
+
+small {
+    font-size: 80%;
+}
+
+// ==========================================================================
+// Links
+// ==========================================================================
+
+a,
+a:visited {
+    @include transition(all .1s ease-in-out);
+    color: $pacific-blue;
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+// ==========================================================================
+// Media Objects
+// ==========================================================================
+
+img, svg, iframe {
+    max-width: 100%;
+}

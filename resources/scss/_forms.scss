@@ -1,0 +1,313 @@
+// ==========================================================================
+// FORMS
+// ==========================================================================
+
+// RESET
+// ==========================================================================
+
+input, input[type="button"], input[type="submit"],
+input[type="reset"], input[type="file"]::-webkit-file-upload-button,
+button, button[type="submit"] {
+    @include box-sizing(border-box);
+    -webkit-appearance:none !important;
+    -moz-appearance: none !important;
+    -webkit-box-align: center;
+    background-color: transparent;
+    border-image-width: none;
+    border-image-outset: none;
+    color: buttontext;
+    cursor: default;
+    text-align: center;
+}
+
+::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder, ::-webkit-textarea-placeholder {
+    color: lighten($body-color, 10%);
+}
+
+#content form input[type=checkbox],
+#content form input[type=radio],
+#content form option {
+    @include visual-hide;
+    -webkit-appearance:none !important;
+    -moz-appearance:none !important;
+    font: inherit !important;
+}
+
+button, input, textarea, select, isindex, datagrid { font:inherit; }
+
+// ==========================================================================
+// Form
+// ==========================================================================
+
+form {
+    padding-bottom: 10rem;
+}
+
+// @medium
+// ==========================================================================
+
+@include susy-breakpoint($break-medium, $medium) {
+
+    form {
+        @include span(first 6);
+    }
+
+}
+
+// @large
+// ==========================================================================
+
+@include susy-breakpoint($break-large, $large) {
+
+    form {
+        @include span(first 6);
+    }
+
+}
+
+form li {
+    list-style: none !important;
+    margin-left: 0 !important;
+    overflow: visible;
+}
+
+// ==========================================================================
+// Fieldset
+// ==========================================================================
+
+fieldset {
+    @include full;
+    padding: 0 0 $leading*1.5 0;
+
+    p {
+        margin-top: $spacing-base;
+    }
+}
+
+
+// ==========================================================================
+// Legend
+// ==========================================================================
+
+legend {
+    @extend %h2;
+    color: $pacific-blue;
+}
+
+// ==========================================================================
+// Inputs
+// ==========================================================================
+
+input,
+textarea {
+    @include border-radius(0.250rem);
+    @include transition(all .3s ease-in-out);
+    background:rgba($pacific-blue, .1);
+    border: 1px rgba($pacific-blue, 0.4) solid;
+    color: $mine-shaft;
+    display: block;
+    float: left;
+    font-size: 1.1rem; /* 23px / 18px base */
+    font-weight: $weight-base;
+    margin: 0px auto;
+    padding: $leading*1.5 $leading 0;
+    text-align: left;
+
+    &:focus {
+        background:#FFF;
+    }
+
+}
+
+input {
+    min-height: 2.5em;
+}
+
+ul.checkbox input {
+    min-height: 0;
+}
+
+textarea {
+    min-height: 8em;
+}
+
+
+// ==========================================================================
+// Labels (Animated = Default)
+// ==========================================================================
+
+form label {
+    @include trans-defined(top, ease, 0.2s);
+    color: desaturate($pacific-blue, 20%);
+    display: block;
+    float: left;
+    font-weight: $weight-medium;
+    left: $leading;
+    margin-bottom: 5px;
+    position: relative;
+    top: 2.8em;
+
+    span {
+        font-weight: 400;
+    }
+
+    &.focus {
+        color: $pacific-blue;
+        font-size: 1rem;
+        top: 2.3rem;
+    }
+
+}
+
+// Necessary to avoid jumpy animation
+form label,
+form label.focus,
+form input {
+    line-height: 1.67rem;
+}
+
+ul.checkbox label {
+    @include border-radius(0.250rem);
+    border: 1px solid $pacific-blue;
+    color: $pacific-blue;
+    display: initial;
+    font-size: 1.333em;
+    left: auto;
+    line-height: 1.67rem;
+    margin: 0;
+    padding: 0.5rem 1rem;
+    top: auto;
+    width: auto;
+
+    &.focus {
+        color: $pacific-blue;
+        font-size: 1.333em;
+        top: auto;
+    }
+
+}
+
+
+// ==========================================================================
+// Buttons
+// ==========================================================================
+
+a.add,
+button,
+.button,
+input[type="submit"] {
+    @include border-radius(0.250rem);
+    border: none;
+    cursor: pointer;
+    font-family: $font-stack;
+    font-size: 1.111rem; /* 19px / 18px base */
+    font-weight: 400;
+    letter-spacing: normal;
+    margin: $leading/2;
+    margin-left: 0;
+    padding: 1em 0.8em;
+
+    &:focus,
+    &:hover {
+        border: none;
+    }
+
+}
+
+button[type="submit"],
+input[type="submit"] {
+    @include box-shadow(0px 2px 0 #11a279);
+    background-color:desaturate(darken($mountain-meadow, 4), 16);
+    color: lighten($mountain-meadow, 80);
+
+    &:hover,
+    &:focus {
+        @include box-shadow(0px 2px 0 #0d8764);
+        background-color:desaturate(darken($mountain-meadow, 11), 16);
+        color: lighten($mountain-meadow, 80);
+    }
+
+}
+
+// Add Button
+// ==========================================================================
+
+.add {
+    background: lighten($pacific-blue, 41);
+    color: $pacific-blue;
+    font-weight: 500;
+    fill: $pacific-blue;
+    text-align: left;
+
+    svg {
+        width: $leading;
+    }
+
+    &:hover,
+    &:focus {
+        background: desaturate(lighten($pacific-blue, 35), 5);
+        color: desaturate(darken($pacific-blue, 10), 16);
+    }
+
+    &:hover svg,
+    &:focus svg {
+        fill: desaturate(darken($pacific-blue, 10), 16);
+    }
+}
+
+
+// ==========================================================================
+// Checkboxes
+// ==========================================================================
+
+input[type="checkbox"]+label,
+input[type="radio"]+label,
+input[type="submit"],
+.submit {
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+    }
+
+}
+
+input[type="checkbox"] {
+    @include visual-hide;
+}
+
+ul.checkbox {
+    @include full;
+    border: none;
+    margin-bottom: 2rem;
+    padding-top: 0.6rem;
+}
+
+ul.checkbox li {
+    display: inline-block;
+    margin: $spacing-base;
+}
+
+ul.checkbox li input[type="checkbox"]:checked + label {
+    background-color: $pacific-blue;
+    color: #fff;
+    opacity: 1;
+    text-decoration: none;
+}
+
+ul.checkbox li input[type="checkbox"]:checked + label::after {
+    color: $mountain-meadow;
+    content: "\f058";
+    font-family: "FontAwesome";
+    font-size: 1em;
+    margin-left: 0.50em;
+}
+
+
+// ==========================================================================
+// Show / Hide Reveal
+// ==========================================================================
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,88 @@
+// ==========================================================================
+// Header
+// ==========================================================================
+
+header {
+    @include full;
+    background: $pacific-blue;
+    margin-bottom: $leading*1.5;
+    padding: $leading 0;
+
+    h1 {
+        padding-top: 0;
+    }
+}
+
+// @large
+// ==========================================================================
+@include susy-breakpoint($break-large, $large) {
+
+    header {
+        background: transparent;
+    }
+
+}
+
+// ==========================================================================
+// Articles
+// ==========================================================================
+
+
+// @large
+// ==========================================================================
+@include susy-breakpoint($break-large, $large) {
+
+    article {
+        @include span(first 7);
+        @include suffix(1);
+        display: inline-block;
+    }
+
+}
+
+// @medium
+// ==========================================================================
+@include susy-breakpoint($break-medium, $medium) {
+
+    aside {
+        @include span(full);
+        display: inline-block;
+    }
+
+}
+
+// @large
+// ==========================================================================
+@include susy-breakpoint($break-large, $large) {
+
+    aside {
+        @include span(last 4);
+        position: relative;
+        top: -160px;
+    }
+
+}
+
+
+// ==========================================================================
+// Footer
+// ==========================================================================
+
+footer {
+    @include full;
+    background: $white-smoke;
+    color: darken($white-smoke, 30);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+// @large
+// ==========================================================================
+@include susy-breakpoint($break-large, $large) {
+
+    footer {
+        margin-top: 3rem;
+        padding: 5rem 0;
+    }
+
+}

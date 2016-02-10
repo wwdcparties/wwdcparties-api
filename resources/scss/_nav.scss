@@ -1,0 +1,230 @@
+// ==========================================================================
+// Nav
+// ==========================================================================
+
+nav {
+    margin: 0px auto;
+    padding: 0;
+    width: 90%;
+}
+
+.site-title a {
+    @include span(first 2);
+    color: #FFF;
+    margin-top: 0.5rem;
+    text-decoration: none;
+}
+
+// ==========================================================================
+// Add Event Button
+// ==========================================================================
+
+.add-event {
+    @include span(last 2);
+
+  a {
+    @include border-radius(.250rem);
+    @include transition(background-color .3s ease);
+    border: 1px solid #FFF;
+    color: #FFF;
+    display: inline-block;
+    float: right;
+    font-weight: $weight-semibold;
+    padding: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      background-color: darken($pacific-blue, 10%);
+      color: #FFF;
+      text-shadow:0px -1px 1px darken( $pacific-blue, 2%);
+    }
+
+    &:hover svg,
+    &:focus svg {
+        fill: #FFF;
+    }
+
+    svg {
+        fill: #FFF;
+        margin-right: $spacing-small;
+    }
+
+  }
+
+}
+
+// @medium
+// ==========================================================================
+@include susy-breakpoint($break-medium, $medium) {
+
+    nav ul {
+        @include full;
+        display: block;
+    }
+
+    .add-event a {
+        padding: 1rem;
+    }
+
+}
+
+// @large
+// ==========================================================================
+@include susy-breakpoint($break-large, $large) {
+
+    nav {
+        @include span(full);
+    }
+
+    .site-title a {
+        color: $pacific-blue;
+        font-size: 2em;
+        margin-top: 1rem;
+
+        &:hover,
+        &:focus {
+            color: darken($pacific-blue, 15);
+        }
+    }
+
+    .add-event a {
+        background-color: $pacific-blue;
+        border-color: $pacific-blue;
+    }
+}
+
+// ==========================================================================
+// Filters
+// ==========================================================================
+
+#filters h2 {
+    color: darken($white-smoke, 30);
+    font-size: 1.1rem;
+    font-weight: $weight-medium;
+}
+
+.button-group {
+    float: left;
+    margin: 0 $leading/2 $leading*2;
+
+
+    .icon {
+        fill: darken($pacific-blue, 5);
+    }
+
+}
+
+.button-group input + label {
+    @include border-radius(0.250rem);
+    background: lighten($pacific-blue, 50);
+    color: darken($pacific-blue, 5);
+    display: inline-block;
+    float: left;
+    font-weight: 500;
+    margin: 8px 8px 0 0;
+    padding: 0.8em;
+    text-align: center;
+
+    &:hover,
+    &:focus {
+        background: lighten($pacific-blue, 45);
+        color: darken($pacific-blue, 20);
+    }
+
+    &:hover svg,
+    &:focus svg {
+        fill: desaturate(darken($pacific-blue, 10), 16);
+    }
+}
+
+.button-group input[type="checkbox"]:checked + label {
+    background: $mountain-meadow url('../img/checkmark.svg') 8px center no-repeat;
+    background-size: 16px auto;
+    color: #FFF;
+
+    svg {
+        fill: none;
+    }
+}
+
+// @large
+// ==========================================================================
+@include susy-breakpoint($break-large, $large) {
+
+    .button-group {
+        margin: 0 $leading/2 $leading*2 0;
+    }
+
+    .button-group input + label {
+        display: block;
+        font-size: 1.111rem;
+        margin: $leading/2 $leading/2 $leading/2 0;
+        min-width: 140px;
+        padding: 1em 0.8em;
+    }
+
+    .button-group input[type="checkbox"]:checked + label {
+        background: $mountain-meadow url('../img/checkmark.svg') 10px center no-repeat;
+        background-size: 30px auto;
+    }
+
+}
+
+// ==========================================================================
+// Previous + Next Links
+// ==========================================================================
+
+.nav-links {
+    @include full;
+    border-top: 1px solid darken($white-smoke, 5);
+    padding: $spacing-base 0 $leading*2 0;
+}
+
+.nav-links a {
+
+    &.prev {
+        margin-right: $spacing-small;
+    }
+
+    &.next {
+        float: right;
+        margin-left: $spacing-small;
+        text-align: right;
+    }
+}
+
+.nav-links .icon {
+    float: none;
+    margin: 0 $spacing-small;
+    width: 16px;
+}
+
+// ==========================================================================
+// Submit Event Nav
+// ==========================================================================
+
+.submit-event .add-event {
+    display: none;
+}
+
+
+// @large
+// ==========================================================================
+@include susy-breakpoint($break-large, $large) {
+
+    @each $day in $days {
+
+        ##{$day} .site-title a {
+            color: palette($day);
+
+            &:hover,
+            &:focus {
+                color: darken(palette($day), 15);
+            }
+
+        }
+
+    }
+}
