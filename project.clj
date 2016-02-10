@@ -11,7 +11,7 @@
                  [ring/ring-json "0.3.1"]
                  [com.cemerick/friend "0.2.1"]
                  [clj-http "1.1.2"]
-				 [org.apache.httpcomponents/httpclient "4.3.5"]]
+                 [org.apache.httpcomponents/httpclient "4.3.5"]]
 
   :plugins [[lein-environ "1.0.0"]
             [lein-ring "0.8.13"]]
