@@ -4,7 +4,7 @@
             [clj-time.format :as ft]
             [clojure.string :refer [blank?]]
             [inflections.core :as inf]
-            [wwdcparties.mapbox :as map]
+            [wwdcparties.render.mapbox :as map]
             [wwdcparties.model.party :as party]
             [wwdcparties.render.nav :as nav]
             [wwdcparties.render.core :refer :all]
