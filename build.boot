@@ -46,7 +46,13 @@
   "Build the final WWDC Parties uberjar" []
   (set-env! :source-paths #(conj % "env/prod/clj")
             :resource-paths #(conj % "env/prod/resources"))
-  (comp (sass) (aot) (pom) (uber) (jar) (target)))
+  (comp 
+   (sass :output-style "compressed")
+   (aot)
+   (pom)
+   (uber)
+   (jar)
+   (target)))
 
 (deftask dev []
   (comp
