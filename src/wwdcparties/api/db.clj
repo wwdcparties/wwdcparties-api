@@ -4,17 +4,25 @@
             [wwdcparties.api.party :as party]
             [wwdcparties.api.admin :as admin]))
 
-(def db
+(defn db
+  "Gets the WWDC Parties database." []
   (clutch/get-database (env :wwdc-parties-db)))
 
-(def auth-view
-  (partial clutch/get-view db "admins" "auth"))
-(def parties-view
-  (partial clutch/get-view db "parties" "list"))
-(def submitted-view
-  (partial clutch/get-view db "parties" "submitted"))
-(def edits-view
-  (partial clutch/get-view db "edits" "list"))
+(defmacro -view [design view & args]
+  `(let [view# (partial clutch/get-view 
+                        (clutch/get-database (env :wwdc-parties-db))
+                        ~design ~view)]
+     (apply view# ~args)))
+
+(defn auth-view
+  "Returns a view for authenticating admins." [& args]
+  (-view "admins" "auth"))
+(defn parties-view
+  "Returns a view for listing parties." [& args]
+  (-view "parties" "list"))
+(defn submitted-view
+  "Returns a view for listing party submissions" [& args]
+  (-view "parties" "submitted"))
 
 (defn -approved [party approved]
   (= (:approved party) approved))
@@ -36,18 +44,9 @@
           (map party/from-json
                (map :value (submitted-view)))))
 
-(defn edits
-  ([] (let [edits-map (edits-view {:group_level 1})]
-        (zipmap (map :key edits-map)
-                (map :value edits-map))))
-  ([slug] (let [edits-map 
-                (first (edits-view {:group_level 1
-                                    :key slug}))]
-            (:value edits-map)))
-  ([slug id] (clutch/get-document db id)))
-
 (defn auth []
-  (let [users (auth-view)] (zipmap (map :key users) (map admin/from-db users))))
+  (let [users (auth-view)] 
+    (zipmap (map :key users) (map admin/from-db users))))
 
 (defn users
   ([]

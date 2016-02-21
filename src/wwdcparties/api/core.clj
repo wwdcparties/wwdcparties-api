@@ -21,10 +21,6 @@
                 (response (db/parties)))
            (GET "/parties/:slug/" [slug]
                 (response (db/with-links (db/parties slug))))
-           (GET "/parties/:slug/edits/" [slug]
-                (response (db/edits slug)))
-           (GET "/parties/:slug/edits/:id/" [slug id]
-                (response (db/edits slug id)))
            (POST "/submitted/" request
                  (response (db/add-party (:body request))))
            (GET "/suggestions" {params :params}
