@@ -25,7 +25,11 @@
             [org.clojars.geoffpado/icalendar "0.0.2"]
             [com.ashafa/clutch "0.4.0"]
             [mathias/boot-sassc "0.1.5"]
-            [org.danielsz/system "0.3.0-SNAPSHOT"]]
+            [org.danielsz/system "0.3.0-SNAPSHOT"]
+            [prone "0.8.3"]
+            [ring/ring-mock "0.3.0"]
+            [ring/ring-devel "1.4.0"]
+            [pjstadig/humane-test-output "0.7.1"]]
           :source-paths #{"src/"}
           :resource-paths #{"resources/"})
 
@@ -44,8 +48,7 @@
 
 (deftask build 
   "Build the final WWDC Parties uberjar" []
-  (set-env! :source-paths #(conj % "env/prod/clj")
-            :resource-paths #(conj % "env/prod/resources"))
+  (set-env! :source-paths #(conj % "env/prod/clj"))
   (comp 
    (sass :output-style "compressed")
    (aot)
@@ -55,8 +58,12 @@
    (target)))
 
 (deftask dev []
+  (set-env! :source-paths #(conj % "env/dev/clj")
+            :resource-paths #(conj % "dev-resources"))
   (comp
    (watch)
    (sass)
-   (system :sys #'dev-system :auto true)
-   (repl :server true)))
+   (system :sys #'dev-system
+           :auto true)
+   (repl :server true
+         :init-ns 'wwdcparties.core)))
