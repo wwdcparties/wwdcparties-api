@@ -24,22 +24,33 @@
             [inflections "0.9.13"]
             [org.clojars.geoffpado/icalendar "0.0.2"]
             [com.ashafa/clutch "0.4.0"]
-            [mathias/boot-sassc "0.1.5"]]
+            [mathias/boot-sassc "0.1.5"]
+            [org.danielsz/system "0.3.0-SNAPSHOT"]]
           :source-paths #{"src/"}
           :resource-paths #{"resources/"})
 
-(require '[mathias.boot-sassc :refer :all])
+(require '[mathias.boot-sassc :refer :all]
+         '[system.boot :refer [system]]
+         '[system.core :refer [defsystem]])
 
 (task-options!
  pom  {:project 'wwdcparties
        :version "16.0.0"}
  jar  {:main 'wwdcparties.core}
  aot  {:all true}
- sass {:output-dir "public/css/"}
-)
+ sass {:output-dir "public/css/"})
+
+(defsystem dev-system [])
 
 (deftask build 
   "Build the final WWDC Parties uberjar" []
   (set-env! :source-paths #(conj % "env/prod/clj")
             :resource-paths #(conj % "env/prod/resources"))
   (comp (sass) (aot) (pom) (uber) (jar) (target)))
+
+(deftask dev []
+  (comp
+   (watch)
+   (sass)
+   (system :sys #'dev-system :auto true)
+   (repl :server true)))
