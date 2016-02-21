@@ -122,7 +122,7 @@
     (list
      [:head shared-head
       (twitter/card party)
-      [:title (str (:name party) " | WWDC Parties 2015")]]
+      [:title (str (:name party) " | WWDC Parties 2016")]]
      [:body {:id (colors/tint party)}
       nav/header
       [:div.container

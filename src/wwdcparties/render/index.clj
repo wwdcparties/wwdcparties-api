@@ -98,7 +98,7 @@
 (defn page [parties]
   (list
    [:head shared-head
-    [:title "WWDC Parties 2015"]]
+    [:title "WWDC Parties 2016"]]
    [:body
     nav/header
     (container parties)

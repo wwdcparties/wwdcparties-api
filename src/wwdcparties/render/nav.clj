@@ -7,4 +7,4 @@
    [:div.container.bleed
     [:nav
      [:ul
-      [:li.site-title [:a {:href "/"} "WWDC Parties " [:span "2015"]]]]]]])
+      [:li.site-title [:a {:href "/"} "WWDC Parties " [:span "2016"]]]]]]])
