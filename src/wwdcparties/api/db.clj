@@ -12,17 +12,17 @@
   `(let [view# (partial clutch/get-view 
                         (clutch/get-database (env :wwdc-parties-db))
                         ~design ~view)]
-     (apply view# ~args)))
+     (apply view# ~@args)))
 
 (defn auth-view
   "Returns a view for authenticating admins." [& args]
-  (-view "admins" "auth"))
+  (-view "admins" "auth" args))
 (defn parties-view
   "Returns a view for listing parties." [& args]
-  (-view "parties" "list"))
+  (-view "parties" "list" args))
 (defn submitted-view
   "Returns a view for listing party submissions" [& args]
-  (-view "parties" "submitted"))
+  (-view "parties" "submitted" args))
 
 (defn -approved [party approved]
   (= (:approved party) approved))
