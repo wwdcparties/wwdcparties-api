@@ -47,7 +47,7 @@
    [:span.address
     (:location party) [:br]
     (:street_address party) [:br]
-    "San Francisco, CA"]])
+    (if (nil? (:city party)) "San Francisco, CA" (:city party))]])
 
 (defn includes-type [type party]
   (boolean (some #(= type %) (:types party))))
