@@ -9,7 +9,7 @@
             [wwdcparties.render.info :as info]))
 
 (defn index-page []
-  (html5 (index/page (sort-by :start_time (map party/from-json (db/parties))))))
+  (html5 (index/page (sort-by :start_time (db/parties)))))
 
 (defn info-page [slug]
   (html5 (info/page (party/from-json (db/parties slug)))))
