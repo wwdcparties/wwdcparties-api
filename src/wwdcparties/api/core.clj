@@ -28,7 +28,7 @@
                     :types [(s/enum :party :meetup :presentation :outdoors)]})
 
 (defapi party-api
-  (ring.swagger.ui/swagger-ui "/api-docs")
+  (ring.swagger.ui/swagger-ui "/api/docs")
   (swagger-docs
    {:info {:title "WWDC Parties API"}})
   (context* "/api/parties" []
@@ -36,4 +36,9 @@
             (GET* "/" []
                   :return [Party]
                   :summary "The full list of parties."
-                  (ok (db/parties)))))
+                  (ok (db/parties)))
+            (GET* "/:slug" []
+                  :return (s/maybe Party)
+                  :path-params [slug :- String]
+                  :summary "A single party by identifier."
+                  (ok (db/parties slug)))))
