@@ -1,4 +1,5 @@
-(ns wwdcparties.api.party)
+(ns wwdcparties.api.party
+  (:require [schema.core :as s]))
 
 (def party-keys [:description :slug :meta :name :type
                  :start_time :excerpt :sponsor_url

@@ -2,14 +2,13 @@
   (:require [compojure.core :refer [defroutes routes wrap-routes]]
             [wwdcparties.layout :refer [error-page]]
             [wwdcparties.routes.home :refer [home-routes]]
-            [wwdcparties.routes.services :refer [service-routes]]
             [wwdcparties.middleware :as middleware]
             [clojure.tools.logging :as log]
             [compojure.route :as route]
             [environ.core :refer [env]]
             [wwdcparties.config :refer [defaults]]
             [mount.core :as mount]
-            [wwdcparties.api.core :refer [api-routes]]))
+            [wwdcparties.api.core :refer [party-api]]))
 
 (defn init
   "init will be called once when
@@ -34,7 +33,7 @@
 
 (def app-routes
   (routes
-    (var api-routes)
+    #'party-api
     (wrap-routes #'home-routes middleware/wrap-csrf)
     (route/not-found
       (:body

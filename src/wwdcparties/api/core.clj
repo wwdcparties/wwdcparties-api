@@ -1,41 +1,39 @@
 (ns wwdcparties.api.core
   (:require [wwdcparties.api.db :as db]
             [wwdcparties.api.foursquare :as foursquare]
-            [compojure.core :refer :all]
-            [compojure.handler :as handler]
-            [compojure.route :as route]
-            [ring.util.response :refer [resource-response file-response response redirect content-type]]))
+            [ring.util.http-response :refer :all]
+            [compojure.api.sweet :refer :all]
+            [schema.core :as s]))
 
-(def continuation-map
-  {:activitycontinuation
-    {:apps ["287EDDET2B.com.cocoatype.wwdcparties"]}})
+(s/defschema Party {:approved Boolean
+                    (s/optional-key :city) String
+                    :description String
+                    :end_time Long
+                    (s/optional-key :event_url) String
+                    :excerpt String
+                    :location String
+                    :meta {(s/optional-key :18+) Boolean
+                           (s/optional-key :21+) Boolean
+                           (s/optional-key :booze) Boolean
+                           (s/optional-key :food) Boolean
+                           (s/optional-key :ticket) Boolean}
+                    :name String
+                    :slug String
+                    (s/optional-key :sponsor_name) String
+                    (s/optional-key :sponsor_url) String
+                    :start_time Long
+                    :street_address String
+                    (s/optional-key :twitter_handle) String
+                    :type String
+                    :types [(s/enum :party :meetup :presentation :outdoors)]})
 
-(defroutes api-routes
-  (context "/api" []
-           (GET "/apple-app-site-association" []
-                (-> (resource-response "apple-app-site-association.json" {:root "public"})
-                    (content-type "application/pkcs7-mime")))
-           (GET "/" []
-                (redirect "/api/parties/"))
-           (GET "/parties/" []
-                (response (db/parties)))
-           (GET "/parties/:slug/" [slug]
-                (response (db/with-links (db/parties slug))))
-           (POST "/submitted/" request
-                 (response (db/add-party (:body request))))
-           (GET "/suggestions" {params :params}
-                (response (foursquare/suggestions (:q params)))))
-  (route/resources "/"))
-
-(def cors-headers
-  {"Access-Control-Allow-Origin" "*"
-   "Access-Control-Allow-Headers" "Content-Type"
-   "Access-Control-Allow-Methods" "GET,POST,OPTIONS"})
-
-(defn all-cors [handler]
-  (fn [request]
-    (let [response (handler request)]
-      (update-in response [:headers]
-        merge cors-headers))))
-
-(def api handler/site)
+(defapi party-api
+  (ring.swagger.ui/swagger-ui "/api-docs")
+  (swagger-docs
+   {:info {:title "WWDC Parties API"}})
+  (context* "/api/parties" []
+            :tags ["Parties"]
+            (GET* "/" []
+                  :return [Party]
+                  :summary "The full list of parties."
+                  (ok (db/parties)))))
