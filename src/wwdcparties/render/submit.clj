@@ -1,4 +1,4 @@
-(ns wwdcparties.render.new
+(ns wwdcparties.render.submit
   (:require [hiccup.form :refer :all]
             [ring.middleware.anti-forgery :refer :all]
             [ring.util.anti-forgery :refer :all]
@@ -17,7 +17,8 @@
    (text-field {:oninput "loadSuggestions()"} "choice_venue" (:address party))
    [:ul#locations]
    (label "description" "Description")
-   [:textarea {:id "description" }]])
+   [:input#description-value {:name "description"}]
+   [:trix-editor#description]])
 
 (defpope logistics [party]
   [:fieldset
@@ -52,7 +53,14 @@
 
 (defpope page [party]
   (list
-   [:head shared-head]
+   [:head shared-head
+    [:link {:rel "stylesheet"
+            :type "text/css"
+            :href "/css/trix.css"}]
+    [:script {:type "text/javascript"
+              :src "/js/trix.js"}]
+    [:script {:type "text/javascript"}
+     "document.addEventListener('trix-file-accept', function(e){e.preventDefault()})"]]
    [:body.submit-event
     nav/header
     (with-party party
