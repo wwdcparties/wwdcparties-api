@@ -1,6 +1,6 @@
 (ns wwdcparties.routes.home
   (:require [compojure.core :refer [defroutes GET]]
-            [ring.util.http-response :refer [moved-permanently]]
+            [ring.util.http-response :refer [moved-permanently not-found]]
             [clojure.java.io :as io]
             [wwdcparties.render.index :as index]
             [hiccup.page :refer [html5]]
@@ -11,7 +11,10 @@
   (html5 (index/page (sort-by :start_time (db/parties)))))
 
 (defn info-page [slug]
-  (html5 (info/page (db/parties slug))))
+  (let [party (db/parties slug)]
+    (if (empty? party)
+      (not-found)
+      (html5 (info/page party)))))
 
 (defroutes home-routes
   (GET "/" [] (moved-permanently "/parties/"))
