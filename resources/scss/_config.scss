@@ -2,11 +2,10 @@
 // Third-Party Imports
 // ==========================================================================
 @import "vendor/susy";
-@import "vendor/breakpoint";
 
 // ==========================================================================
-// Susy Grid
-// http://susydocs.oddbird.net/en/latest/settings/
+// Uses Flexbox
+// https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 // ==========================================================================
 
 // Grid Settings
@@ -29,38 +28,22 @@ p {
 // Min-width Breakpoints
 // ==========================================================================
 
+$xs: 26em;
+$small: 36em;
+$medium: 46em;
+$large: 65em;
+$xl: 75em;
+
 $break-xs: 26em;
 $break-small: 36em;
 $break-medium: 46em;
 $break-large: 65em;
 $break-xl: 75em;
 
-// ==========================================================================
-// Sets container max-width & number of columns.
-// Defined for each breakpoint.
-// ==========================================================================
-
-$xs: layout((90%) 4);
-$small: layout((($break-small)-2) 6);
-$medium: layout((($break-medium)-2) 8);
-$large: layout((($break-large)-2) 12);
-$xl: layout((($break-xl)-4) 12);
-
-
 // Default Size
 .container {
   @include container($xs);
 }
-
-// ==========================================================================
-// List of key:values for each breakpoint
-// ==========================================================================
-
-$breakpoints:
-    ($break-small $small)
-    ($break-medium $medium)
-    ($break-large $large)
-    ($break-xl $xl);
 
 // Element spacing
 // ==========================================================================

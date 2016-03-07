@@ -20,7 +20,7 @@ body {
 
 // @medium
 // ==========================================================================
-@include susy-breakpoint($break-medium, $medium) {
+@media (min-width: $medium) {
 
     body {
         font-size: 90%;
@@ -30,32 +30,10 @@ body {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     body {
         font-size: 16px;
-    }
-
-}
-
-// ==========================================================================
-// Breakpoint Map for Containers
-//
-// Outputs a media query for each key in $breakpoints.
-// Then, nests a .container inside each media query.
-// Inside of .container is an @include with Susy setting overrides.
-//
-// Sizes for XS are the default (mobile first approach)
-// ==========================================================================
-
-@each $min-width, $size in $breakpoints {
-
-    @include susy-breakpoint($min-width, $size) {
-
-        .container {
-            @include container($size);
-        }
-
     }
 
 }
@@ -106,7 +84,7 @@ h5 {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     h1 {
         font-weight: $weight-light;

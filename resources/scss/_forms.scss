@@ -46,7 +46,7 @@ form {
 // @medium
 // ==========================================================================
 
-@include susy-breakpoint($break-medium, $medium) {
+@media (min-width: $medium) {
 
     form {
         @include span(first 6);
@@ -57,7 +57,7 @@ form {
 // @large
 // ==========================================================================
 
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     form {
         @include span(first 6);
@@ -76,7 +76,7 @@ form li {
 // ==========================================================================
 
 fieldset {
-    @include full;
+    // @include full;
     padding: 0 0 $leading*1.5 0;
 
     p {
@@ -90,7 +90,6 @@ fieldset {
 // ==========================================================================
 
 legend {
-    @extend %h2;
     color: $pacific-blue;
 }
 
@@ -277,7 +276,7 @@ input[type="checkbox"] {
 }
 
 ul.checkbox {
-    @include full;
+    // @include full;
     border: none;
     margin-bottom: 2rem;
     padding-top: 0.6rem;

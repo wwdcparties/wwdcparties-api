@@ -3,7 +3,7 @@
 // ==========================================================================
 
 header {
-    @include full;
+    // @include full;
     background: $pacific-blue;
     margin-bottom: $leading*1.5;
     padding: $leading 0;
@@ -15,7 +15,7 @@ header {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     header {
         background: transparent;
@@ -30,7 +30,7 @@ header {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     article {
         @include span(first 7);
@@ -42,7 +42,7 @@ header {
 
 // @medium
 // ==========================================================================
-@include susy-breakpoint($break-medium, $medium) {
+@media (min-width: $medium) {
 
     aside {
         @include span(full);
@@ -53,7 +53,7 @@ header {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     aside {
         @include span(last 4);
@@ -69,7 +69,7 @@ header {
 // ==========================================================================
 
 footer {
-    @include full;
+    // @include full;
     background: $white-smoke;
     color: darken($white-smoke, 30);
     padding: 2rem 0;
@@ -78,7 +78,7 @@ footer {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     footer {
         margin-top: 3rem;

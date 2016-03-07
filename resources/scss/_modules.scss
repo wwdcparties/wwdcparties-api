@@ -10,7 +10,7 @@
 
 // Global @medium
 // ==========================================================================
-@include susy-breakpoint($break-medium, $medium) {
+@media (min-width: $medium) {
 
     .container#parties {
         max-width: ($break-medium - 2);
@@ -21,7 +21,7 @@
 
 // Global @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     .container.bleed,
     .container#parties {
@@ -32,7 +32,7 @@
 
 // Global @large
 // ==========================================================================
-@include susy-breakpoint($break-xl, $xl) {
+@media (min-width: $xl) {
 
     .container.bleed,
     .container#parties {
@@ -42,7 +42,7 @@
 }
 
 .section-events {
-    @include full;
+    // @include full;
     background: darken($white-smoke, 80);
 }
 
@@ -73,7 +73,7 @@
 #locations {
     @include prefix($leading);
     @include suffix($leading);
-    @include full;
+    // @include full;
 }
 
 #locations li {
@@ -88,7 +88,7 @@
 
 // @medium
 // ==========================================================================
-@include susy-breakpoint($break-medium, $medium) {
+@media (min-width: $medium) {
 
     .section-events {
         background: none;
@@ -114,7 +114,7 @@
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     .section-events {
         @include span(full);
