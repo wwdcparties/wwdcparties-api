@@ -114,7 +114,7 @@ article li {
 
 // @medium
 // ==========================================================================
-@include susy-breakpoint($break-medium, $medium) {
+@media (min-width: $medium) {
 
     .party-name {
         @include full;
@@ -162,7 +162,7 @@ article li {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     .party-name {
         margin: 1em 0 3em 0;

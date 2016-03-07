@@ -15,7 +15,7 @@ header {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     header {
         background: transparent;
@@ -30,7 +30,7 @@ header {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     article {
         @include span(first 7);
@@ -42,7 +42,7 @@ header {
 
 // @medium
 // ==========================================================================
-@include susy-breakpoint($break-medium, $medium) {
+@media (min-width: $medium) {
 
     aside {
         @include span(full);
@@ -53,7 +53,7 @@ header {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     aside {
         @include span(last 4);
@@ -78,7 +78,7 @@ footer {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     footer {
         margin-top: 3rem;

@@ -57,7 +57,7 @@ nav {
 
 // @medium
 // ==========================================================================
-@include susy-breakpoint($break-medium, $medium) {
+@media (min-width: $medium) {
 
     nav ul {
         @include full;
@@ -72,7 +72,7 @@ nav {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     nav {
         @include span(full);
@@ -151,7 +151,7 @@ nav {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     .button-group {
         margin: 0 $leading/2 $leading*2 0;
@@ -212,7 +212,7 @@ nav {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     @each $day in $days {
 

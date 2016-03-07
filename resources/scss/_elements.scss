@@ -88,7 +88,7 @@
 
 // @medium
 // ==========================================================================
-@include susy-breakpoint($break-medium, $medium) {
+@media (min-width: $medium) {
 
     .event-listing {
         display: inline-block;
@@ -146,7 +146,7 @@
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     .event-listing {
         width: 320px;
@@ -181,7 +181,7 @@
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     .icon {
         max-height: 20px;
@@ -281,7 +281,7 @@ footer hr {
 
 // @large
 // ==========================================================================
-@include susy-breakpoint($break-large, $large) {
+@media (min-width: $large) {
 
     .footer-text {
         @include span(6);

@@ -16,46 +16,6 @@
 }
 
 // ==========================================================================
-// Headings
-// ==========================================================================
-//
-// Enumerates $font-heading to output header styles.
-// Also creates placeholder classes that can be extended.
-//
-// EXTEND EXAMPLE:
-//
-// .module-day p { @extend %h1; }
-//
-// ==========================================================================
-
-@each $font-heading, $font-size, $font-adjust in $font-sizes {
-
-  %#{($font-heading)},
-  #{($font-heading)} {
-
-    @extend %headings-base;
-    font-size: $font-size;
-  }
-
-}
-
-
-// @large
-// ==========================================================================
-@include susy-breakpoint($break-large, $large) {
-
-    @each $font-heading, $font-size, $font-adjust in $font-sizes {
-
-      %#{($font-heading)},
-      #{($font-heading)} {
-        font-size: $font-adjust;
-      }
-
-    }
-
-}
-
-// ==========================================================================
 // Cross Browser Mixins
 // ==========================================================================
 
