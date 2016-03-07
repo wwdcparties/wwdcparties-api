@@ -3,7 +3,7 @@
 // ==========================================================================
 
 header {
-    @include full;
+    // @include full;
     background: $pacific-blue;
     margin-bottom: $leading*1.5;
     padding: $leading 0;
@@ -69,7 +69,7 @@ header {
 // ==========================================================================
 
 footer {
-    @include full;
+    // @include full;
     background: $white-smoke;
     color: darken($white-smoke, 30);
     padding: 2rem 0;

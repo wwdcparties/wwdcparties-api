@@ -42,7 +42,7 @@
 }
 
 .section-events {
-    @include full;
+    // @include full;
     background: darken($white-smoke, 80);
 }
 
@@ -73,7 +73,7 @@
 #locations {
     @include prefix($leading);
     @include suffix($leading);
-    @include full;
+    // @include full;
 }
 
 #locations li {

@@ -196,7 +196,7 @@
 // ==========================================================================
 
 .submit-event h1 {
-    @include full;
+    // @include full;
     border-bottom: .250rem solid lighten($pacific-blue, 50);
 }
 
@@ -246,7 +246,7 @@ footer hr {
 }
 
 .footer-icons {
-    @include full;
+    // @include full;
     margin-bottom: $spacing-base;
 }
 
@@ -266,7 +266,7 @@ footer hr {
 }
 
 .footer-text {
-    @include full;
+    // @include full;
 
     a:hover,
     a:focus {

@@ -60,7 +60,7 @@ nav {
 @media (min-width: $medium) {
 
     nav ul {
-        @include full;
+        // @include full;
         display: block;
     }
 
@@ -177,7 +177,7 @@ nav {
 // ==========================================================================
 
 .nav-links {
-    @include full;
+    // @include full;
     border-top: 1px solid darken($white-smoke, 5);
     padding: $spacing-base 0 $leading*2 0;
 }

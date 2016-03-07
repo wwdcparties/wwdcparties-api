@@ -117,7 +117,7 @@ article li {
 @media (min-width: $medium) {
 
     .party-name {
-        @include full;
+        // @include full;
         margin: 1em 0 2em 0;
         text-align: center;
     }
@@ -181,10 +181,10 @@ article li {
 // ==========================================================================
 
 .event-info {
-    @include full;
+    // @include full;
 
     ul {
-        @include full;
+        // @include full;
         margin: $leading 0;
     }
 
