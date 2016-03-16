@@ -34,7 +34,7 @@
           :resource-paths #{"resources/"})
 
 (require '[mathias.boot-sassc :refer :all]
-         '[system.boot :refer [system]]
+         '[system.boot :as boot]
          '[system.core :refer [defsystem]])
 
 (task-options!
@@ -63,7 +63,17 @@
   (comp
    (watch)
    (sass)
-   (system :sys #'dev-system
-           :auto true)
+   (boot/system :sys #'dev-system
+                :auto true)
    (repl :server true
          :init-ns 'wwdcparties.core)))
+
+(deftask run []
+  (set-env! :source-paths #(conj % "env/dev/clj")
+            :resource-paths #(conj % "dev-resources"))
+  (comp
+   (watch)
+   (sass)
+   (boot/system :sys #'dev-system
+                :auto true)
+   (boot/run :main-namespace "wwdcparties.core")))
