@@ -1,0 +1,59 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+@mixin align-content($align) {
+  -webkit-align-content: $align;
+  align-content: $align;
+}
+
+@mixin align-items($align) {
+  -webkit-align-items: $align;
+  align-items: $align;
+}
+
+@mixin align-self($align) {
+  -webkit-align-self: $align;
+  align-self: $align;
+}
+
+@mixin flex($justify: flex-start)  {
+  -webkit-flex: 1 1 auto;
+  -webkit-align-items: stretch;
+  -webkit-align-content: stretch;
+  -webkit-justify-content: $justify;
+
+  display: -webkit-flex;
+  display: flex;
+  justify-content: $justify;
+}
+
+@mixin flex-basis($width) {
+  -webkit-flex-basis: $width;
+  flex-basis: $width;
+}
+
+@mixin flex-direction($direction: column) {
+  -webkit-flex-direction: $direction;
+  flex-direction: $direction;
+}
+
+@mixin flex-grow($grow: 1) {
+  -webkit-flex-grow: $grow;
+  flex-grow: $grow;
+}
+
+@mixin flex-wrap($wrap: wrap) {
+  -webkit-flex-wrap: $wrap;
+  flex-wrap: $wrap;
+}
+
+@mixin inline-flex {
+  display: -webkit-inline-flex;
+  display: inline-flex;
+}
+
+@mixin justify($justify) {
+  -webkit-justify-content: $justify;
+  justify-content: $justify;
+}
