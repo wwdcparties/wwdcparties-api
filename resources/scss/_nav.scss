@@ -105,13 +105,13 @@ nav {
 }
 
 .button-group {
-    float: left;
-    margin: 0 $leading/2 $leading*2;
+  @include flex;
+  @include flex-direction(column);
+  margin: 0 $leading/2 $leading*2;
 
-
-    .icon {
-        fill: darken($pacific-blue, 5);
-    }
+  .icon {
+      fill: darken($pacific-blue, 5);
+  }
 
 }
 

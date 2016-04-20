@@ -3,6 +3,7 @@
 // ==========================================================================
 
 header {
+	@include flex;
 	background: $pacific-blue;
 	margin-bottom: $leading*1.5;
 	padding: $leading 0;
@@ -11,6 +12,17 @@ header {
 			padding-top: 0;
 	}
 }
+
+// ==========================================================================
+// Footer
+// ==========================================================================
+
+footer {
+	@include flex;
+	@include justify(center);
+	width: 100%;
+}
+
 
 // @large
 // ==========================================================================
@@ -35,8 +47,13 @@ header {
       @include flex;
       @include flex-direction(column);
       @include justify(flex-end);
-      @include flex-basis(66%);
   	}
+
+		.description {
+			@include flex;
+			@include flex-direction(column);
+			width: 66%;
+		}
 
 }
 
@@ -47,6 +64,7 @@ header {
 		aside {
 				@include flex;
         @include flex-direction(column);
+				width: 33.33%;
 		}
 
 }
