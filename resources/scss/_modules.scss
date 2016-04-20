@@ -42,8 +42,7 @@
 }
 
 .section-events {
-    // @include full;
-    background: darken($white-smoke, 80);
+  background: darken($white-smoke, 80);
 }
 
 .section-metadata {
@@ -58,12 +57,11 @@
 }
 
 .module-time {
-    @include border-radius(.25rem);
-    background-color: #fff;
-    display: block;
-    margin: 0px auto;
-    padding-bottom: $leading;
-
+  @include border-radius(.25rem);
+  background-color: #fff;
+  display: block;
+  margin: 0px auto;
+  padding-bottom: $leading;
 }
 
 .event-listing {
@@ -73,7 +71,6 @@
 #locations {
     @include prefix($leading);
     @include suffix($leading);
-    // @include full;
 }
 
 #locations li {
@@ -121,7 +118,6 @@
     }
 
     .section-metadata {
-        @include span(first 7);
         margin-bottom: $leading*3;
     }
 

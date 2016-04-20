@@ -42,7 +42,8 @@ $break-xl: 75em;
 
 // Default Size
 .container {
-  @include container($xs);
+  @include flex;
+  @include flex-wrap;
 }
 
 // Element spacing

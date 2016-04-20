@@ -9,7 +9,6 @@ nav {
 }
 
 .site-title a {
-    @include span(first 2);
     color: #FFF;
     margin-top: 0.5rem;
     text-decoration: none;
@@ -60,7 +59,6 @@ nav {
 @media (min-width: $medium) {
 
     nav ul {
-        // @include full;
         display: block;
     }
 
@@ -75,7 +73,8 @@ nav {
 @media (min-width: $large) {
 
     nav {
-        @include span(full);
+        @include flex;
+        width: 100%;
     }
 
     .site-title a {
@@ -206,7 +205,7 @@ nav {
 // ==========================================================================
 
 .submit-event .add-event {
-    display: none;
+  display: none;
 }
 
 
@@ -214,17 +213,17 @@ nav {
 // ==========================================================================
 @media (min-width: $large) {
 
-    @each $day in $days {
+  @each $day in $days {
 
-        ##{$day} .site-title a {
-            color: palette($day);
+      ##{$day} .site-title a {
+          color: palette($day);
 
-            &:hover,
-            &:focus {
-                color: darken(palette($day), 15);
-            }
+          &:hover,
+          &:focus {
+              color: darken(palette($day), 15);
+          }
 
-        }
+      }
 
     }
 }
