@@ -4,7 +4,7 @@
 
 (def footer
   [:footer {:role "contentinfo"}
-   [:div.container
+   [:div
     [:div.footer-text
      [:ul.footer-icons
       [:li [:a.tint {:href "webcal://2016.wwdcparties.com/calendar"} icons/calendar "Subscribe"]]

@@ -64,7 +64,7 @@
    [:body.submit-event
     nav/header
     (with-party party
-      [:div.container
+      [:div
        [:h1 "Add an event"]
        (form-to [:post "/new"]
                 (basic-info)
