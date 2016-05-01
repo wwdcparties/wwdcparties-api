@@ -1,24 +1,10 @@
 // ==========================================================================
-// Third-Party Imports
-// ==========================================================================
-@import "vendor/susy";
-
-// ==========================================================================
 // Uses Flexbox
 // https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 // ==========================================================================
 
 // Grid Settings
 // ==========================================================================
-
-$susy: (
-    columns: 4,
-    column-width: 4.25em,
-    global-box-sizing : border-box,
-    use-custom: (
-        box-sizing: false,
-    )
-);
 
 p {
     font-size: 50px;
@@ -34,10 +20,6 @@ $medium: 46em;
 $large: 65em;
 $xl: 75em;
 
-$break-xs: 26em;
-$break-small: 36em;
-$break-medium: 46em;
-$break-large: 65em;
 $break-xl: 75em;
 
 // Default Size
