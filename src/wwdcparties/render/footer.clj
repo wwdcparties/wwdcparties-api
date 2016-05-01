@@ -3,7 +3,7 @@
             [wwdcparties.render.icons :as icons]))
 
 (def footer
-  [:footer {:role "contentinfo"}
+  [:footer {:role "contentinfo" :class "footer"}
    [:div
     [:div.footer-text
      [:ul.footer-icons
