@@ -97,32 +97,53 @@
 // Filters
 // ==========================================================================
 
-#filters h2 {
+#filters {
+  @include flex($justify: center);
+  @include flex-direction(column);
+  margin: 0 $leading/2 $leading*2;
+}
+
+.filter__icon {
+  @include inline-flex;
+  background: darken($pacific-blue, 5);
+  border: 2px solid $pacific-blue;
+  border-radius: 100%;
+  fill: white;
+  margin-right: 0.25rem;
+  height: 2.5rem;
+  width: 2.5rem;
+
+  svg {
+    margin: 0px auto;
+    margin-top: 0.75rem;
+  }
+
+}
+
+#filters .icon {
+  // fill: darken($pacific-blue, 5);
+}
+
+.heading--filters {
   color: darken($white-smoke, 30);
   font-size: 1.1rem;
   font-weight: $weight-medium;
 }
 
-.button-group {
+.filter-options {
   @include flex;
-  @include flex-direction(column);
-  margin: 0 $leading/2 $leading*2;
-
-  .icon {
-      fill: darken($pacific-blue, 5);
-  }
-
+  @include align-self(center);
 }
 
-.button-group input + label {
-  @include border-radius(0.250rem);
+#filters input + label {
+  @include flex;
+  @include align-items(center);
+  border-radius: 40px;
   background: lighten($pacific-blue, 50);
   color: darken($pacific-blue, 5);
-  display: inline-block;
-  float: left;
   font-weight: 500;
+  padding-right: 1rem;
   margin: 8px 8px 0 0;
-  padding: 0.8em;
   text-align: center;
 
   &:hover,
@@ -137,35 +158,33 @@
   }
 }
 
-.button-group input[type="checkbox"]:checked + label {
+#filters input[type="checkbox"]:checked + label {
   background: $mountain-meadow url('../img/checkmark.svg') 8px center no-repeat;
   background-size: 16px auto;
   color: white;
 
-    svg {
-        fill: none;
-    }
+  svg {
+    fill: none;
+  }
 }
 
 // @large
 // ==========================================================================
 @media (min-width: $large) {
 
-    .button-group {
-        margin: 0 $leading/2 $leading*2 0;
+    #filters {
+      margin-bottom: $leading*2;
     }
 
-    .button-group input + label {
-        display: block;
-        font-size: 1.111rem;
-        margin: $leading/2 $leading/2 $leading/2 0;
-        min-width: 140px;
-        padding: 1em 0.8em;
+    #filters input + label {
+      font-size: 1.111rem;
+      margin: $leading/2 $leading/2 $leading/2 0;
+      // padding: 1em 0.8em;
     }
 
-    .button-group input[type="checkbox"]:checked + label {
-        background: $mountain-meadow url('../img/checkmark.svg') 10px center no-repeat;
-        background-size: 30px auto;
+    #filters input[type="checkbox"]:checked + label {
+      background: $mountain-meadow url('../img/checkmark.svg') 10px center no-repeat;
+      background-size: 30px auto;
     }
 
 }
@@ -175,7 +194,6 @@
 // ==========================================================================
 
 .nav-links {
-    // @include full;
     border-top: 1px solid darken($white-smoke, 5);
     padding: $spacing-base 0 $leading*2 0;
 }

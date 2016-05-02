@@ -75,7 +75,7 @@
    (if (:ticket (:meta party)) "ticket ")))
 
 (defn party-listing [party]
-  [:li.event-listing {:class (party-classes party)}
+  [:li..event-listing {:class (party-classes party)}
    [:a.party-title {:href (str "/parties/" (:slug party))}
     [:span.party-date (date party)]
     [:span.party-time (formatted-start party) " to " (formatted-end party)]
@@ -88,7 +88,7 @@
   (let [day (party/start (first day-parties))]
        [:div.module-day {:id (colors/day day)}
         [:h2.day-title (day-header day)]
-        [:ul (map party-listing day-parties)]]))
+        [:ul.events (map party-listing day-parties)]]))
 
 (defn container [parties]
   [:div#parties

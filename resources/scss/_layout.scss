@@ -13,24 +13,13 @@ header h1 {
 	padding-top: 0;
 }
 
-// ==========================================================================
-// Footer
-// ==========================================================================
-
-footer {
-	@include flex;
-	@include justify(center);
-	width: 100%;
-}
-
-
 // @large
 // ==========================================================================
 @media (min-width: $large) {
 
-		.header--global {
-				background: transparent;
-		}
+	.header--global {
+			background: transparent;
+	}
 
 }
 
@@ -79,7 +68,7 @@ footer {
 	background: darken($white-smoke, 80);
 	bottom: 0;
 	color: darken($white-smoke, 30);
-	padding: 2rem 0;
+	position: relative;
 	text-align: center;
 	width: 100%;
 }

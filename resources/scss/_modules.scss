@@ -8,42 +8,15 @@
   width: 100%;
 }
 
-// Global @medium
-// ==========================================================================
-@media (min-width: $medium) {
-
-  #parties {
-    max-width: ($large - 2);
-    width: auto;
-  }
-
-}
-
-// Global @large
-// ==========================================================================
-@media (min-width: $large) {
-
-    .bleed,
-    #parties {
-        max-width: ($xl - 2);
-    }
-
-}
-
-// Global @large
-// ==========================================================================
-@media (min-width: $xl) {
-
-    .bleed,
-    #parties {
-        max-width: ($break-xl - 4);
-    }
+#parties {
 
 }
 
 .section-events {
   @include flex;
   background: darken($white-smoke, 80);
+  overflow-x: scroll;
+  padding: 1rem;
 }
 
 .section-metadata {
@@ -53,6 +26,8 @@
 }
 
 .module-day {
+  @include flex;
+  @include flex-direction;
   padding-top: 2rem;
 }
 
@@ -62,10 +37,6 @@
   display: block;
   margin: 0px auto;
   padding-bottom: $leading;
-}
-
-.event-listing {
-  margin: 0px auto;
 }
 
 #locations {
@@ -86,12 +57,12 @@
 // ==========================================================================
 @media (min-width: $medium) {
 
-  .section-events {
-      background: none;
-  }
-
   .module-day {
       padding-top: 0;
+  }
+
+  .section-events {
+    @include flex-wrap;
   }
 
   .section-metadata {
