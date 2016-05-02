@@ -91,7 +91,7 @@
         [:ul (map party-listing day-parties)]]))
 
 (defn container [parties]
-  [:div#parties.container
+  [:div#parties
    filters/filter-buttons
    [:div.section-events {:role "main" } (map module-day (days parties))]])
 

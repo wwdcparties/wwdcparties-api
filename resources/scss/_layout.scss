@@ -2,21 +2,33 @@
 // Header
 // ==========================================================================
 
-header {
+.header--global {
+	@include flex;
 	background: $pacific-blue;
 	margin-bottom: $leading*1.5;
 	padding: $leading 0;
-
-	h1 {
-			padding-top: 0;
-	}
 }
+
+header h1 {
+	padding-top: 0;
+}
+
+// ==========================================================================
+// Footer
+// ==========================================================================
+
+footer {
+	@include flex;
+	@include justify(center);
+	width: 100%;
+}
+
 
 // @large
 // ==========================================================================
 @media (min-width: $large) {
 
-		header {
+		.header--global {
 				background: transparent;
 		}
 
@@ -31,12 +43,17 @@ header {
 // ==========================================================================
 @media (min-width: $large) {
 
-		article {
-      @include flex;
-      @include flex-direction(column);
-      @include justify(flex-end);
-      @include flex-basis(66%);
-  	}
+	article {
+    @include flex;
+    @include flex-direction(column);
+    @include justify(flex-end);
+	}
+
+	.description {
+		@include flex;
+		@include flex-direction(column);
+		width: 66%;
+	}
 
 }
 
@@ -44,10 +61,11 @@ header {
 // ==========================================================================
 @media (min-width: $medium) {
 
-		aside {
-				@include flex;
-        @include flex-direction(column);
-		}
+	aside {
+		@include flex;
+    @include flex-direction(column);
+		width: 33.33%;
+	}
 
 }
 
@@ -56,19 +74,19 @@ header {
 // ==========================================================================
 
 footer {
-		background: $white-smoke;
-		color: darken($white-smoke, 30);
-		padding: 2rem 0;
-		text-align: center;
+	background: $white-smoke;
+	color: darken($white-smoke, 30);
+	padding: 2rem 0;
+	text-align: center;
 }
 
 // @large
 // ==========================================================================
 @media (min-width: $large) {
 
-		footer {
-				margin-top: 3rem;
-				padding: 5rem 0;
-		}
+	footer {
+		margin-top: 3rem;
+		padding: 5rem 0;
+	}
 
 }

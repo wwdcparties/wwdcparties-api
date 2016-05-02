@@ -246,8 +246,7 @@ footer hr {
 }
 
 .footer-icons {
-    // @include full;
-    margin-bottom: $spacing-base;
+  margin-bottom: $spacing-base;
 }
 
 .footer-icons li {
@@ -266,8 +265,6 @@ footer hr {
 }
 
 .footer-text {
-    // @include full;
-
     a:hover,
     a:focus {
         color: darken($pacific-blue, 15);
@@ -276,17 +273,4 @@ footer hr {
 
 .footer-credit {
     margin-top: $spacing-base;
-}
-
-
-// @large
-// ==========================================================================
-@media (min-width: $large) {
-
-    .footer-text {
-        @include span(6);
-        float: none;
-        margin: 0px auto;
-    }
-
 }

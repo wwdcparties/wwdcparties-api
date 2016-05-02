@@ -18,7 +18,7 @@
 (def time-formatter (ft/formatter "h:mm a" party/pacific))
 
 (defpope party-name [party]
-  [:div
+  [:div.header--party-name
    [:h1.party-name (:name party)
     (if-not (blank? (:sponsor_name party))
       [:span " by "
@@ -125,10 +125,10 @@
       [:title (str (:name party) " | WWDC Parties 2016")]]
      [:body {:id (colors/tint party)}
       nav/header
-      [:div.container
+      [:article {:role "main" }
        (party-name)
        (metadata)
-       [:article {:role "main" }
+       [:div.description
         (description)
         (event-contact)
         (event-info)

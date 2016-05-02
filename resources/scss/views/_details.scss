@@ -117,9 +117,13 @@ article li {
 @media (min-width: $medium) {
 
     .party-name {
-        // @include full;
         margin: 1em 0 2em 0;
         text-align: center;
+        width: 100%;
+    }
+
+    .header--party-name {
+      width: 100%;
     }
 
     .event-map img {

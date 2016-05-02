@@ -2,7 +2,7 @@
 // Nav
 // ==========================================================================
 
-nav {
+.nav--global {
     margin: 0px auto;
     padding: 0;
     width: 90%;
@@ -19,7 +19,6 @@ nav {
 // ==========================================================================
 
 .add-event {
-    @include span(last 2);
 
   a {
     @include border-radius(.250rem);
@@ -46,7 +45,7 @@ nav {
     }
 
     svg {
-        fill: #FFF;
+        fill: white;
         margin-right: $spacing-small;
     }
 
@@ -58,7 +57,7 @@ nav {
 // ==========================================================================
 @media (min-width: $medium) {
 
-    nav ul {
+    .nav--global ul {
         display: block;
     }
 
@@ -72,7 +71,7 @@ nav {
 // ==========================================================================
 @media (min-width: $large) {
 
-    nav {
+    .nav--global {
         @include flex;
         width: 100%;
     }
@@ -99,49 +98,49 @@ nav {
 // ==========================================================================
 
 #filters h2 {
-    color: darken($white-smoke, 30);
-    font-size: 1.1rem;
-    font-weight: $weight-medium;
+  color: darken($white-smoke, 30);
+  font-size: 1.1rem;
+  font-weight: $weight-medium;
 }
 
 .button-group {
-    float: left;
-    margin: 0 $leading/2 $leading*2;
+  @include flex;
+  @include flex-direction(column);
+  margin: 0 $leading/2 $leading*2;
 
-
-    .icon {
-        fill: darken($pacific-blue, 5);
-    }
+  .icon {
+      fill: darken($pacific-blue, 5);
+  }
 
 }
 
 .button-group input + label {
-    @include border-radius(0.250rem);
-    background: lighten($pacific-blue, 50);
-    color: darken($pacific-blue, 5);
-    display: inline-block;
-    float: left;
-    font-weight: 500;
-    margin: 8px 8px 0 0;
-    padding: 0.8em;
-    text-align: center;
+  @include border-radius(0.250rem);
+  background: lighten($pacific-blue, 50);
+  color: darken($pacific-blue, 5);
+  display: inline-block;
+  float: left;
+  font-weight: 500;
+  margin: 8px 8px 0 0;
+  padding: 0.8em;
+  text-align: center;
 
-    &:hover,
-    &:focus {
-        background: lighten($pacific-blue, 45);
-        color: darken($pacific-blue, 20);
-    }
+  &:hover,
+  &:focus {
+      background: lighten($pacific-blue, 45);
+      color: darken($pacific-blue, 20);
+  }
 
-    &:hover svg,
-    &:focus svg {
-        fill: desaturate(darken($pacific-blue, 10), 16);
-    }
+  &:hover svg,
+  &:focus svg {
+      fill: desaturate(darken($pacific-blue, 10), 16);
+  }
 }
 
 .button-group input[type="checkbox"]:checked + label {
-    background: $mountain-meadow url('../img/checkmark.svg') 8px center no-repeat;
-    background-size: 16px auto;
-    color: #FFF;
+  background: $mountain-meadow url('../img/checkmark.svg') 8px center no-repeat;
+  background-size: 16px auto;
+  color: white;
 
     svg {
         fill: none;

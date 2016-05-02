@@ -49,18 +49,8 @@ form {
 @media (min-width: $medium) {
 
     form {
-        @include span(first 6);
-    }
-
-}
-
-// @large
-// ==========================================================================
-
-@media (min-width: $large) {
-
-    form {
-        @include span(first 6);
+        @include flex;
+        @include flex-basis(50%);
     }
 
 }
@@ -76,7 +66,6 @@ form li {
 // ==========================================================================
 
 fieldset {
-    // @include full;
     padding: 0 0 $leading*1.5 0;
 
     p {
@@ -90,7 +79,7 @@ fieldset {
 // ==========================================================================
 
 legend {
-    color: $pacific-blue;
+  color: $pacific-blue;
 }
 
 // ==========================================================================
@@ -99,35 +88,35 @@ legend {
 
 input,
 textarea {
-    @include border-radius(0.250rem);
-    @include transition(all .3s ease-in-out);
-    background:rgba($pacific-blue, .1);
-    border: 1px rgba($pacific-blue, 0.4) solid;
-    color: $mine-shaft;
-    display: block;
-    float: left;
-    font-size: 1.1rem; /* 23px / 18px base */
-    font-weight: $weight-base;
-    margin: 0px auto;
-    padding: $leading*1.5 $leading 0;
-    text-align: left;
+  @include border-radius(0.250rem);
+  @include transition(all .3s ease-in-out);
+  background:rgba($pacific-blue, .1);
+  border: 1px rgba($pacific-blue, 0.4) solid;
+  color: $mine-shaft;
+  display: block;
+  float: left;
+  font-size: 1.1rem; /* 23px / 18px base */
+  font-weight: $weight-base;
+  margin: 0px auto;
+  padding: $leading*1.5 $leading 0;
+  text-align: left;
 
-    &:focus {
-        background:#FFF;
-    }
+  &:focus {
+      background:#FFF;
+  }
 
 }
 
 input {
-    min-height: 2.5em;
+  min-height: 2.5em;
 }
 
 ul.checkbox input {
-    min-height: 0;
+  min-height: 0;
 }
 
 textarea {
-    min-height: 8em;
+  min-height: 8em;
 }
 
 
@@ -136,25 +125,25 @@ textarea {
 // ==========================================================================
 
 form label {
-    @include trans-defined(top, ease, 0.2s);
-    color: desaturate($pacific-blue, 20%);
-    display: block;
-    float: left;
-    font-weight: $weight-medium;
-    left: $leading;
-    margin-bottom: 5px;
-    position: relative;
-    top: 2.8em;
+  @include trans-defined(top, ease, 0.2s);
+  color: desaturate($pacific-blue, 20%);
+  display: block;
+  float: left;
+  font-weight: $weight-medium;
+  left: $leading;
+  margin-bottom: 5px;
+  position: relative;
+  top: 2.8em;
 
-    span {
-        font-weight: 400;
-    }
+  span {
+      font-weight: 400;
+  }
 
-    &.focus {
-        color: $pacific-blue;
-        font-size: 1rem;
-        top: 2.3rem;
-    }
+  &.focus {
+      color: $pacific-blue;
+      font-size: 1rem;
+      top: 2.3rem;
+  }
 
 }
 
@@ -166,23 +155,23 @@ form input {
 }
 
 ul.checkbox label {
-    @include border-radius(0.250rem);
-    border: 1px solid $pacific-blue;
-    color: $pacific-blue;
-    display: initial;
-    font-size: 1.333em;
-    left: auto;
-    line-height: 1.67rem;
-    margin: 0;
-    padding: 0.5rem 1rem;
-    top: auto;
-    width: auto;
+  @include border-radius(0.250rem);
+  border: 1px solid $pacific-blue;
+  color: $pacific-blue;
+  display: initial;
+  font-size: 1.333em;
+  left: auto;
+  line-height: 1.67rem;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  top: auto;
+  width: auto;
 
-    &.focus {
-        color: $pacific-blue;
-        font-size: 1.333em;
-        top: auto;
-    }
+  &.focus {
+      color: $pacific-blue;
+      font-size: 1.333em;
+      top: auto;
+  }
 
 }
 
@@ -195,21 +184,21 @@ a.add,
 button,
 .button,
 input[type="submit"] {
-    @include border-radius(0.250rem);
-    border: none;
-    cursor: pointer;
-    font-family: $font-stack;
-    font-size: 1.111rem; /* 19px / 18px base */
-    font-weight: 400;
-    letter-spacing: normal;
-    margin: $leading/2;
-    margin-left: 0;
-    padding: 1em 0.8em;
+  @include border-radius(0.250rem);
+  border: none;
+  cursor: pointer;
+  font-family: $font-stack;
+  font-size: 1.111rem; /* 19px / 18px base */
+  font-weight: 400;
+  letter-spacing: normal;
+  margin: $leading/2;
+  margin-left: 0;
+  padding: 1em 0.8em;
 
-    &:focus,
-    &:hover {
-        border: none;
-    }
+  &:focus,
+  &:hover {
+      border: none;
+  }
 
 }
 

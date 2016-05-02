@@ -3,8 +3,7 @@
             [wwdcparties.render.icons :as icons]))
 
 (def header
-  [:header {:role "header" }
-   [:div.container.bleed
-    [:nav
-     [:ul
-      [:li.site-title [:a {:href "/"} "WWDC Parties " [:span "2016"]]]]]]])
+  [:header {:role "header" :class "header header--global" }
+   [:nav {:role "navigation" :class "nav nav--global"}
+    [:ul
+     [:li.site-title [:a {:href "/"} "WWDC Parties " [:span "2016"]]]]]])
