@@ -3,8 +3,7 @@
             [hiccup.element :refer [javascript-tag]]))
 
 (def scripts
-  (list (include-js "//cdn.jsdelivr.net/jquery.slick/1.5.5/slick.min.js"
-                    "/js/application.js")
+  (list (include-js "/js/application.js")
         (javascript-tag "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
