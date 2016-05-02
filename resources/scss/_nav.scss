@@ -100,28 +100,22 @@
 #filters {
   @include flex($justify: center);
   @include flex-direction(column);
-  margin: 0 $leading/2 $leading*2;
+  margin: $leading/2 0;
 }
 
 .filter__icon {
   @include inline-flex;
-  background: darken($pacific-blue, 5);
-  border: 2px solid $pacific-blue;
+  border: 2px solid transparent;
   border-radius: 100%;
-  fill: white;
-  margin-right: 0.25rem;
-  height: 2.5rem;
-  width: 2.5rem;
+  fill: darken($pacific-blue, 5);
+  height: 1.5rem;
+  width: 1.5rem;
 
   svg {
+    @include align-self(center);
     margin: 0px auto;
-    margin-top: 0.75rem;
   }
 
-}
-
-#filters .icon {
-  // fill: darken($pacific-blue, 5);
 }
 
 .heading--filters {
@@ -133,17 +127,18 @@
 .filter-options {
   @include flex;
   @include align-self(center);
+  @include flex-wrap;
 }
 
 #filters input + label {
   @include flex;
   @include align-items(center);
-  border-radius: 40px;
+  border-radius: 3rem;
   background: lighten($pacific-blue, 50);
   color: darken($pacific-blue, 5);
   font-weight: 500;
-  padding-right: 1rem;
   margin: 8px 8px 0 0;
+  padding-right: 0.5rem;
   text-align: center;
 
   &:hover,
@@ -152,6 +147,7 @@
       color: darken($pacific-blue, 20);
   }
 
+
   &:hover svg,
   &:focus svg {
       fill: desaturate(darken($pacific-blue, 10), 16);
@@ -159,13 +155,39 @@
 }
 
 #filters input[type="checkbox"]:checked + label {
-  background: $mountain-meadow url('../img/checkmark.svg') 8px center no-repeat;
-  background-size: 16px auto;
+  background: $mountain-meadow;
   color: white;
 
   svg {
     fill: none;
   }
+
+  .filter__icon {
+    background: lighten($mountain-meadow, 5) url('../img/checkmark.svg') center center no-repeat;
+    background-size: 1.25rem auto;
+    border-color: $mountain-meadow;
+  }
+
+}
+
+// @medium
+// ==========================================================================
+@media (min-width: $medium) {
+
+  .filter__icon {
+    border-width: 4px;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  #filters input + label {
+    padding-right: 0.75rem;
+  }
+
+  #filters input[type="checkbox"]:checked + label .filter__icon {
+    background-size: 2rem auto;
+  }
+
 }
 
 // @large
@@ -179,12 +201,11 @@
     #filters input + label {
       font-size: 1.111rem;
       margin: $leading/2 $leading/2 $leading/2 0;
-      // padding: 1em 0.8em;
+      padding-right: 1rem;
     }
 
     #filters input[type="checkbox"]:checked + label {
-      background: $mountain-meadow url('../img/checkmark.svg') 10px center no-repeat;
-      background-size: 30px auto;
+      background: $mountain-meadow;
     }
 
 }
