@@ -74,10 +74,21 @@ footer {
 // ==========================================================================
 
 footer {
-	background: $white-smoke;
+	@include flex;
+	@include justify(center);
+	background: darken($white-smoke, 80);
+	bottom: 0;
 	color: darken($white-smoke, 30);
 	padding: 2rem 0;
 	text-align: center;
+	width: 100%;
+}
+
+// @small
+// ==========================================================================
+
+footer {
+	padding: 2rem 0;
 }
 
 // @large

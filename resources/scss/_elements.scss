@@ -2,18 +2,20 @@
 // Event Listings
 // ==========================================================================
 
-.event-listing li {
-    float: left;
+.events {
+  @include flex;
+  @include flex-direction(column);
+  width: 320px;
 }
 
 .event-listing a {
-    @include border-radius(0.25em);
-    @include transition(all 0.3 ease-in-out);
-    display: block;
-    float: left;
-    margin: 4px;
-    position: relative;
-    width: 98%;
+  @include border-radius(0.25em);
+  @include flex;
+  @include flex-direction(column);
+  @include transition(all 0.3 ease-in-out);
+  margin: 4px;
+  position: relative;
+  width: 98%;
 }
 
 .day-title {
@@ -67,22 +69,21 @@
 }
 
 .event-listing .party-time {
-    @include border-radius(0.25em 0.25em 0 0);
-    color: #FFF;
-    display: block;
-    font-weight: $weight-semibold;
-    padding: $spacing-base $leading;
+  @include border-radius(0.25em 0.25em 0 0);
+  color: white;
+  display: block;
+  font-weight: $weight-semibold;
+  padding: $spacing-base $leading;
 }
 
 .party-type {
-    bottom: 0;
-    display: block;
-    float: left;
-    padding: 0 $spacing-base 5px $spacing-base;
+  @include flex($justify: flex-start);
+  @include align-items(flex-end);
+  padding: 0 $spacing-base;
 
-    span, svg, i {
-        margin: 5px;
-    }
+  span, svg, i {
+    margin: 5px;
+  }
 
 }
 
@@ -90,24 +91,22 @@
 // ==========================================================================
 @media (min-width: $medium) {
 
-    .event-listing {
-        display: inline-block;
-        margin: 6px;
-        width: 260px;
-    }
+  .event-listing {
+    margin: 6px;
+  }
 
-    .event-listing a {
-        @include border-radius(0.25em);
-        @include transition(all 0.3 ease-in-out);
-        border: none;
-        min-height: 320px;
+  .event-listing a {
+      @include border-radius(0.25em);
+      @include transition(all 0.3 ease-in-out);
+      border: none;
+      min-height: 320px;
 
-        &:hover,
-        &:focus {
-            @include transform(scale(1.03));
-        }
+      &:hover,
+      &:focus {
+          @include transform(scale(1.03));
+      }
 
-    }
+  }
 
     .day-title {
         display: none;

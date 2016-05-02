@@ -7,7 +7,7 @@
 // ==========================================================================
 
 p {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 // ==========================================================================
@@ -52,7 +52,7 @@ $caribbean-green:	  #1fb78c;
 // Base Colors
 // ==========================================================================
 $white-smoke:       #F4F6F9;
-$pacific-blue:      #08c08c;
+$pacific-blue:      #0088CC;
 $mine-shaft:		    #333333;
 $mountain-meadow:   #1FB78C;
 
@@ -166,10 +166,9 @@ $weight-semibold: 600;
 $weight-bold: 700;
 
 %headings-base {
-    font-family: $font-stack;
-    line-height: $line-height-heading;
+  font-family: $font-stack;
+  line-height: $line-height-heading;
 }
-
 
 // Form Fields
 $form-animation: top, color;
