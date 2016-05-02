@@ -1,2 +1,21 @@
-$(document).ready(function(){$("input, textarea").each(function(){""!=$(this).val()&&$("label[for\x3d'"+this.id+"']").addClass("focus")});$("input, textarea").focus(function(){$("label[for\x3d'"+this.id+"']").addClass("focus")}).blur(function(){""==$(this).val()&&$("label[for\x3d'"+this.id+"']").removeClass("focus")})});$(".section-events").slick({slidesToShow:1.1,arrows:!1,infinite:!1,mobileFirst:!0,slide:".module-day",responsive:[{breakpoint:768,settings:"unslick"}]});var filters=[".event-listing"];
-$(".js-filter").on("change",function(){var a=$(this).attr("data-filter"),b=$.inArray(a,filters);-1!=b?filters.splice(b,1):filters.push(a);a=$(".event-listing");a.show();a.not(filters.join("")).hide();$(".section-events").slick("setPosition")});
+function filterElementsArray() {
+    var filterElements = document.getElementsByClassName('js-filter');
+    return Array.prototype.slice.call(filterElements);
+}
+function listingElementsArray() {
+    var listingElements = document.getElementsByClassName('event-listing');
+    return Array.prototype.slice.call(listingElements);
+}
+function activeFilters() {
+    return filterElementsArray().filter(function (element) { return element.checked; }).map(function (element) { return element.getAttribute('data-filter'); });
+}
+function applyFilters() {
+    var filters = activeFilters();
+    listingElementsArray().forEach(function (element) {
+        var elementClasses = element.className.split(" ");
+        var matchingClasses = elementClasses.filter(function (elementClass) { return filters.indexOf(elementClass) != -1; });
+        var matchesFilters = matchingClasses.length == filters.length;
+        element.style.display = (matchesFilters ? "list-item" : "none");
+    });
+}
+//# sourceMappingURL=application.js.map
