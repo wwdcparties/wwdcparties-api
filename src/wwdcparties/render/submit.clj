@@ -23,15 +23,21 @@
 (defpope logistics [party]
   [:fieldset
    [:legend "When"]
-    [:ul.checkbox
-     (for [day ["Sunday" "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday"]]
-          (list  [:li
-                  [:input {:type "checkbox" :id day :value day :name "day"}]
-                  [:label {:for day} day]]))]
-     (label "choice_time_start" "Starts")
-     (text-field {:type :time} "choice_time_start" (:time party))
-     (label "choice_time_end" "Ends")
-     (text-field {:type :time} "choice_time_end" (:time party))])
+   [:ul.checkbox
+    (for [[value text] {12 "sunday"
+                        13 "monday" 
+                        14 "tuesday" 
+                        15 "wednesday" 
+                        16 "thursday"
+                        17 "friday" 
+                        18 "saturday"}]
+      (list  [:li
+              [:input {:type "checkbox" :id text :value value :name "day"}]
+              [:label {:for text} (clojure.string/capitalize text)]]))]
+   (label "choice_time_start" "Starts")
+   (text-field {:type :time} "choice_time_start" (:time party))
+   (label "choice_time_end" "Ends")
+   (text-field {:type :time} "choice_time_end" (:time party))])
 
 (defpope contact [party]
   [:fieldset
