@@ -1,8 +1,9 @@
 (ns wwdcparties.routes.home
   (:require [clojure.java.io :as io]
-            [compojure.core :refer [defroutes GET]]
+            [compojure.core :refer [defroutes GET POST]]
             [hiccup.page :refer [html5]]
-            [ring.util.http-response :refer [moved-permanently not-found]]
+            [hiccup.core :refer [h]]
+            [ring.util.http-response :refer [moved-permanently found not-found]]
             [wwdcparties.api.db :as db]
             [wwdcparties.render.index :as index]
             [wwdcparties.render.info :as info]
@@ -20,8 +21,12 @@
 (defn submit-page []
   (html5 (submit/page nil)))
 
+(defn submitted-page [request] 
+  (html5 (h request)))
+
 (defroutes home-routes
   (GET "/" [] (moved-permanently "/parties/"))
   (GET "/parties/" [] (index-page))
   (GET "/parties/new" [] (submit-page))
+  (POST "/parties/new" request (submitted-page (:params request)))
   (GET "/parties/:slug" [slug] (info-page slug)))

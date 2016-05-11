@@ -17,8 +17,8 @@
    (text-field {:oninput "loadSuggestions()"} "choice_venue" (:address party))
    [:ul#locations]
    (label "description" "Description")
-   [:input#description-value {:name "description"}]
-   [:trix-editor#description]])
+   [:input#description-value {:name "description" :type "hidden"}]
+   [:trix-editor#description {:input "description-value"}]])
 
 (defpope logistics [party]
   [:fieldset
@@ -26,7 +26,7 @@
     [:ul.checkbox
      (for [day ["Sunday" "Monday" "Tuesday" "Wednesday" "Thursday" "Friday" "Saturday"]]
           (list  [:li
-                  [:input {:type "checkbox" :id day :value day :name day}]
+                  [:input {:type "checkbox" :id day :value day :name "day"}]
                   [:label {:for day} day]]))]
      (label "choice_time_start" "Starts")
      (text-field {:type :time} "choice_time_start" (:time party))
@@ -44,11 +44,24 @@
 (defpope party-type [party]
   [:fieldset
    [:legend "What to expect"]
-    [:ul.checkbox
-     (for [party-type ["Outdoor Event" "Party" "Option 3" "Option 4"]]
-          (list  [:li
-                  [:input {:type "checkbox" :id party-type :value party-type :name party-type}]
-                  [:label {:for party-type} party-type]]))]])
+   [:ul.checkbox
+    (for [[id text] {:outdoors "Outdoor Event" 
+                     :party "Party"
+                     :meetup "Casual Meetup" 
+                     :presentation "Presentation"}]
+      (list  [:li
+              [:input {:type "checkbox" :id id :value id :name "party-type"}]
+              [:label {:for id} text]]))]
+   [:legend "Other details"]
+   [:ul.checkbox
+    (for [[id text] {:18+ "18+" 
+                     :21+ "21+"
+                     :booze "Alcohol Available"
+                     :food "Food Available" 
+                     :rsvp "RSVP/Ticket Required"}]
+      (list [:li
+             [:input {:type "checkbox" :id id :value id :name "meta"}]
+             [:label {:for id} text]]))]])
 
 
 (defpope page [party]
@@ -66,7 +79,7 @@
     (with-party party
       [:div
        [:h1 "Add an event"]
-       (form-to [:post "/new"]
+       (form-to [:post "/parties/new"]
                 (basic-info)
                 (logistics)
                 (contact)
@@ -75,3 +88,4 @@
                 (anti-forgery-field))])
     footer/footer
     scripts/scripts]))
+
