@@ -5,6 +5,7 @@
             [hiccup.core :refer [h]]
             [ring.util.http-response :refer [moved-permanently found not-found]]
             [wwdcparties.api.db :as db]
+            [wwdcparties.api.submit :as sub]
             [wwdcparties.render.index :as index]
             [wwdcparties.render.info :as info]
             [wwdcparties.render.submit :as submit]))
@@ -21,8 +22,9 @@
 (defn submit-page []
   (html5 (submit/page nil)))
 
-(defn submitted-page [request] 
-  (html5 (h request)))
+(defn submitted-page [request]
+  (db/submit-party (sub/form->party request))
+  (html5 "yay"))
 
 (defroutes home-routes
   (GET "/" [] (moved-permanently "/parties/"))

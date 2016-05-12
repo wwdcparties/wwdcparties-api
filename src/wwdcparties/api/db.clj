@@ -55,8 +55,10 @@
    (-> (auth-view {:key username})
        first admin/from-db)))
 
-(defn add-party [party]
-  (clutch/put-document db (party/approved (party/from-json party) false)))
+(defn submit-party [submitted-party]
+  (let [party (party/approved submitted-party false)
+        db (clutch/get-database (env :wwdc-parties-db))]
+    (clutch/put-document db party)))
   
 (defn approve-party [slug]
   (let [party (:value (first (submitted-view {:key slug})))]

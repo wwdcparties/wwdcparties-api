@@ -4,23 +4,6 @@
             [clj-time.format :as tf]
             [clojure.string :as s]))
 
-(defn form->party [form]
-  {:description (:description form)
-   :end_time (form->date (last (form->days (:day form))) (:choice_time_end form))
-   :event_url ""
-   :excerpt ""
-   :location ""
-   :meta (form->meta (:meta form))
-   :name (:choice_party_name form)
-   :slug (name->slug (:choice_party_name form))
-   :sponsor_name ""
-   :sponsor_url ""
-   :start_time (form->date (first (form->days (:day form))) (:choice_time_start form))
-   :street_address ""
-   :twitter_handle ""
-   :type "party"
-   :types (form->types (:party-type form))})
-
 (defn form->days [days]
   (if (nil? days) 
       nil
@@ -51,3 +34,20 @@
       s/lower-case
       (#(s/replace % #"[^A-Za-z\s]" ""))
       (#(s/replace % #"\s" "-"))))
+
+(defn form->party [form]
+  {:description (:description form)
+   :end_time (form->date (last (form->days (:day form))) (:choice_time_end form))
+   :event_url ""
+   :excerpt ""
+   :location ""
+   :meta (form->meta (:meta form))
+   :name (:choice_party_name form)
+   :slug (name->slug (:choice_party_name form))
+   :sponsor_name ""
+   :sponsor_url ""
+   :start_time (form->date (first (form->days (:day form))) (:choice_time_start form))
+   :street_address ""
+   :twitter_handle ""
+   :type "party"
+   :types (form->types (:party-type form))})
