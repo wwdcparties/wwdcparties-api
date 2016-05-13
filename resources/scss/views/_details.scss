@@ -2,18 +2,19 @@
 // Event Details
 // ==========================================================================
 
-.module-time {
+
+
+.meta-time {
 
     .day {
-        display: block;
-        padding: $leading 0;
-        font-size: $font-size + 0.1;
-        font-weight: $weight-medium;
+      @include flex-basis(50%);
+      padding: $leading 0;
+      font-size: $font-size + 0.1;
+      font-weight: $weight-medium;
     }
 
     .title,
     .hour {
-        display: block;
         line-height: 1.5;
     }
 
@@ -28,14 +29,16 @@
     }
 
     .time {
-        display: block;
-        padding: 0;
+      @include flex;
+      @include flex-basis(50%);
+      padding: 0;
     }
 
     .start,
     .end {
-        display: inline-block;
-        width: 50%;
+      @include flex;
+      @include flex-direction(column);
+      width: 50%;
     }
 
 }
@@ -131,28 +134,22 @@ article li {
         max-width: 100%;
     }
 
-    .module-time .day,
-    .module-time .start,
-    .module-time .end {
-        display: table-cell;
-        padding: 0;
+    .meta-time .day,
+    .meta-time .start,
+    .meta-time .end {
         text-align: center;
-        vertical-align: middle;
-        width: auto;
     }
 
-    .module-time .time {
-        display: table;
-        margin: 0px auto;
-        width: 100%;
+    .meta-time .time {
+      @include flex;
     }
 
-    .module-time .start {
+    .meta-time .start {
         border-right: 1px solid darken($white-smoke, 5);
     }
 
-    .module-time .title,
-    .module-time .hour {
+    .meta-time .title,
+    .meta-time .hour {
         padding: 0 $leading;
     }
 

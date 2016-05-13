@@ -32,7 +32,7 @@
          (inf/ordinalize (t/day date)))))
 
 (defn meta-time [party]
-  [:div.module-time
+  [:div.meta-time
    [:span.day (date party)]
    [:div.time
     [:div.start

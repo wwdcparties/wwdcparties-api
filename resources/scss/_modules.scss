@@ -26,10 +26,10 @@
   padding-top: 2rem;
 }
 
-.module-time {
+.meta-time {
+  @include flex($justify: space-between);
   @include border-radius(.25rem);
   background-color: #fff;
-  display: block;
   margin: 0px auto;
   padding-bottom: $leading;
 }
@@ -67,10 +67,10 @@
       margin: $leading*2 0;
   }
 
-  .module-time {
-      display: table;
-      padding-top: $leading;
-      width: 100%;
+  .meta-time {
+    @include flex($justify: spae-between);
+    padding-top: $leading;
+    width: 100%;
   }
 }
 
@@ -81,7 +81,6 @@
     .section-metadata {
       @include justify(flex-end);
       margin-bottom: $leading*3;
-      width: 66%;
     }
 
     .module-location {
