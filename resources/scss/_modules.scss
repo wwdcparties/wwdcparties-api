@@ -10,7 +10,6 @@
 .section-events {
   @include flex;
   background: darken($white-smoke, 80);
-  overflow-x: scroll;
   padding: 1rem;
 }
 
@@ -47,6 +46,16 @@
   padding-left: $leading;
 }
 
+
+// @medium
+// ==========================================================================
+@media (max-width: $medium - 1) {
+
+  .section-events {
+    overflow-x: scroll;
+  }
+
+}
 
 // @medium
 // ==========================================================================
