@@ -11,7 +11,6 @@
 .event-listing a {
   @include border-radius(0.25em);
   @include flex;
-  @include flex-direction(column);
   @include transition(all 0.3 ease-in-out);
   margin: 4px;
   position: relative;
@@ -25,7 +24,6 @@
     line-height: 1;
     margin: $leading;
     margin-top: 0;
-    text-align: center;
 }
 
 .module-day h3 {
@@ -73,6 +71,7 @@
   display: block;
   font-weight: $weight-semibold;
   padding: $spacing-base $leading;
+  text-transform: lowercase;
 }
 
 .party-type {
@@ -111,16 +110,17 @@
   }
 
   .event-listing .party-time {
-      @include border-radius(0.25em 0.25em 0 0);
-      color: #FFF;
-      display: block;
-      font-weight: $weight-semibold;
-      padding: $spacing-base;
+    @include border-radius(0.25em 0 0 0.25em);
+    @include flex-basis(6rem);
+    color: #FFF;
+    display: block;
+    font-weight: $weight-semibold;
+    padding: $spacing-base;
   }
 
   .party-excerpt {
-      margin: $spacing-base;
-      margin-top: 0;
+      margin: 0;
+      padding-left: 0.5rem;
   }
 
 }
@@ -131,7 +131,7 @@
 
     .event-listing a {
         margin: 0;
-        padding: 0 0 1rem 0;
+        padding: 0;
     }
 
 }
@@ -172,7 +172,6 @@
 // ==========================================================================
 
 .submit-event h1 {
-    // @include full;
     border-bottom: .250rem solid lighten($pacific-blue, 50);
 }
 
@@ -249,4 +248,36 @@ footer hr {
 
 .footer-credit {
     margin-top: $spacing-base;
+}
+
+// ==========================================================================
+// Max Small
+// ==========================================================================
+
+@media (max-width: $medium) {
+
+  .day-title {
+    text-align: center;
+  }
+
+  .event-listing a {
+    @include flex-direction(column);
+  }
+
+}
+
+// ==========================================================================
+// @medium and up
+// ==========================================================================
+
+@media (min-width: $medium) {
+
+  .module-day:not(#monday) {
+    margin-top: 2rem;
+  }
+
+  .party-excerpt p {
+    margin-bottom: 0;
+  }
+
 }
