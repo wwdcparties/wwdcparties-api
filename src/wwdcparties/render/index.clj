@@ -77,7 +77,8 @@
 (defn party-listing [party]
   [:li.event-listing {:class (party-classes party)}
    [:a.event-link {:href (str "/parties/" (:slug party))}
-    [:div.event__time (formatted-start party) " to " (formatted-end party)
+    [:div.event-time-type
+     [:div.event__time (formatted-start party) [:span.endash " – "] (formatted-end party)]
      [:div.event-type (party-types party)]]
     [:div.listing-description
      [:div.party-excerpt
