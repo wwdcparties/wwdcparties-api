@@ -100,7 +100,9 @@
 #filters {
   @include flex($justify: center);
   @include flex-direction(column);
-  margin: $leading/2 0;
+  border-bottom: 1px solid darken($pacific-blue, 40);
+  margin: 1rem 0 2rem 0;
+  padding-bottom: 2rem;
 }
 
 .filter__icon {
@@ -118,19 +120,13 @@
 
 }
 
-.heading--filters {
-  color: darken($white-smoke, 30);
-  font-size: 1.1rem;
-  font-weight: $weight-medium;
-}
-
 .filter-options {
   @include flex;
   @include align-self(center);
   @include flex-wrap;
 }
 
-#filters input + label {
+#filters input + .filter__label {
   @include flex;
   @include align-items(center);
   border-radius: 3rem;
@@ -154,7 +150,7 @@
   }
 }
 
-#filters input[type="checkbox"]:checked + label {
+#filters input[type="checkbox"]:checked + .filter__label {
   background: $mountain-meadow;
   color: white;
 
@@ -180,11 +176,11 @@
     width: 2.5rem;
   }
 
-  #filters input + label {
+  #filters input + .filter__label {
     padding-right: 0.75rem;
   }
 
-  #filters input[type="checkbox"]:checked + label .filter__icon {
+  #filters input[type="checkbox"]:checked .filter__icon {
     background-size: 2rem auto;
   }
 
@@ -194,17 +190,13 @@
 // ==========================================================================
 @media (min-width: $large) {
 
-    #filters {
-      margin-bottom: $leading*2;
-    }
-
-    #filters input + label {
+    #filters input + .filter__label {
       font-size: 1.111rem;
       margin: $leading/2 $leading/2 $leading/2 0;
       padding-right: 1rem;
     }
 
-    #filters input[type="checkbox"]:checked + label {
+    #filters input[type="checkbox"]:checked + .filter__label {
       background: $mountain-meadow;
     }
 
