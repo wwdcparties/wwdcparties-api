@@ -72,19 +72,21 @@
 @media (min-width: $large) {
 
     .nav--global {
-        @include flex;
+        @include flex($justify: center);
         width: 100%;
     }
 
     .site-title a {
-        color: $pacific-blue;
-        font-size: 2em;
-        margin-top: 1rem;
+      color: #b99a18;
+      font-size: 6em;
+      font-weight: 600;
+      margin-top: 1rem;
+      text-align: center;
 
-        &:hover,
-        &:focus {
-            color: darken($pacific-blue, 15);
-        }
+      &:hover,
+      &:focus {
+          color: darken($pacific-blue, 15);
+      }
     }
 
     .add-event a {
@@ -190,15 +192,19 @@
 // ==========================================================================
 @media (min-width: $large) {
 
-    #filters input + .filter__label {
-      font-size: 1.111rem;
-      margin: $leading/2 $leading/2 $leading/2 0;
-      padding-right: 1rem;
-    }
+  #filters {
+    margin: 0;
+  }
 
-    #filters input[type="checkbox"]:checked + .filter__label {
-      background: $mountain-meadow;
-    }
+  #filters input + .filter__label {
+    font-size: 1.111rem;
+    margin: $leading/2 $leading/2 $leading/2 0;
+    padding-right: 1rem;
+  }
+
+  #filters input[type="checkbox"]:checked + .filter__label {
+    background: $mountain-meadow;
+  }
 
 }
 
