@@ -17,13 +17,14 @@
 }
 
 .day-title {
-    background: none;
-    color: #fff;
-    font-size: 1.1rem;
-    font-weight: $weight-semibold;
-    line-height: 1;
-    margin: $leading;
-    margin-top: 0;
+  background: none;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: $weight-semibold;
+  line-height: 1;
+  margin: $leading;
+  margin-top: 0;
+  text-align: center;
 }
 
 .listing__title {
@@ -144,6 +145,7 @@
 
   .listing-description {
     @include align-self(center);
+    width: 30rem;
   }
 
 }
@@ -276,10 +278,6 @@
 
 @media (max-width: $medium) {
 
-  .day-title {
-    text-align: center;
-  }
-
   .event-link {
     @include flex-direction(column);
   }
@@ -293,7 +291,12 @@
 @media (min-width: $medium) {
 
   .day {
+    margin: 0px auto;
     margin-top: 2rem;
+  }
+
+  .day-title {
+    font-size: 2em;
   }
 
   .party-excerpt p {
