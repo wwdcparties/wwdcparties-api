@@ -19,7 +19,7 @@
 
 (defpope party-name [party]
   [:div.header--party-name
-   [:h1.party-name (:name party)
+   [:h1.event-title (:name party)
     (if-not (blank? (:sponsor_name party))
       [:span " by "
        (if (blank? (:sponsor_url party))
@@ -128,7 +128,7 @@
       [:article {:role "main" }
        (party-name)
        (metadata)
-       [:div.description
+       [:div.event-description
         (description)
         (event-contact)
         (event-info)
