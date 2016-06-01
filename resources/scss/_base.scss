@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  background: #fff;
+  background: darken($white-smoke, 80);
   color: $body-color;
   font-size: 80%;
   font-weight: $weight-base;
