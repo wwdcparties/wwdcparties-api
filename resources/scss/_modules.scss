@@ -19,7 +19,7 @@
   margin-bottom: $leading*1.5;
 }
 
-.module-day {
+.day {
   @include flex;
   @include flex-direction;
   padding-top: 2rem;
@@ -61,7 +61,7 @@
 // ==========================================================================
 @media (min-width: $medium) {
 
-  .module-day {
+  .day {
       padding-top: 0;
   }
 

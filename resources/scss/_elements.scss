@@ -8,7 +8,7 @@
   @include flex-direction(column);
 }
 
-.event-listing a {
+.event-link {
   @include border-radius(0.25em);
   @include flex;
   @include transition(all 0.3 ease-in-out);
@@ -26,7 +26,7 @@
     margin-top: 0;
 }
 
-.module-day h3 {
+.event__title {
     font-size: 15px;
     font-weight: $weight-semibold;
 }
@@ -52,20 +52,20 @@
 
 @each $day in $days {
 
-    ##{$day} .event-listing a {
+    ##{$day} .event-link {
         background: palette($day, light);
         color: palette($day, dark);
         fill: palette($day, dark);
     }
 
     ##{$day} .party-date,
-    ##{$day} .party-time {
+    ##{$day} .event__time {
         background: palette($day);
     }
 
 }
 
-.event-listing .party-time {
+.event-link .event__time {
   @include border-radius(0.25em 0.25em 0 0);
   color: white;
   display: block;
@@ -74,7 +74,7 @@
   text-transform: lowercase;
 }
 
-.party-type {
+.event-type {
   @include flex($justify: flex-start);
   @include align-items(flex-end);
   padding: 0 $spacing-base;
@@ -95,10 +95,11 @@
 
   .event-listing {
     margin: 6px;
+    max-width: 30em;
   }
 
-  .event-listing a {
-      @include border-radius(0.25em);
+  .event-link {
+      @include border-radius(0.25rem);
       @include transition(all 0.3 ease-in-out);
       border: none;
 
@@ -109,13 +110,14 @@
 
   }
 
-  .event-listing .party-time {
+  .event-listing .event__time {
     @include border-radius(0.25em 0 0 0.25em);
-    @include flex-basis(6rem);
+    @include flex-shrink(0);
     color: #FFF;
     display: block;
     font-weight: $weight-semibold;
     padding: $spacing-base;
+    width: 20%;
   }
 
   .party-excerpt {
@@ -129,7 +131,7 @@
 // ==========================================================================
 @media (min-width: $large) {
 
-    .event-listing a {
+    .event-link {
         margin: 0;
         padding: 0;
     }
@@ -212,12 +214,12 @@
 // Footer Icons
 // ==========================================================================
 
-footer hr {
-    border: 0;
-    border-top: 1px solid darken($white-smoke, 10);
-    display: block;
-    margin: 0px auto;
-    width: 60%;
+.separator--footer {
+  border: 0;
+  border-top: 1px solid darken($white-smoke, 85);
+  display: block;
+  margin: 0px auto;
+  width: 60%;
 }
 
 .footer-icons {
@@ -230,20 +232,17 @@ footer hr {
 }
 
 .footer-icons svg {
-    fill: darken($white-smoke, 15);
+    fill: lighten($pacific-blue, 15);
     width: 18px;
 }
 
 .footer-icons .twitter {
-    fill: darken($white-smoke, 15);
     margin-top: 2px;
 }
 
-.footer-text {
-    a:hover,
-    a:focus {
-        color: darken($pacific-blue, 15);
-    }
+.footer__link:hover,
+.footer__link:focus {
+  color: darken($pacific-blue, 15);
 }
 
 .footer-credit {
@@ -260,7 +259,7 @@ footer hr {
     text-align: center;
   }
 
-  .event-listing a {
+  .event-link {
     @include flex-direction(column);
   }
 
@@ -272,7 +271,7 @@ footer hr {
 
 @media (min-width: $medium) {
 
-  .module-day:not(#monday) {
+  .day:not(#monday) {
     margin-top: 2rem;
   }
 

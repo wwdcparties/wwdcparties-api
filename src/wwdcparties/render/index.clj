@@ -76,16 +76,17 @@
 
 (defn party-listing [party]
   [:li..event-listing {:class (party-classes party)}
-   [:a.party-title {:href (str "/parties/" (:slug party))}
-    [:span.party-time (formatted-start party) " to " (formatted-end party)]
-    [:div.party-excerpt
-     [:h3 (:name party)]
-     [:p (:excerpt party)]]
-    [:div.party-type (party-types party)]]])
+   [:a.event-link {:href (str "/parties/" (:slug party))}
+    [:span.event__time (formatted-start party) " to " (formatted-end party)]
+    [:div.party-info
+     [:div.party-excerpt
+      [:h3.event__title (:name party)]
+      [:p (:excerpt party)]]
+     [:div.event-type (party-types party)]]]])
 
 (defn module-day [day-parties]
   (let [day (party/start (first day-parties))]
-       [:div.module-day {:id (colors/day day)}
+       [:div.day {:id (colors/day day)}
         [:h2.day-title (day-header day)]
         [:ul.events (map party-listing day-parties)]]))
 

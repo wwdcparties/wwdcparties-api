@@ -7,10 +7,10 @@
    [:div
     [:div.footer-text
      [:ul.footer-icons
-      [:li [:a.tint {:href "webcal://2016.wwdcparties.com/calendar"} icons/calendar "Subscribe"]]
-      [:li [:a.tint {:href "http://twitter.com/wwdcparties"} icons/twitter "WWDCParties"]]]
-     [:hr]
+      [:li [:a.footer__link.tint {:href "webcal://2016.wwdcparties.com/calendar"} icons/calendar "Subscribe"]]
+      [:li [:a.footer__link.tint {:href "http://twitter.com/wwdcparties"} icons/twitter "WWDCParties"]]]
+     [:hr.separator.separator--footer]
      [:div.footer-credit
       [:p "Designed and developed by "
-       [:a.tint {:href (str "https://twitter.com/mpgstew")} "Emily Stewart"] " and "
-       [:a.tint {:href (str "http://pado.name/")} "Geoff Pado"] "."]]]]])
+       [:a.footer__link.tint {:href (str "https://twitter.com/mpgstew")} "Emily Stewart"] " and "
+       [:a.footer__link.tint {:href (str "http://pado.name/")} "Geoff Pado"] "."]]]]])
