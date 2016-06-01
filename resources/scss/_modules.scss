@@ -13,13 +13,7 @@
   padding: 1rem;
 }
 
-.section-metadata {
-  border-top: 1px solid darken($white-smoke, 5);
-  border-bottom: 1px solid darken($white-smoke, 5);
-  margin-bottom: $leading*1.5;
-}
-
-.day {
+.event__date {
   @include flex;
   @include flex-direction;
   padding-top: 2rem;
@@ -61,19 +55,14 @@
 // ==========================================================================
 @media (min-width: $medium) {
 
-  .day {
-      padding-top: 0;
+  .event__date {
+    @include flex-direction(row);
+    @include justify(center);
+    padding-top: 1rem;
   }
 
   .section-events {
     @include flex-wrap;
-  }
-
-  .section-metadata {
-      @include border-radius(.25rem);
-      background: $white-smoke;
-      border: 10px solid $white-smoke;
-      margin: $leading*2 0;
   }
 
   .meta-time {
@@ -86,11 +75,6 @@
 // @large
 // ==========================================================================
 @media (min-width: $large) {
-
-    .section-metadata {
-      @include justify(flex-end);
-      margin-bottom: $leading*3;
-    }
 
     .module-location {
       border-top: none;

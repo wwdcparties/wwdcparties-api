@@ -33,7 +33,7 @@
 
 (defn meta-time [party]
   [:div.meta-time
-   [:span.day (date party)]
+   [:span.event__date (date party)]
    [:div.time
     [:div.start
      [:span.title "Begins "]

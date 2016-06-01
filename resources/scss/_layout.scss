@@ -13,20 +13,38 @@ header h1 {
 	padding-top: 0;
 }
 
-// @large
-// ==========================================================================
-@media (min-width: $large) {
-
-	.header--global {
-			background: transparent;
-	}
-
-}
-
 // ==========================================================================
 // Articles
 // ==========================================================================
 
+.event-description {
+	margin: 0px auto;
+}
+
+.section-metadata {
+	@include border-radius(.25rem);
+	background: $white-smoke;
+	border: 10px solid $white-smoke;
+}
+
+
+// @medium
+// ==========================================================================
+@media (min-width: $medium) {
+
+	.event-description {
+		background: lighten($pacific-blue, 60);
+		border-radius: 0.25rem;
+		padding: 2rem;
+	}
+
+	aside {
+		@include flex;
+    @include flex-direction(column);
+		width: 33.33%;
+	}
+
+}
 
 // @large
 // ==========================================================================
@@ -38,22 +56,20 @@ header h1 {
     @include justify(flex-end);
 	}
 
-	.description {
-		@include flex;
-		@include flex-direction(column);
-		width: 66%;
+	.section-metadata,
+	.event-description {
+		margin: 0px auto;
+		width: 42rem;
 	}
 
-}
-
-// @medium
-// ==========================================================================
-@media (min-width: $medium) {
-
-	aside {
+	.event-description {
 		@include flex;
-    @include flex-direction(column);
-		width: 33.33%;
+		@include flex-direction(column);
+	}
+
+	.header--global {
+			background: transparent;
+			padding: 2em;
 	}
 
 }

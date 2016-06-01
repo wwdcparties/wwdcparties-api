@@ -32,13 +32,13 @@
 }
 
 .party-excerpt {
-    display: block;
-    font-weight: 400;
-    margin: $leading/2 $leading;
+  display: block;
+  font-weight: 400;
 }
 
 .party-excerpt p {
     font-size: 15px;
+    font-style: italic;
 }
 
 .party-date {
@@ -63,29 +63,45 @@
     }
 
     ##{$day} .party-date,
-    ##{$day} .event__time {
+    ##{$day} .event-time-type {
         background: palette($day);
-        text-shadow: 1px 1px 15px darken(palette($day), 20);
+    }
+
+    ##{$day} .event__time {
+      text-shadow: 1px 1px 15px darken(palette($day), 20);
     }
 
 }
 
-.event-link .event__time {
+.event-link .event-time-type {
   @include border-radius(0.25em 0.25em 0 0);
-  color: white;
   display: block;
   font-weight: $weight-semibold;
   padding: $spacing-base $leading;
   text-transform: lowercase;
 }
 
-.event-type {
+.event-time-type {
   @include flex($justify: flex-start);
   @include align-items(flex-end);
 }
 
-.icon {
+.event-type {
   margin-top: 1.25rem;
+}
+
+.endash {
+  font-weight: 400;
+}
+
+// Only @small
+// ==========================================================================
+@media (max-width: $medium) {
+
+  .event-link {
+    width: 18rem;
+  }
+
 }
 
 // @medium
@@ -113,18 +129,21 @@
 
   }
 
-  .event-listing .event__time {
+  .event-listing .event-time-type {
     @include border-radius(0.25em 0 0 0.25em);
     @include flex-shrink(0);
-    color: #FFF;
     display: block;
     font-weight: $weight-semibold;
     padding: $spacing-base;
-    width: 20%;
+    width: 6rem;
   }
 
-  .party-excerpt {
-      margin: 0;
+  .event__time {
+    color: white;
+  }
+
+  .listing-description {
+    @include align-self(center);
   }
 
 }
@@ -273,7 +292,7 @@
 
 @media (min-width: $medium) {
 
-  .day:not(#monday) {
+  .day {
     margin-top: 2rem;
   }
 

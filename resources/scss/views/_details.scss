@@ -115,11 +115,15 @@ article li {
     margin-bottom:1rem;
 }
 
+.event-title {
+  color: white;
+}
+
 // @medium
 // ==========================================================================
 @media (min-width: $medium) {
 
-    .party-name {
+    .event-title {
         margin: 1em 0 2em 0;
         text-align: center;
         width: 100%;
@@ -165,11 +169,7 @@ article li {
 // ==========================================================================
 @media (min-width: $large) {
 
-    .party-name {
-        margin: 1em 0 3em 0;
-    }
-
-    .party-name a {
+    .event-title__link {
         font-weight: $weight-base;
     }
 

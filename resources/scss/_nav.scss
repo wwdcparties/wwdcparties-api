@@ -100,7 +100,7 @@
 #filters {
   @include flex($justify: center);
   @include flex-direction(column);
-  border-bottom: 1px solid darken($pacific-blue, 40);
+  border-bottom: 1px solid darken($white-smoke, 85);
   margin: 1rem 0 2rem 0;
   padding-bottom: 2rem;
 }
