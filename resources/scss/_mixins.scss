@@ -60,6 +60,11 @@
   flex-grow: $grow;
 }
 
+@mixin flex-shrink($shrink: 1) {
+  -webkit-flex-shrink: $shrink;
+  flex-shrink: $shrink;
+}
+
 @mixin flex-wrap($wrap: wrap) {
   -webkit-flex-wrap: $wrap;
   flex-wrap: $wrap;
