@@ -17,7 +17,7 @@
 }
 
 .day-title {
-  background: none;
+  background: transparent;
   color: #fff;
   font-size: 1.1rem;
   font-weight: $weight-semibold;
@@ -38,12 +38,12 @@
 }
 
 .party-excerpt p {
-    font-size: 15px;
-    font-style: italic;
+  font-size: 15px;
+  font-style: italic;
 }
 
 .party-date {
-    display: none;
+  display: none;
 }
 
 .listing-description {
