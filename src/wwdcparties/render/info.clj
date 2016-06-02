@@ -35,15 +35,16 @@
   [:div.meta-time
    [:span.event__date (date party)]
    [:div.time
-    [:div.start
+    [:div.event__start
      [:span.title "Begins "]
      [:span.hour (ft/unparse time-formatter (party/start party))]]
-    [:div.end
+    [:div.event__end
      [:span.title "Ends "]
      [:span.hour (ft/unparse time-formatter (party/end party))]]]])
 
 (defn meta-location [party]
   [:div.module-location
+   [:h3.location__title "Location"]
    [:span.address
     (:location party) [:br]
     (:street_address party) [:br]
@@ -99,16 +100,15 @@
    (party-types party)])
 
 (defpope sidebar [party]
-  [:aside
-   [:h3 "Location"]
+  [:aside.event-location
    (meta-location party)
    (if-not (blank? (:street_address party))
      [:div.event-map
       [:a {:href (map/apple-maps-url party)}
-       [:img.map {:alt (str "Map to " (:location party)) :src (map/url party)}]]
-       [:a.map-link.tint {:href (map/apple-maps-url party)}
+       [:img.map__image {:alt (str "Map to " (:location party)) :src (map/url party)}]]
+       [:a.map__link.tint {:href (map/apple-maps-url party)}
         [:span "View in"] " Apple Maps"]
-       [:p.credit "Map by Mapbox"]])])
+       [:p.map__source "Map by Mapbox"]])])
 
 (defpope nav-links [party]
   [:div.nav-links

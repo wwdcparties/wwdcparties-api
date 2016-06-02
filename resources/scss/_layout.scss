@@ -18,9 +18,12 @@ header h1 {
 // ==========================================================================
 
 .event-description {
+	background: lighten($pacific-blue, 60);
 	margin: 0px auto;
+	padding: 1rem;
 }
 
+.event-location,
 .section-metadata {
 	@include border-radius(.25rem);
 	background: $white-smoke;
@@ -33,12 +36,11 @@ header h1 {
 @media (min-width: $medium) {
 
 	.event-description {
-		background: lighten($pacific-blue, 60);
 		border-radius: 0.25rem;
 		padding: 2rem;
 	}
 
-	aside {
+	.event-location {
 		@include flex;
     @include flex-direction(column);
 		width: 33.33%;
@@ -56,10 +58,15 @@ header h1 {
     @include justify(flex-end);
 	}
 
+	.event-location,
 	.section-metadata,
 	.event-description {
 		margin: 0px auto;
 		width: 42rem;
+	}
+
+	.event-location {
+		@include flex-direction(row);
 	}
 
 	.event-description {

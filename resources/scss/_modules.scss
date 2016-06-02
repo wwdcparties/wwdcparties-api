@@ -77,6 +77,9 @@
 @media (min-width: $large) {
 
     .module-location {
+      @include flex-basis(50%);
+      @include flex-shrink(0);
+      @include flex-grow(2);
       border-top: none;
     }
 
