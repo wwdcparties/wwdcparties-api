@@ -122,6 +122,14 @@
 
 }
 
+#label--matches {
+  color: darken($white-smoke, 45);
+  font-size: 1.1em;
+  font-style: italic;
+  text-align: center;
+}
+
+
 .filter-options {
   @include flex;
   @include align-self(center);

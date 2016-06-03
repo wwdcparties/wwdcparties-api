@@ -53,6 +53,14 @@ function getQueryString(field, url) {
   return string ? string[1] : null;
 }
 
+function numberOfEvents() {
+  var numberOfMatches = listingElementsArray().length;
+  var numberDisplayedContainer = document.getElementById('label--matches');
+  numberDisplayedContainer.insertAdjacentHTML('afterbegin', numberOfMatches);
+}
+
+numberOfEvents(0);
+
 window.addEventListener('load', function (event) {
   setFiltersFromParam(getQueryString('filter'));
   applyFilters();
