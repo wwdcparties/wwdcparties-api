@@ -24,7 +24,7 @@
       [:span " by "
        (if (blank? (:sponsor_url party))
          (:sponsor_name party)
-         [:a.tint {:href (:sponsor_url party)} (:sponsor_name party)])])]])
+         [:a.event-title__link.tint {:href (:sponsor_url party)} (:sponsor_name party)])])]])
 
 (defn date [party]
   (let [date (party/start party)]
@@ -44,7 +44,7 @@
 
 (defn meta-location [party]
   [:div.module-location
-   [:h3.location__title "Location"]
+   [:h2.location__title "Location"]
    [:span.address
     (:location party) [:br]
     (:street_address party) [:br]
