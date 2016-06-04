@@ -71,11 +71,18 @@
 // Visual Hide
 // Hides visually, but not from Screen Readers
 @mixin visual-hide {
-    border:0 !important;
+    border: 0;
     clip: rect(1px, 1px, 1px, 1px);
     overflow:hidden;
     padding:0;
-    position: absolute !important;
+    position: absolute;
+}
+
+@mixin visual-show {
+    clip: auto;
+    overflow: auto;
+    padding: inherit;
+    position: static;
 }
 
 
