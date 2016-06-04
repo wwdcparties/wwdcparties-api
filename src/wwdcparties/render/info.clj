@@ -42,9 +42,8 @@
      [:span.title "Ends "]
      [:span.hour (ft/unparse time-formatter (party/end party))]]]])
 
-(defn meta-location [party]
+(defn event-address [party]
   [:div.module-location
-   [:h2.location__title "Location"]
    [:span.address
     (:location party) [:br]
     (:street_address party) [:br]
@@ -76,8 +75,7 @@
      [:li "Open to All"])])
 
 (defpope metadata [party]
-  [:div.section-metadata
-   (meta-time party)])
+   (meta-time party))
 
 (defpope description [party]
   (list
@@ -99,13 +97,13 @@
    [:h3 "Other Details"]
    (party-types party)])
 
-(defpope sidebar [party]
-  [:aside.event-location
-   (meta-location party)
+(defpope metadata-location [party]
+  [:div.event-map
    (if-not (blank? (:street_address party))
-     [:div.event-map
+     [:div
       [:a {:href (map/apple-maps-url party)}
        [:img.map__image {:alt (str "Map to " (:location party)) :src (map/url party)}]]
+       (event-address party)
        [:a.map__link.tint {:href (map/apple-maps-url party)}
         [:span "View in"] " Apple Maps"]
        [:p.map__source "Map by Mapbox"]])])
@@ -127,12 +125,13 @@
       nav/header
       [:article {:role "main" }
        (party-name)
-       (metadata)
+       [:div.section-metadata
+        (metadata)
+        (metadata-location)]
        [:div.event-description
         (description)
         (event-contact)
         (event-info)
-        (nav-links)]
-       (sidebar)]
+        (nav-links)]]
       footer/footer
       scripts/scripts])))
