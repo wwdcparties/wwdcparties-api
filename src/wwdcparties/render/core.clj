@@ -11,12 +11,7 @@
                 :href "/css/main.css"}]
         [:link {:rel "stylesheet"
                 :type "text/css"
-                :href "//cloud.typography.com/6514774/622788/css/fonts.css"}]
-        [:link {:rel "stylesheet"
-                :type "text/css"
-                :href "//cdn.jsdelivr.net/jquery.slick/1.5.5/slick.css"}]
-        [:script {
-               :src  "//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"}]))
+                :href "//cloud.typography.com/6514774/622788/css/fonts.css"}]))
 
 (defn with-party* [f]
   (fn [& [maybe-party & rest :as args]]
