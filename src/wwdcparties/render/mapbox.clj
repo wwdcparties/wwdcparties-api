@@ -35,4 +35,4 @@
          "pin-l+" (color party)
          "(" longitude "," latitude ")/"
          longitude "," latitude ",15/"
-         "400x400@2x.png?access_token=" token)))
+         "600x200@2x.png?access_token=" token)))
