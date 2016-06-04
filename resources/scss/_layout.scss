@@ -76,10 +76,10 @@ header h1 {
 	}
 
 	.section-metadata {
-		@include border-radius(.25rem);
 		@include flex;
 		@include flex-direction(column);
 		background: transparent;
+		border-radius: 0.25rem;
 	}
 
 	.event-location {
@@ -103,7 +103,7 @@ header h1 {
 // Footer
 // ==========================================================================
 
-footer {
+.footer {
 	@include flex;
 	@include justify(center);
 	background: darken($white-smoke, 80);
@@ -114,10 +114,21 @@ footer {
 	width: 100%;
 }
 
+.footer-text {
+	@include flex(center);
+	@include flex-wrap(wrap);
+}
+
+.footer-icons,
+.separator--footer,
+.footer-credit {
+	width: 100%;
+}
+
 // @small
 // ==========================================================================
 
-footer {
+.footer {
 	padding: 2rem 0;
 }
 
@@ -125,7 +136,7 @@ footer {
 // ==========================================================================
 @media (min-width: $large) {
 
-	footer {
+	.footer {
 		padding: 5rem 0;
 	}
 

@@ -4,7 +4,6 @@
 
 (def footer
   [:footer {:role "contentinfo" :class "footer"}
-   [:div
     [:div.footer-text
      [:ul.footer-icons
       [:li [:a.footer__link.tint {:href "webcal://2016.wwdcparties.com/calendar"} icons/calendar "Subscribe"]]
@@ -13,4 +12,4 @@
      [:div.footer-credit
       [:p "Designed and developed by "
        [:a.footer__link.tint {:href (str "https://twitter.com/mpgstew")} "Emily Stewart"] " and "
-       [:a.footer__link.tint {:href (str "http://pado.name/")} "Geoff Pado"] "."]]]]])
+       [:a.footer__link.tint {:href (str "http://pado.name/")} "Geoff Pado"] "."]]]])

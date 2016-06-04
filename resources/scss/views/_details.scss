@@ -68,12 +68,12 @@
   display: block;
 }
 .map__image {
-    @include border-radius(1px);
-    @include box-shadow(0px 2px 4px rgba(black, .25));
-    display: block;
-    border: 6px solid white;
-    margin: 0px auto;
-    max-width: 90%;
+  border: 6px solid white;
+  border-radius: 1px;
+  box-shadow: 0 2px 4px rgba(black, .25);
+  display: block;
+  margin: 0px auto;
+  max-width: 90%;
 }
 
 .event-contact a {

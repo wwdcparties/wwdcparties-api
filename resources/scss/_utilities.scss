@@ -19,23 +19,6 @@
 // Cross Browser Mixins
 // ==========================================================================
 
-
-// Border Radius
-@mixin border-radius($radius) {
-    -webkit-border-radius:		$radius;
-    -moz-border-radius: 		$radius;
-    -ms-border-radius: 			$radius;
-    border-radius: 				$radius;
-}
-
-// Transitions
-@mixin transition($transition) {
-    -webkit-transition: $transition;
-    -moz-transition: $transition;
-    -o-transition: $transition;
-    transition: $transition;
-}
-
 // Transforms
 @mixin transform($transform) {
     -webkit-transform: $transform;
@@ -52,54 +35,21 @@
     box-sizing: border-box;
 }
 
-// Box Shadow
-@mixin box-shadow($box-shadow) {
-    -webkit-box-shadow: $box-shadow;
-    -moz-box-shadow: $box-shadow;
-    box-shadow: $box-shadow;
-}
-
-// Flexbox
-@mixin flexbox {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-}
-
 // Visual Hide
 // Hides visually, but not from Screen Readers
 @mixin visual-hide {
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    overflow:hidden;
-    padding:0;
-    position: absolute;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow:hidden;
+  padding:0;
+  position: absolute;
 }
 
 @mixin visual-show {
-    clip: auto;
-    overflow: auto;
-    padding: inherit;
-    position: static;
-}
-
-
-// Transitions
-@mixin trans-defined($transition-property, $transition-timing, $transition-duration) {
-    -webkit-transition-property: $transition-property;
-       -moz-transition-property: $transition-property;
-             -o-transition-property: $transition-property;
-                    transition-property: $transition-property;
-    -webkit-transition-duration: $transition-duration;
-       -moz-transition-duration: $transition-duration;
-             -o-transition-duration: $transition-duration;
-                    transition-duration: $transition-duration;
-     transition-timing-function: $transition-timing;
-            -webkit-timing-function: $transition-timing;
-               -moz-timing-function: $transition-timing;
-                     -o-timing-function: $transition-timing;
+  clip: auto;
+  overflow: auto;
+  padding: inherit;
+  position: static;
 }
 
 // Colors

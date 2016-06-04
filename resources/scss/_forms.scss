@@ -88,10 +88,10 @@ legend {
 
 input,
 textarea {
-  @include border-radius(0.250rem);
   @include transition(all .3s ease-in-out);
   background:rgba($pacific-blue, .1);
   border: 1px rgba($pacific-blue, 0.4) solid;
+  border-radius: 0.25em;
   color: $mine-shaft;
   display: block;
   float: left;
@@ -125,7 +125,7 @@ textarea {
 // ==========================================================================
 
 form label {
-  @include trans-defined(top, ease, 0.2s);
+  @include transition(top, ease, 0.2s);
   color: desaturate($pacific-blue, 20%);
   display: block;
   float: left;
@@ -155,8 +155,8 @@ form input {
 }
 
 ul.checkbox label {
-  @include border-radius(0.250rem);
   border: 1px solid $pacific-blue;
+  border-radius: 0.25em;
   color: $pacific-blue;
   display: initial;
   font-size: 1.333em;
@@ -184,7 +184,7 @@ a.add,
 button,
 .button,
 input[type="submit"] {
-  @include border-radius(0.250rem);
+  border-radius: 0.25em;
   border: none;
   cursor: pointer;
   font-family: $font-stack;
@@ -204,15 +204,15 @@ input[type="submit"] {
 
 button[type="submit"],
 input[type="submit"] {
-    @include box-shadow(0px 2px 0 #11a279);
-    background-color:desaturate(darken($mountain-meadow, 4), 16);
-    color: lighten($mountain-meadow, 80);
+  background-color:desaturate(darken($mountain-meadow, 4), 16);
+  box-shadow: 0px 2px 0 #11a279;
+  color: lighten($mountain-meadow, 80);
 
     &:hover,
     &:focus {
-        @include box-shadow(0px 2px 0 #0d8764);
-        background-color:desaturate(darken($mountain-meadow, 11), 16);
-        color: lighten($mountain-meadow, 80);
+      background-color:desaturate(darken($mountain-meadow, 11), 16);
+      box-shadow: 0px 2px 0 #0d8764;
+      color: lighten($mountain-meadow, 80);
     }
 
 }

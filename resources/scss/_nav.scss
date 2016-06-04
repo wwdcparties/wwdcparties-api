@@ -22,9 +22,9 @@
 .add-event {
 
   a {
-    @include border-radius(.250rem);
     @include transition(background-color .3s ease);
-    border: 1px solid #FFF;
+    border: 1px solid white;
+    border-radius: 0.25rem;
     color: #FFF;
     display: inline-block;
     float: right;
@@ -79,7 +79,7 @@
 
   .site-title__link,
   .site-title__link:visited {
-    color: #b99a18;
+    color: $pacific-blue;
     font-size: 6em;
     font-weight: 600;
     margin-top: 1rem;
