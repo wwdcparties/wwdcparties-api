@@ -23,11 +23,25 @@ header h1 {
 	padding: 1rem;
 }
 
+.description__header {
+	font-weight: 600;
+	font-size: 1.5em;
+}
+
 .section-metadata {
-	@include border-radius(.25rem);
 	background: white;
 }
 
+
+// ONLY @small
+// ==========================================================================
+@media (max-width: $medium) {
+
+	.section-metadata {
+		padding: 0.5rem;
+	}
+
+}
 
 // @medium
 // ==========================================================================
@@ -35,7 +49,7 @@ header h1 {
 
 	.event-description {
 		border-radius: 0.25rem;
-		padding: 2rem;
+		padding: 1.5rem;
 	}
 
 	.location__title {
@@ -62,6 +76,7 @@ header h1 {
 	}
 
 	.section-metadata {
+		@include border-radius(.25rem);
 		@include flex;
 		@include flex-direction(column);
 		background: transparent;

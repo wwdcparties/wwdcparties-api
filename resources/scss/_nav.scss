@@ -8,10 +8,11 @@
     width: 90%;
 }
 
-.site-title a {
-    color: #FFF;
-    margin-top: 0.5rem;
-    text-decoration: none;
+.site-title__link,
+.site-title__link:visited {
+  color: white;
+  margin-top: 0.5rem;
+  text-decoration: none;
 }
 
 // ==========================================================================
@@ -71,28 +72,29 @@
 // ==========================================================================
 @media (min-width: $large) {
 
-    .nav--global {
-        @include flex($justify: center);
-        width: 100%;
-    }
+  .nav--global {
+    @include flex($justify: center);
+    width: 100%;
+  }
 
-    .site-title a {
-      color: #b99a18;
-      font-size: 6em;
-      font-weight: 600;
-      margin-top: 1rem;
-      text-align: center;
+  .site-title__link,
+  .site-title__link:visited {
+    color: #b99a18;
+    font-size: 6em;
+    font-weight: 600;
+    margin-top: 1rem;
+    text-align: center;
 
-      &:hover,
-      &:focus {
-          color: darken($pacific-blue, 15);
-      }
+    &:hover,
+    &:focus {
+      color: darken($pacific-blue, 15);
     }
+  }
 
-    .add-event a {
-        background-color: $pacific-blue;
-        border-color: $pacific-blue;
-    }
+  .add-event a {
+    background-color: $pacific-blue;
+    border-color: $pacific-blue;
+  }
 }
 
 // ==========================================================================
@@ -149,14 +151,14 @@
 
   &:hover,
   &:focus {
-      background: lighten($pacific-blue, 45);
-      color: darken($pacific-blue, 20);
+    background: lighten($pacific-blue, 45);
+    color: darken($pacific-blue, 20);
   }
 
 
   &:hover svg,
   &:focus svg {
-      fill: desaturate(darken($pacific-blue, 10), 16);
+    fill: desaturate(darken($pacific-blue, 10), 16);
   }
 }
 
@@ -221,27 +223,23 @@
 // ==========================================================================
 
 .nav-links {
-    border-top: 1px solid darken($white-smoke, 5);
-    padding: $spacing-base 0 $leading*2 0;
+  padding: $spacing-base 0 $leading*2 0;
 }
 
-.nav-links a {
+.nav-link__prev {
+  margin-right: $spacing-small;
+}
 
-    &.prev {
-        margin-right: $spacing-small;
-    }
-
-    &.next {
-        float: right;
-        margin-left: $spacing-small;
-        text-align: right;
-    }
+.nav-link__next {
+  float: right;
+  margin-left: $spacing-small;
+  text-align: right;
 }
 
 .nav-links .icon {
-    float: none;
-    margin: 0 $spacing-small;
-    width: 16px;
+  float: none;
+  margin: 0 $spacing-small;
+  width: 16px;
 }
 
 // ==========================================================================
@@ -259,15 +257,25 @@
 
   @each $day in $days {
 
-      ##{$day} .site-title a {
-          color: palette($day);
+    ##{$day} .site-title__link,
+    ##{$day} .site-title__link:visited {
+      color: palette($day);
+      font-size: 1.5em;
 
-          &:hover,
-          &:focus {
-              color: darken(palette($day), 15);
-          }
-
+      &:hover,
+      &:focus {
+        color: darken(palette($day), 15);
       }
 
     }
+
+    ##{$day} .nav--global {
+      @include justify(flex-start);
+    }
+
+    ##{$day} .header--global {
+      padding: 0 2rem;
+    }
+
+  }
 }

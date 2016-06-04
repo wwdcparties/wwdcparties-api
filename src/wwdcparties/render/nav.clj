@@ -6,4 +6,4 @@
   [:header {:role "header" :class "header header--global" }
    [:nav {:role "navigation" :class "nav nav--global"}
     [:ul
-     [:li.site-title [:a {:href "/"} "WWDC Parties " [:span "2016"]]]]]])
+     [:li.site-title [:a.site-title__link {:href "/"} "WWDC Parties " [:span "2016"]]]]]])

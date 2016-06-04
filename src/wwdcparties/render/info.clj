@@ -79,7 +79,7 @@
 
 (defpope description [party]
   (list
-   [:h2 "Event Description"]
+   [:h2.description__header "Event Description"]
    (:description party)))
 
 (defpope event-contact [party]
@@ -98,22 +98,23 @@
    (party-types party)])
 
 (defpope metadata-location [party]
-  [:div.event-map
+  [:div.event-location
    (if-not (blank? (:street_address party))
-     [:div
+     [:div.event-map
       [:a {:href (map/apple-maps-url party)}
        [:img.map__image {:alt (str "Map to " (:location party)) :src (map/url party)}]]
        (event-address party)
-       [:a.map__link.tint {:href (map/apple-maps-url party)}
-        [:span "View in"] " Apple Maps"]
-       [:p.map__source "Map by Mapbox"]])])
+       [:div.map-actions
+        [:a.map__link.tint {:href (map/apple-maps-url party)}
+         [:span "View in"] " Apple Maps"]
+        [:p.map__source "Map by Mapbox"]]])])
 
 (defpope nav-links [party]
   [:div.nav-links
    (if (not (nil? (:prev party)))
-     [:a.prev {:href (str "/parties/" (:slug (:prev party)))} icons/arrow-left (str (:name (:prev party)))])
+     [:a.nav-link__prev {:href (str "/parties/" (:slug (:prev party)))} icons/arrow-left (str (:name (:prev party)))])
    (if (not (nil? (:next party)))
-     [:a.next {:href (str "/parties/" (:slug (:next party)))} (str (:name (:next party))) icons/arrow-right])])
+     [:a.nav-link__next {:href (str "/parties/" (:slug (:next party)))} (str (:name (:next party))) icons/arrow-right])])
 
 (defn page [party]
   (with-party party
@@ -131,7 +132,7 @@
        [:div.event-description
         (description)
         (event-contact)
-        (event-info)
-        (nav-links)]]
+        (event-info)]
+       (nav-links)]
       footer/footer
       scripts/scripts])))

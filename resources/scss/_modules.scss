@@ -14,9 +14,8 @@
 }
 
 .event__date {
-  @include flex;
+  @include flex($justify: center);
   @include flex-direction;
-  padding-top: 2rem;
 }
 
 .meta-time {
@@ -92,7 +91,7 @@
     padding-top: 1.5rem;
   }
 
-  .event-map {
+  .event-location {
     border-radius: 0.25rem;
   }
 }

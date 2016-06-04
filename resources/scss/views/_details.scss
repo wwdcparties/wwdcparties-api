@@ -60,7 +60,7 @@
 }
 
 .event-contact,
-.event-map {
+.event-location {
     margin: $leading 0;
 }
 
@@ -125,6 +125,16 @@ article li {
   border-bottom-width: 1px;
 }
 
+// ONLY @small
+// ==========================================================================
+@media (max-width: $medium) {
+
+  .header--party-name {
+    padding: 0 1rem;
+  }
+
+}
+
 // @medium
 // ==========================================================================
 @media (min-width: $medium) {
@@ -177,13 +187,27 @@ article li {
 // ==========================================================================
 @media (min-width: $large) {
 
-    .event-title__link {
-      font-weight: $weight-base;
-    }
+  .event-title {
+    font-size: 3.5em;
+  }
 
-    .event-map {
-      background: white;
-    }
+  .event-title__link {
+    font-weight: $weight-base;
+  }
+
+  .event-location {
+    background: white;
+  }
+
+  .event-map {
+    @include flex;
+    @include flex-wrap(wrap);
+  }
+
+  .map-actions {
+    @include align-self(center);
+  }
+
 
 }
 
@@ -193,22 +217,18 @@ article li {
 // Party details + icons
 // ==========================================================================
 
-.event-info {
+.list-details {
+  @include flex($justify: flex-start);
+  margin: 0;
+  width: auto;
+}
 
-    ul {
-      margin: $leading 0;
-    }
-
-    ul li {
-      color: darken($white-smoke, 40);
-      display: inline-block;
-      fill: darken($white-smoke, 20);
-      float: left;
-      font-weight: $weight-medium;
-      font-style: italic;
-      list-style: none;
-      margin: $spacing-small;
-      text-align: center;
-    }
-
+.event-info li {
+  color: darken($white-smoke, 40);
+  fill: darken($white-smoke, 20);
+  font-weight: $weight-medium;
+  font-style: italic;
+  list-style: none;
+  margin: $spacing-small;
+  text-align: center;
 }
