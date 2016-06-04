@@ -119,6 +119,12 @@ article li {
   color: white;
 }
 
+.event-title__link {
+  @include transition(150ms border-color ease-in);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
 // @medium
 // ==========================================================================
 @media (min-width: $medium) {
@@ -134,7 +140,10 @@ article li {
   }
 
   .map__image {
-    border: 10px solid white;
+    border: none;
+    border-radius: 0.25rem  0.25rem 0 0;
+    box-shadow: none;
+    max-width: 100%;
   }
 
   .meta-time .day,
@@ -169,7 +178,11 @@ article li {
 @media (min-width: $large) {
 
     .event-title__link {
-        font-weight: $weight-base;
+      font-weight: $weight-base;
+    }
+
+    .event-map {
+      background: white;
     }
 
 }

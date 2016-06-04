@@ -23,11 +23,9 @@ header h1 {
 	padding: 1rem;
 }
 
-.event-location,
 .section-metadata {
 	@include border-radius(.25rem);
-	background: $white-smoke;
-	border: 10px solid $white-smoke;
+	background: white;
 }
 
 
@@ -40,10 +38,8 @@ header h1 {
 		padding: 2rem;
 	}
 
-	.event-location {
-		@include flex;
-    @include flex-direction(column);
-		width: 33.33%;
+	.location__title {
+		font-size: 1.5em;
 	}
 
 }
@@ -63,6 +59,12 @@ header h1 {
 	.event-description {
 		margin: 0px auto;
 		width: 42rem;
+	}
+
+	.section-metadata {
+		@include flex;
+		@include flex-direction(column);
+		background: transparent;
 	}
 
 	.event-location {

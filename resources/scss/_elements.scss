@@ -109,10 +109,6 @@
 // ==========================================================================
 @media (min-width: $medium) {
 
-  .events {
-    @include align-items(flex-start);
-  }
-
   .event-listing {
     margin: 6px;
     max-width: 30em;
@@ -231,6 +227,16 @@
 
     }
 
+    ##{$day} .event-title__link {
+      border-color: darken(palette($day), 50);
+    }
+
+    ##{$day} .event-title__link:hover,
+    ##{$day} .event-title__link:focus {
+      border-color: darken(palette($day), 15);
+      border-bottom-width: 2px;
+    }
+
 }
 
 // ==========================================================================
@@ -293,6 +299,7 @@
   .day {
     margin: 0px auto;
     margin-top: 2rem;
+    width: 100%;
   }
 
   .day-title {

@@ -66,7 +66,9 @@
   }
 
   .meta-time {
-    @include flex($justify: spae-between);
+    @include flex($justify: space-between);
+    background-color: darken($white-smoke, 83);
+    color: white;
     padding-top: $leading;
     width: 100%;
   }
@@ -76,11 +78,21 @@
 // ==========================================================================
 @media (min-width: $large) {
 
-    .module-location {
-      @include flex-basis(50%);
-      @include flex-shrink(0);
-      @include flex-grow(2);
-      border-top: none;
-    }
+  .module-location,
+  .map__link,
+  .map__source {
+    padding: 0 1.5rem;
+  }
 
+  .module-location {
+    @include flex-basis(50%);
+    @include flex-shrink(0);
+    @include flex-grow(2);
+    border-top: none;
+    padding-top: 1.5rem;
+  }
+
+  .event-map {
+    border-radius: 0.25rem;
+  }
 }
