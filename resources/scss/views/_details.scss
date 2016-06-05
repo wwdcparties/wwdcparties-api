@@ -149,10 +149,14 @@ article li {
     width: 100%;
   }
 
+  .event-map {
+    @include flex($justify: center);
+    @include flex-wrap(wrap);
+  }
+
   .map__image {
-    border: none;
-    border-radius: 0.25rem  0.25rem 0 0;
-    box-shadow: none;
+    border-radius: 0.25rem;
+    margin-bottom: 20px;
     max-width: 50%;
   }
 
@@ -201,10 +205,11 @@ article li {
 
   .event-map {
     @include flex;
-    @include flex-wrap(wrap);
   }
 
   .map__image {
+    border-radius: 0.25rem 0.25rem 0 0;
+    margin-bottom: 0;
     max-width: 100%;
   }
 
