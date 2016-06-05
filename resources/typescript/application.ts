@@ -66,6 +66,9 @@ function getQueryString(field: string, url?: string) {
 }
 
 window.addEventListener('load', event => {
-	setFiltersFromParam(getQueryString('filter'));
-	applyFilters();
+	var filterQuery = getQueryString('filter');
+	if (filterQuery != null) {
+		setFiltersFromParam(filterQuery);
+		applyFilters();
+	}
 });

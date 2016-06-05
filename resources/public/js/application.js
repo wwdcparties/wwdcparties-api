@@ -57,7 +57,10 @@ function getQueryString(field, url) {
     return string ? string[1] : null;
 }
 window.addEventListener('load', function (event) {
-    setFiltersFromParam(getQueryString('filter'));
-    applyFilters();
+    var filterQuery = getQueryString('filter');
+    if (filterQuery != null) {
+        setFiltersFromParam(filterQuery);
+        applyFilters();
+    }
 });
 //# sourceMappingURL=application.js.map
