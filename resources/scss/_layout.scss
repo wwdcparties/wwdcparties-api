@@ -92,6 +92,7 @@ header h1 {
 	}
 
 	.header--global {
+		@include visual-hide; // TEMPORARY
 		background: transparent;
 		margin: 2rem 0 0 0;
 		padding: 2rem;
