@@ -319,6 +319,10 @@
 
 @media (hover: hover) {
 
+  .event-time {
+    height: 50px;
+  }
+
   .event-type {
     @include flex($justify: center);
     @include align-items(center);
@@ -329,7 +333,7 @@
     .event-link:hover &,
     .event-link:focus & {
       @include transition(opacity 300ms ease);
-      height: auto;
+      height: 50px;
       opacity: 1;
     }
 
