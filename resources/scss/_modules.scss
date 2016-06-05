@@ -77,6 +77,10 @@
 // ==========================================================================
 @media (min-width: $large) {
 
+  .section-events {
+    width: 75%;  
+  }
+
   .module-location,
   .map__link,
   .map__source {
