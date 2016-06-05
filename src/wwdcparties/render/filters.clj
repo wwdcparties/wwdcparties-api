@@ -10,6 +10,8 @@
 
 (def filter-buttons
   (list [:div#filters
+         [:h1.site-title.site-title--home
+          [:a.site-title__link--home {:href "/"} "WWDCParties 2016"]]
          [:div.filter-options
           (filter-button "alcohol" icons/booze "Alcohol")
           (filter-button "food" icons/food "Food")
