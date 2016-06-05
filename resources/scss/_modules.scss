@@ -43,7 +43,7 @@
 
 // ONLY @small
 // ==========================================================================
-@media (max-width: $medium) {
+@media (max-width: $medium - 1) {
 
   .section-events {
     display: inline-block; // for overflow

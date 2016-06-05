@@ -98,7 +98,7 @@
 
 // Only @small
 // ==========================================================================
-@media (max-width: $medium) {
+@media (max-width: $medium - 1) {
 
   .event-link {
     width: 18rem;
@@ -213,7 +213,7 @@
 // Max Small
 // ==========================================================================
 
-@media (max-width: $medium) {
+@media (max-width: $medium - 1) {
 
   .event-link {
     @include flex-direction(column);

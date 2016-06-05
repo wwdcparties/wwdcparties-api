@@ -67,10 +67,20 @@
 
 // ONLY @small
 // ==========================================================================
-@media (max-width: $medium) {
+@media (max-width: $medium - 1) {
 
   .filter__label {
     width: 6rem;
+  }
+
+}
+
+// ONLY @small
+// ==========================================================================
+@media (min-width: $medium - 0.9) and (max-width: $medium) {
+
+  .filter__label {
+    width: 8rem;
   }
 
 }

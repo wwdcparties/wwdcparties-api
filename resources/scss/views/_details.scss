@@ -127,7 +127,7 @@ article li {
 
 // ONLY @small
 // ==========================================================================
-@media (max-width: $medium) {
+@media (max-width: $medium - 1) {
 
   .header--party-name {
     padding: 0 1rem;
