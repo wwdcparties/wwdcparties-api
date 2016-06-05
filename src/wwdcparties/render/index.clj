@@ -101,7 +101,7 @@
   (list
    [:head shared-head
     [:title "WWDC Parties 2016"]]
-   [:body#index
+   [:body.home
     nav/header
     (container parties)
     scripts/scripts]))
