@@ -15,6 +15,23 @@
     @return map-get(map-get($palettes, $palette), $shade);
 }
 
+
+// ==========================================================================
+// Pure Tint/Shade
+//
+// Sass default is to use lighten/darken, which de/saturates the color.
+// This uses a pure white/black.
+// ==========================================================================
+
+@function tint($color, $percent) {
+  @return mix(#FFF, $color, $percent);
+}
+
+@function shade($color, $percent) {
+  @return mix(#000, $color, $percent);
+}
+
+
 // ==========================================================================
 // Cross Browser Mixins
 // ==========================================================================
