@@ -6,6 +6,7 @@
   @include flex;
   @include align-items(center);
   @include flex-direction(column);
+  white-space: normal;
 }
 
 .event-link {
@@ -88,7 +89,7 @@
 }
 
 .event-type {
-  margin-top: 1.25rem;
+  display: none;
 }
 
 .endash {
@@ -258,7 +259,6 @@
     @include flex($justify: center);
     @include align-items(center);
     height: 0;
-    margin-top: 0;
     opacity: 0;
 
     .event-link:hover &,
