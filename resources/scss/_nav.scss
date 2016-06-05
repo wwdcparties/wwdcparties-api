@@ -93,6 +93,8 @@
   @include flex;
   @include align-self(center);
   @include flex-wrap;
+  position: fixed;
+  width: 24.5%; // HACK
 }
 
 .filter__label {
