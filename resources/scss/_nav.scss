@@ -36,65 +36,22 @@
     &:hover,
     &:focus {
       background-color: darken($pacific-blue, 10%);
-      color: #FFF;
+      color: white;
       text-shadow:0px -1px 1px darken( $pacific-blue, 2%);
     }
 
-    &:hover svg,
-    &:focus svg {
-        fill: #FFF;
+    &:hover .icon,
+    &:focus .icon {
+        fill: white;
     }
 
-    svg {
+    .icon {
         fill: white;
         margin-right: $spacing-small;
     }
 
   }
 
-}
-
-// @medium
-// ==========================================================================
-@media (min-width: $medium) {
-
-    .nav--global ul {
-        display: block;
-    }
-
-    .add-event a {
-        padding: 1rem;
-    }
-
-}
-
-// @large
-// ==========================================================================
-@media (min-width: $large) {
-
-  .nav--global {
-    @include flex($justify: center);
-    width: 100%;
-  }
-
-  .site-title__link,
-  .site-title__link:visited {
-    color: $pacific-blue;
-    font-size: 6em;
-    font-weight: 600;
-    margin-top: 1rem;
-    text-align: center;
-
-    &:hover,
-    &:focus {
-      color: darken($pacific-blue, 15);
-    }
-  }
-
-  .add-event a {
-    background-color: $pacific-blue;
-    border-color: $pacific-blue;
-  }
 }
 
 // ==========================================================================
@@ -117,7 +74,7 @@
   height: 1.5rem;
   width: 1.5rem;
 
-  svg {
+  .icon {
     @include align-self(center);
     margin: 0px auto;
   }
@@ -138,12 +95,11 @@
   @include flex-wrap;
 }
 
-#filters input + .filter__label {
+.filter__label {
   @include flex;
   @include align-items(center);
   border-radius: 3rem;
   background: lighten($pacific-blue, 50);
-  color: darken($pacific-blue, 5);
   font-weight: 500;
   margin: 8px 8px 0 0;
   padding-right: 0.5rem;
@@ -156,66 +112,14 @@
   }
 
 
-  &:hover svg,
-  &:focus svg {
+  &:hover .icon,
+  &:focus .icon {
     fill: desaturate(darken($pacific-blue, 10), 16);
   }
 }
 
-#filters input[type="checkbox"]:checked + .filter__label {
-  background: $mountain-meadow;
-  color: white;
-
-  svg {
-    fill: none;
-  }
-
-  .filter__icon {
-    background: lighten($mountain-meadow, 5) url('../img/checkmark.svg') center center no-repeat;
-    background-size: 1.25rem auto;
-    border-color: $mountain-meadow;
-  }
-
-}
-
-// @medium
-// ==========================================================================
-@media (min-width: $medium) {
-
-  .filter__icon {
-    border-width: 4px;
-    height: 2.5rem;
-    width: 2.5rem;
-  }
-
-  #filters input + .filter__label {
-    padding-right: 0.75rem;
-  }
-
-  #filters input[type="checkbox"]:checked .filter__icon {
-    background-size: 2rem auto;
-  }
-
-}
-
-// @large
-// ==========================================================================
-@media (min-width: $large) {
-
-  #filters {
-    margin: 0;
-  }
-
-  #filters input + .filter__label {
-    font-size: 1.111rem;
-    margin: $leading/2 $leading/2 $leading/2 0;
-    padding-right: 1rem;
-  }
-
-  #filters input[type="checkbox"]:checked + .filter__label {
-    background: $mountain-meadow;
-  }
-
+.js-filter:checked + .filter__label .icon {
+  fill: none;
 }
 
 // ==========================================================================
@@ -250,10 +154,146 @@
   display: none;
 }
 
+// @medium
+// ==========================================================================
+@media (min-width: $medium) {
+
+  .nav--global ul {
+      display: block;
+  }
+
+  .add-event a {
+      padding: 1rem;
+  }
+
+  .filter__icon {
+    border-width: 4px;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
+
+  .filter__label {
+    padding-right: 0.75rem;
+  }
+
+  .js-filter:checked .filter__icon {
+    background-size: 2rem auto;
+  }
+
+}
+
+// up to @large
+// ==========================================================================
+@media (max-width: $large) {
+
+  .filter__label {
+    color: darken($pacific-blue, 5);
+  }
+
+  .js-filter:checked + .filter__label {
+    background: $mountain-meadow;
+    color: white;
+
+    .filter__icon {
+      background: lighten($mountain-meadow, 5) url('../img/checkmark.svg') center center no-repeat;
+      background-size: 1.25rem auto;
+      border-color: $mountain-meadow;
+    }
+
+  }
+
+}
 
 // @large
 // ==========================================================================
 @media (min-width: $large) {
+
+
+  .nav--global {
+    @include flex($justify: center);
+    width: 100%;
+  }
+
+  .site-title__link,
+  .site-title__link:visited {
+    color: $pacific-blue;
+    font-size: 3em;
+    font-weight: 600;
+    margin-top: 1rem;
+    text-align: center;
+
+    &:hover,
+    &:focus {
+      color: darken($pacific-blue, 15);
+    }
+  }
+
+  .add-event a {
+    background-color: $pacific-blue;
+    border-color: $pacific-blue;
+  }
+
+  #parties {
+    @include flex($justify: space-between);
+  }
+
+  #filters {
+    @include justify(flex-start);
+    background: darken($white-smoke, 85);
+    margin: 0;
+    padding-top: 2em;
+    width: 25%;
+  }
+
+  .filter-options {
+    @include align-content(flex-start);
+    @include align-self(stretch);
+  }
+
+  .filter__label {
+    @include flex-basis(100%);
+    background: transparent;
+    border-radius: 0;
+    font-size: 1em;
+    margin: $leading/2 0;
+    padding-right: 1rem;
+  }
+
+  .filter__label {
+    color: white;
+    border-left: 6px solid transparent;
+  }
+
+  .icon {
+
+    .filter__label:hover &,
+    .filter__label:focus & {
+      fill: $mountain-meadow;
+    }
+
+  }
+
+  .js-filter + .filter__label:hover,
+  .js-filter + .filter__label:focus {
+    background: darken($white-smoke, 90);
+    color: white;
+  }
+
+  .js-filter:checked + .filter__label {
+    background: darken($white-smoke, 90);
+    border-left: 6px solid $checked-green;
+
+    &:hover,
+    &:focus {
+      color: white;
+    }
+
+    .filter__icon {
+      background: url('../img/checkmark.svg') center center no-repeat;
+      background-size: 1.25rem auto;
+    }
+
+  }
 
   @each $day in $days {
 
