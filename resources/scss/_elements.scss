@@ -46,6 +46,11 @@
   padding: 0.5rem;
 }
 
+.event__time {
+  color: white;
+}
+
+
 // ==========================================================================
 // Outputs day-specific theme colors.
 // Settings + map is in '_config.scss'.
@@ -134,10 +139,6 @@
     font-weight: $weight-semibold;
     padding: $spacing-base;
     width: 6rem;
-  }
-
-  .event__time {
-    color: white;
   }
 
   .listing-description {
