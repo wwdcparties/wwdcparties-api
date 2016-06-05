@@ -3,7 +3,6 @@
 // ==========================================================================
 
 .section-events {
-  @include flex;
   background: darken($white-smoke, 80);
   padding: 1rem;
 }
@@ -47,7 +46,13 @@
 @media (max-width: $medium) {
 
   .section-events {
+    display: inline-block; // for overflow
     overflow-x: scroll;
+    white-space: nowrap;
+  }
+
+  .day {
+    display: inline-block;
   }
 
   .module-location {
@@ -67,6 +72,7 @@
   }
 
   .section-events {
+    @include flex;
     @include flex-wrap;
   }
 
