@@ -16,5 +16,4 @@
           (filter-button "meetup" icons/chat "Meetup")
           (filter-button "presentation" icons/presentation "Presentation")
           (filter-button "all-ages" icons/all-ages "All Ages")
-          (filter-button "outdoors" icons/tree "Outdoors")]
-        [:label#label--matches.label " matched events"]]))
+          (filter-button "outdoors" icons/tree "Outdoors")]]))

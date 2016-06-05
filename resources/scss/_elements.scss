@@ -58,20 +58,26 @@
 @each $day in $days {
 
     ##{$day} .event-link {
-        background: palette($day, light);
-        color: palette($day, dark);
-        fill: palette($day, dark);
+      background: palette($day, light);
+      color: palette($day, dark);
+      fill: palette($day, dark);
     }
 
     ##{$day} .party-date,
     ##{$day} .event-time-type {
-        background: palette($day);
+      background: palette($day);
     }
 
     ##{$day} .event__time {
       text-shadow: 1px 1px 15px darken(palette($day), 20);
     }
 
+}
+
+// override
+#wednesday .event-time-type {
+  color: darken(palette(wednesday, dark), 15);
+  fill: darken(palette(wednesday, dark), 15);
 }
 
 .event-link .event-time-type {
@@ -260,7 +266,7 @@
     margin: $spacing-small;
 }
 
-.footer-icons svg {
+.footer-icons .icon {
     fill: lighten($pacific-blue, 15);
     width: 18px;
 }

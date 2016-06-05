@@ -140,9 +140,9 @@ article li {
 @media (min-width: $medium) {
 
   .event-title {
-    margin: 1em 0 2em 0;
+    margin: 1em auto 2em auto;
     text-align: center;
-    width: 100%;
+    width: 90%;
   }
 
   .header--party-name {
