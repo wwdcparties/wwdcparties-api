@@ -30,6 +30,18 @@ header h1 {
   text-decoration: none;
 }
 
+.site-title--home {
+  font-size: 1.5em;
+	margin-left: -1rem; // optically align
+  text-align: center;
+}
+
+.site-title__link--home {
+	font-size: 1em;
+	margin: 0;
+}
+
+
 // ==========================================================================
 // Previous + Next Links
 // ==========================================================================
@@ -62,6 +74,15 @@ header h1 {
   display: none;
 }
 
+// ONLY @small
+// ==========================================================================
+@media (max-width: $medium) {
+
+	.home .header--global {
+		background: transparent;
+	}
+
+}
 // @medium
 // ==========================================================================
 @media (min-width: $medium) {
@@ -72,15 +93,28 @@ header h1 {
 
 }
 
+// up to @large
+// ==========================================================================
+@media (max-width: $large) {
+
+	.site-title--home {
+		display: none;
+	}
+
+}
+
 // @large
 // ==========================================================================
 @media (min-width: $large) {
 
   .header--global {
-		@include visual-hide; // TEMPORARY
 		background: transparent;
 		margin: 2rem 0 0 0;
 		padding: 2rem;
+	}
+
+	.home .header--global {
+		@include visual-hide;
 	}
 
   .nav--global {
