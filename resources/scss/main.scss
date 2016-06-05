@@ -8,18 +8,20 @@ Emily Paige Stewart // http://emilypstewart.com // @mpgstew
 -------------------------------------------------------------------*/
 
 // Config
-@import "_mixins.scss";
-@import "_config.scss";
-@import "_reset.scss";
-
-// Definings
-@import "_utilities.scss";
+@import "config/_mixins.scss";
+@import "config/_config.scss";
+@import "config/_reset.scss";
+@import "config/_utilities.scss";
 
 // Base
 @import "_base.scss";
 
-// Navigation
-@import "_nav.scss";
+// Components
+@import "components/_nav.scss";
+@import "components/_filters.scss";
+@import "components/_icons.scss";
+@import "components/_forms.scss";
+@import "components/_footer.scss";
 
 // Layout
 @import "_layout.scss";
@@ -27,7 +29,6 @@ Emily Paige Stewart // http://emilypstewart.com // @mpgstew
 // Elements and Modules
 @import "_modules.scss";
 @import "_elements.scss";
-@import "_forms.scss";
 
 // Views
 @import "views/_details.scss";

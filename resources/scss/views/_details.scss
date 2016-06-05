@@ -52,28 +52,28 @@
     }
 
     .address {
-        font-weight: $weight-base;
-        margin-bottom: 0.5rem;
-        padding-bottom: 0.5rem;
+      font-weight: $weight-base;
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.5rem;
     }
 
 }
 
-.event-contact,
+.event-contact {
+  margin: $leading 0;
+}
+
 .event-location {
-    margin: $leading 0;
+  margin-bottom: $leading;
 }
 
 .map__link {
   display: block;
 }
 .map__image {
-  border: 6px solid white;
-  border-radius: 1px;
-  box-shadow: 0 2px 4px rgba(black, .25);
   display: block;
   margin: 0px auto;
-  max-width: 90%;
+  max-width: 100%;
 }
 
 .event-contact a {
@@ -86,33 +86,33 @@
 }
 
 .map__source {
-    font-weight: $weight-base;
-    font-style: italic;
+  font-weight: $weight-base;
+  font-style: italic;
 }
 
 .map__link {
-    font-weight: $weight-medium;
-    margin-top: $leading;
+  font-weight: $weight-medium;
+  margin-top: $leading;
 
-    span {
-        color: $body-color;
-        font-weight: $weight-base;
-    }
+  span {
+    color: white;
+    font-weight: $weight-base;
+  }
 
 }
 
 article ol,
 article ul {
-    width: 84%;
-    margin: 8%;
-    padding: 0;
+  width: 84%;
+  margin: 8%;
+  padding: 0;
 }
 
 article li {
-    line-height: $line-height;
-    list-style: disc;
-    max-width: 100%;
-    margin-bottom:1rem;
+  line-height: $line-height;
+  list-style: disc;
+  max-width: 100%;
+  margin-bottom:1rem;
 }
 
 .event-title {
@@ -153,7 +153,7 @@ article li {
     border: none;
     border-radius: 0.25rem  0.25rem 0 0;
     box-shadow: none;
-    max-width: 100%;
+    max-width: 50%;
   }
 
   .meta-time .day,
@@ -202,6 +202,14 @@ article li {
   .event-map {
     @include flex;
     @include flex-wrap(wrap);
+  }
+
+  .map__image {
+    max-width: 100%;
+  }
+
+  .map__link span {
+    color: $body-color;
   }
 
   .map-actions {

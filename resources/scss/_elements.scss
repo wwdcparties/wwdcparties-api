@@ -17,8 +17,7 @@
 }
 
 .day-title {
-  background: transparent;
-  color: #fff;
+  color: white;
   font-size: 1.1rem;
   font-weight: $weight-semibold;
   line-height: 1;
@@ -28,22 +27,18 @@
 }
 
 .listing__title {
-    font-size: 15px;
-    font-weight: $weight-semibold;
+  font-size: 15px;
+  font-weight: $weight-semibold;
 }
 
 .party-excerpt {
   display: block;
-  font-weight: 400;
+  font-weight: $weight-base;
 }
 
 .party-excerpt p {
   font-size: 15px;
   font-style: italic;
-}
-
-.party-date {
-  display: none;
 }
 
 .listing-description {
@@ -63,7 +58,6 @@
       fill: palette($day, dark);
     }
 
-    ##{$day} .party-date,
     ##{$day} .event-time-type {
       background: palette($day);
     }
@@ -98,7 +92,7 @@
 }
 
 .endash {
-  font-weight: 400;
+  font-weight: $weight-base;
 }
 
 // Only @small
@@ -156,41 +150,10 @@
 // ==========================================================================
 @media (min-width: $large) {
 
-    .event-link {
-        margin: 0;
-        padding: 0;
-    }
-
-}
-
-
-// ==========================================================================
-// ICONS
-// ==========================================================================
-
-.icon {
-    display: inline-block;
-    float: left;
-    margin-right: $spacing-small;
-    max-height: 16px;
-    max-width: 16px;
-    width: 16px;
-    vertical-align: middle;
-}
-
-.twitter .icon {
-    margin-right: 3px;
-}
-
-// @large
-// ==========================================================================
-@media (min-width: $large) {
-
-    .icon {
-        max-height: 20px;
-        max-width: 20px;
-        width: 20px;
-    }
+  .event-link {
+    margin: 0;
+    padding: 0;
+  }
 
 }
 
@@ -246,45 +209,6 @@
 }
 
 // ==========================================================================
-// Footer Icons
-// ==========================================================================
-
-.separator--footer {
-  border: 0;
-  border-top: 1px solid darken($white-smoke, 85);
-  display: block;
-  margin: 0px auto;
-  width: 60%;
-}
-
-.footer-icons {
-  margin-bottom: $spacing-base;
-}
-
-.footer-icons li {
-    display: inline-block;
-    margin: $spacing-small;
-}
-
-.footer-icons .icon {
-    fill: lighten($pacific-blue, 15);
-    width: 18px;
-}
-
-.footer-icons .twitter {
-    margin-top: 2px;
-}
-
-.footer__link:hover,
-.footer__link:focus {
-  color: darken($pacific-blue, 15);
-}
-
-.footer-credit {
-    margin-top: $spacing-base;
-}
-
-// ==========================================================================
 // Max Small
 // ==========================================================================
 
@@ -310,6 +234,7 @@
 
   .day-title {
     font-size: 2em;
+    font-weight: $weight-base;
   }
 
   .party-excerpt p {

@@ -2,11 +2,6 @@
 // Modules
 // ==========================================================================
 
-.bleed,
-#parties {
-  width: 100%;
-}
-
 .section-events {
   @include flex;
   background: darken($white-smoke, 80);
@@ -20,11 +15,18 @@
 
 .meta-time {
   @include flex($justify: space-between);
-  background-color: #fff;
-  border-radius: 0.25em;
+  background-color: darken($white-smoke, 83);
+  color: white;
   margin: 0px auto;
-  padding-bottom: $leading;
+  padding: $leading;
 }
+
+.module-location,
+.map__link,
+.map__source {
+  padding: 0 1.5rem;
+}
+
 
 #locations {
   padding: 20px 0;
@@ -40,12 +42,16 @@
 }
 
 
-// @medium
+// ONLY @small
 // ==========================================================================
-@media (max-width: $medium - 1) {
+@media (max-width: $medium) {
 
   .section-events {
     overflow-x: scroll;
+  }
+
+  .module-location {
+    margin-top: $leading;
   }
 
 }
@@ -66,9 +72,9 @@
 
   .meta-time {
     @include flex($justify: space-between);
-    background-color: darken($white-smoke, 83);
-    color: white;
-    padding-top: $leading;
+    border-radius: 0.25rem;
+    margin-bottom: $leading;
+    padding: $leading 0;
     width: 100%;
   }
 }
@@ -78,13 +84,7 @@
 @media (min-width: $large) {
 
   .section-events {
-    width: 75%;  
-  }
-
-  .module-location,
-  .map__link,
-  .map__source {
-    padding: 0 1.5rem;
+    width: 75%;
   }
 
   .module-location {

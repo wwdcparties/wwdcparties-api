@@ -160,7 +160,7 @@ a:visited {
   @include transition(all .1s ease-in-out);
   color: $pacific-blue;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: $weight-medium;
   text-decoration: none;
 }
 

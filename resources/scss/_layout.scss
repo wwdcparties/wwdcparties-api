@@ -1,21 +1,10 @@
 // ==========================================================================
-// Header
+// Layout
 // ==========================================================================
 
-.header--global {
-	@include flex;
-	background: $pacific-blue;
-	margin-bottom: $leading*1.5;
-	padding: $leading 0;
+#parties {
+  width: 100%;
 }
-
-header h1 {
-	padding-top: 0;
-}
-
-// ==========================================================================
-// Articles
-// ==========================================================================
 
 .event-description {
 	background: lighten($pacific-blue, 60);
@@ -24,21 +13,16 @@ header h1 {
 }
 
 .description__header {
-	font-weight: 600;
+	font-weight: $weight-semibold;
 	font-size: 1.5em;
 }
 
-.section-metadata {
-	background: white;
-}
-
-
-// ONLY @small
+// up to @medium
 // ==========================================================================
-@media (max-width: $medium) {
+@media (max-width: $large) {
 
-	.section-metadata {
-		padding: 0.5rem;
+	.event-location {
+		color: white;
 	}
 
 }
@@ -62,6 +46,10 @@ header h1 {
 // ==========================================================================
 @media (min-width: $large) {
 
+	#parties {
+    @include flex($justify: space-between);
+  }
+
 	article {
     @include flex;
     @include flex-direction(column);
@@ -78,7 +66,6 @@ header h1 {
 	.section-metadata {
 		@include flex;
 		@include flex-direction(column);
-		background: transparent;
 		border-radius: 0.25rem;
 	}
 
@@ -89,56 +76,6 @@ header h1 {
 	.event-description {
 		@include flex;
 		@include flex-direction(column);
-	}
-
-	.header--global {
-		@include visual-hide; // TEMPORARY
-		background: transparent;
-		margin: 2rem 0 0 0;
-		padding: 2rem;
-	}
-
-}
-
-// ==========================================================================
-// Footer
-// ==========================================================================
-
-.footer {
-	@include flex;
-	@include justify(center);
-	background: darken($white-smoke, 80);
-	bottom: 0;
-	color: darken($white-smoke, 30);
-	position: relative;
-	text-align: center;
-	width: 100%;
-}
-
-.footer-text {
-	@include flex(center);
-	@include flex-wrap(wrap);
-}
-
-.footer-icons,
-.separator--footer,
-.footer-credit {
-	width: 100%;
-}
-
-// @small
-// ==========================================================================
-
-.footer {
-	padding: 2rem 0;
-}
-
-// @large
-// ==========================================================================
-@media (min-width: $large) {
-
-	.footer {
-		padding: 5rem 0;
 	}
 
 }

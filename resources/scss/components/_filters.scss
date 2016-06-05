@@ -1,60 +1,4 @@
 // ==========================================================================
-// Nav
-// ==========================================================================
-
-.nav--global {
-    margin: 0px auto;
-    padding: 0;
-    width: 90%;
-}
-
-.site-title__link,
-.site-title__link:visited {
-  color: white;
-  margin-top: 0.5rem;
-  text-decoration: none;
-}
-
-// ==========================================================================
-// Add Event Button
-// ==========================================================================
-
-.add-event {
-
-  a {
-    @include transition(background-color .3s ease);
-    border: 1px solid white;
-    border-radius: 0.25rem;
-    color: #FFF;
-    display: inline-block;
-    float: right;
-    font-weight: $weight-semibold;
-    padding: 0.5rem;
-    text-align: center;
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-      background-color: darken($pacific-blue, 10%);
-      color: white;
-      text-shadow:0px -1px 1px darken( $pacific-blue, 2%);
-    }
-
-    &:hover .icon,
-    &:focus .icon {
-        fill: white;
-    }
-
-    .icon {
-        fill: white;
-        margin-right: $spacing-small;
-    }
-
-  }
-
-}
-
-// ==========================================================================
 // Filters
 // ==========================================================================
 
@@ -88,13 +32,10 @@
   text-align: center;
 }
 
-
 .filter-options {
   @include flex;
   @include align-self(center);
   @include flex-wrap;
-  position: fixed;
-  width: 24.5%; // HACK
 }
 
 .filter__label {
@@ -102,7 +43,7 @@
   @include align-items(center);
   border-radius: 3rem;
   background: lighten($pacific-blue, 50);
-  font-weight: 500;
+  font-weight: $weight-medium;
   margin: 8px 8px 0 0;
   padding-right: 0.5rem;
   text-align: center;
@@ -124,49 +65,19 @@
   fill: none;
 }
 
+// ONLY @small
 // ==========================================================================
-// Previous + Next Links
-// ==========================================================================
+@media (max-width: $medium) {
 
-.nav-links {
-  padding: $spacing-base 0 $leading*2 0;
-}
+  .filter__label {
+    width: 6rem;
+  }
 
-.nav-link__prev {
-  margin-right: $spacing-small;
-}
-
-.nav-link__next {
-  float: right;
-  margin-left: $spacing-small;
-  text-align: right;
-}
-
-.nav-links .icon {
-  float: none;
-  margin: 0 $spacing-small;
-  width: 16px;
-}
-
-// ==========================================================================
-// Submit Event Nav
-// ==========================================================================
-
-.submit-event .add-event {
-  display: none;
 }
 
 // @medium
 // ==========================================================================
 @media (min-width: $medium) {
-
-  .nav--global ul {
-      display: block;
-  }
-
-  .add-event a {
-      padding: 1rem;
-  }
 
   .filter__icon {
     border-width: 4px;
@@ -210,35 +121,6 @@
 // ==========================================================================
 @media (min-width: $large) {
 
-
-  .nav--global {
-    @include flex($justify: center);
-    width: 100%;
-  }
-
-  .site-title__link,
-  .site-title__link:visited {
-    color: $pacific-blue;
-    font-size: 3em;
-    font-weight: 600;
-    margin-top: 1rem;
-    text-align: center;
-
-    &:hover,
-    &:focus {
-      color: darken($pacific-blue, 15);
-    }
-  }
-
-  .add-event a {
-    background-color: $pacific-blue;
-    border-color: $pacific-blue;
-  }
-
-  #parties {
-    @include flex($justify: space-between);
-  }
-
   #filters {
     @include justify(flex-start);
     background: darken($white-smoke, 85);
@@ -250,6 +132,8 @@
   .filter-options {
     @include align-content(flex-start);
     @include align-self(stretch);
+    position: fixed;
+    width: 24.5%; // HACK
   }
 
   .filter__label {
@@ -297,27 +181,4 @@
 
   }
 
-  @each $day in $days {
-
-    ##{$day} .site-title__link,
-    ##{$day} .site-title__link:visited {
-      color: palette($day);
-      font-size: 1.5em;
-
-      &:hover,
-      &:focus {
-        color: darken(palette($day), 15);
-      }
-
-    }
-
-    ##{$day} .nav--global {
-      @include justify(flex-start);
-    }
-
-    ##{$day} .header--global {
-      padding: 0 2rem;
-    }
-
-  }
 }

@@ -1,0 +1,81 @@
+// ==========================================================================
+// Footer
+// ==========================================================================
+
+.footer {
+	@include flex;
+	@include justify(center);
+	background: darken($white-smoke, 80);
+	bottom: 0;
+	color: darken($white-smoke, 30);
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+
+.footer-text {
+	@include flex(center);
+	@include flex-wrap(wrap);
+}
+
+.footer-icons,
+.separator--footer,
+.footer-credit {
+	width: 100%;
+}
+
+// @small
+// ==========================================================================
+
+.footer {
+	padding: 2rem 0;
+}
+
+// @large
+// ==========================================================================
+@media (min-width: $large) {
+
+	.footer {
+		padding: 5rem 0;
+	}
+
+}
+
+// ==========================================================================
+// Footer Icons
+// ==========================================================================
+
+.separator--footer {
+  border: 0;
+  border-top: 1px solid darken($white-smoke, 85);
+  display: block;
+  margin: 0px auto;
+  width: 60%;
+}
+
+.footer-icons {
+  margin-bottom: $spacing-base;
+}
+
+.footer-icons li {
+    display: inline-block;
+    margin: $spacing-small;
+}
+
+.footer-icons .icon {
+    fill: lighten($pacific-blue, 15);
+    width: 18px;
+}
+
+.footer-icons .twitter {
+    margin-top: 2px;
+}
+
+.footer__link:hover,
+.footer__link:focus {
+  color: darken($pacific-blue, 15);
+}
+
+.footer-credit {
+    margin-top: $spacing-base;
+}

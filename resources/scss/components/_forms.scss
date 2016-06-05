@@ -136,7 +136,7 @@ form label {
   top: 2.8em;
 
   span {
-      font-weight: 400;
+      font-weight: $weight-base;
   }
 
   &.focus {
@@ -189,7 +189,7 @@ input[type="submit"] {
   cursor: pointer;
   font-family: $font-stack;
   font-size: 1.111rem; /* 19px / 18px base */
-  font-weight: 400;
+  font-weight: $weight-base;
   letter-spacing: normal;
   margin: $leading/2;
   margin-left: 0;
@@ -223,7 +223,7 @@ input[type="submit"] {
 .add {
     background: lighten($pacific-blue, 41);
     color: $pacific-blue;
-    font-weight: 500;
+    font-weight: $weight-medium;
     fill: $pacific-blue;
     text-align: left;
 

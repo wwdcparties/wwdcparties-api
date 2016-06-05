@@ -1,0 +1,128 @@
+// ==========================================================================
+// Header
+// ==========================================================================
+
+.header--global {
+	@include flex;
+	background: $pacific-blue;
+	margin-bottom: $leading*1.5;
+	padding: $leading 0;
+}
+
+header h1 {
+	padding-top: 0;
+}
+
+// ==========================================================================
+// Nav
+// ==========================================================================
+
+.nav--global {
+    margin: 0px auto;
+    padding: 0;
+    width: 90%;
+}
+
+.site-title__link,
+.site-title__link:visited {
+  color: white;
+  margin-top: 0.5rem;
+  text-decoration: none;
+}
+
+// ==========================================================================
+// Previous + Next Links
+// ==========================================================================
+
+.nav-links {
+  padding: $spacing-base 0 $leading*2 0;
+}
+
+.nav-link__prev {
+  margin-right: $spacing-small;
+}
+
+.nav-link__next {
+  float: right;
+  margin-left: $spacing-small;
+  text-align: right;
+}
+
+.nav-links .icon {
+  float: none;
+  margin: 0 $spacing-small;
+  width: 16px;
+}
+
+// ==========================================================================
+// Submit Event Nav
+// ==========================================================================
+
+.submit-event .add-event {
+  display: none;
+}
+
+// @medium
+// ==========================================================================
+@media (min-width: $medium) {
+
+  .nav--global ul {
+      display: block;
+  }
+
+}
+
+// @large
+// ==========================================================================
+@media (min-width: $large) {
+
+  .header--global {
+		@include visual-hide; // TEMPORARY
+		background: transparent;
+		margin: 2rem 0 0 0;
+		padding: 2rem;
+	}
+
+  .nav--global {
+    @include flex($justify: center);
+    width: 100%;
+  }
+
+  .site-title__link,
+  .site-title__link:visited {
+    color: $pacific-blue;
+    font-size: 3em;
+    font-weight: $weight-semibold;
+    margin-top: 1rem;
+    text-align: center;
+
+    &:hover,
+    &:focus {
+      color: darken($pacific-blue, 15);
+    }
+  }
+
+  @each $day in $days {
+
+    ##{$day} .site-title__link,
+    ##{$day} .site-title__link:visited {
+      color: palette($day);
+      font-size: 1.5em;
+
+      &:hover,
+      &:focus {
+        color: darken(palette($day), 15);
+      }
+
+    }
+
+    ##{$day} .nav--global {
+      @include justify(flex-start);
+    }
+
+    ##{$day} .header--global {
+      padding: 0 2rem;
+    }
+
+  }
+}
