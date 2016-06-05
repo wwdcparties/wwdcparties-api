@@ -94,7 +94,8 @@
 (defn container [parties]
   [:div#parties
    filters/filter-buttons
-   [:div.section-events {:role "main" } (map module-day (days parties))]])
+   [:div.section-events {:role "main" } (map module-day (days parties))
+   footer/footer]])
 
 (defn page [parties]
   (list
@@ -103,5 +104,4 @@
    [:body
     nav/header
     (container parties)
-    footer/footer
     scripts/scripts]))
