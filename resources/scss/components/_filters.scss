@@ -142,8 +142,6 @@
   .filter-options {
     @include align-content(flex-start);
     @include align-self(stretch);
-    position: fixed;
-    width: 24.5%; // HACK
   }
 
   .filter__label {
@@ -189,6 +187,17 @@
       background-size: 1.25rem auto;
     }
 
+  }
+
+}
+
+// @large height + width
+// ==========================================================================
+@media (min-width: $large) and (min-height: $small) {
+
+  .filter-options {
+    position: fixed;
+    width: 24.5%; // HACK
   }
 
 }
