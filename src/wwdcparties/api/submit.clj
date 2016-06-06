@@ -32,8 +32,9 @@
 (defn name->slug [name]
   (-> name
       s/lower-case
-      (#(s/replace % #"[^A-Za-z\s]" ""))
-      (#(s/replace % #"\s" "-"))))
+      (#(s/replace % #"[^A-Za-z0-9\s]" ""))
+      (#(s/replace % #"\s" "-"))
+      (#(subs % 0 (min (s/last-index-of %) 31)))))
 
 (defn form->party [form]
   {:description (:description form)
