@@ -75,6 +75,12 @@
 }
 
 // override
+#sunday .event-time-type {
+  color: #D885FF;
+  fill: #D885FF;
+}
+
+// override
 #wednesday .event-time-type {
   color: darken(palette(wednesday, dark), 15);
   fill: darken(palette(wednesday, dark), 15);

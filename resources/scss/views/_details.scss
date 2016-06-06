@@ -101,18 +101,25 @@
 
 }
 
-article ol,
-article ul {
+.event-description > ol,
+.event-description > ul {
   width: 84%;
-  margin: 8%;
+  margin: 1rem;
   padding: 0;
 }
 
-article li {
+.event-description > li {
   line-height: $line-height;
-  list-style: disc;
   max-width: 100%;
   margin-bottom:1rem;
+}
+
+.event-description > ul > li {
+  list-style: disc;
+}
+
+.event-description > ol > li {
+    list-style: decimal;
 }
 
 .event-title {
