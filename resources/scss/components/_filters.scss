@@ -142,6 +142,7 @@
   .filter-options {
     @include align-content(flex-start);
     @include align-self(stretch);
+    height: 100vh;
   }
 
   .filter__label {
