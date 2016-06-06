@@ -10,7 +10,8 @@
 
 (defn encoded-address [party]
   (url-encode (str (:street_address party)
-                   ", San Francisco, CA")))
+                   ", " 
+                   (or (:city party) "San Francisco, CA"))))
 
 (defn apple-maps-url [party]
   (str "http://maps.apple.com/?q=" (encoded-address party)))
