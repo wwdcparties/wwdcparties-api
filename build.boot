@@ -1,5 +1,5 @@
 (set-env! :dependencies
-          '[[org.clojure/clojure "1.7.0"]
+          '[[org.clojure/clojure "1.8.0"]
             [selmer "0.9.7"]
             [markdown-clj "0.9.84"]
             [environ "1.0.1"]
