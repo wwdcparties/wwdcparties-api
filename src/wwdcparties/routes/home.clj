@@ -4,8 +4,10 @@
             [hiccup.page :refer [html5]]
             [hiccup.core :refer [h]]
             [ring.util.http-response :refer [moved-permanently found not-found]]
+            [ring.util.response :refer [content-type response]]
             [wwdcparties.api.db :as db]
             [wwdcparties.api.submit :as sub]
+            [wwdcparties.render.calendar :as cal]
             [wwdcparties.render.index :as index]
             [wwdcparties.render.info :as info]
             [wwdcparties.render.submit :as submit]))
@@ -26,9 +28,13 @@
   (db/submit-party (sub/form->party request))
   (html5 "yay"))
 
+(defn calendar []
+  (cal/calendar (db/parties)))
+
 (defroutes home-routes
   (GET "/" [] (moved-permanently "/parties/"))
   (GET "/parties/" [] (index-page))
   (GET "/parties/new" [] (submit-page))
   (POST "/parties/new" request (submitted-page (:params request)))
-  (GET "/parties/:slug" [slug] (info-page slug)))
+  (GET "/parties/:slug" [slug] (info-page slug))
+  (GET "/calendar" [] (-> (calendar) response (content-type "text/calendar"))))
